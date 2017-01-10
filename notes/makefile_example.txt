@@ -1,0 +1,24 @@
+
+CXX = g++
+CXXFLAGS = -std=c++0x 
+CXXFLAGS += -Wall 
+CXXFLAGS += -pedantic-errors
+CXXFLAGS += -g
+#CXXFLAGS += -O3
+LDFLAGS = -lboost_date_time
+
+OBJS = vector.o
+
+SRCS = vector.cpp
+
+HEADERS = 
+
+#target: dependencies
+#	rule to build
+#
+
+vector: ${OBJS} ${HEADERS}
+	${CXX} ${LDFLAGS} ${OBJS} -o vector
+
+${OBJS}: ${SRCS}
+	${CXX} ${CXXFLAGS} -c $(@:.o=.cpp)

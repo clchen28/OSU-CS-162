@@ -1,0 +1,28 @@
+make looks for makefile or Makefile
+
+Comments are prefixed with #
+
+Components:
+- target: dependencies
+    rule to build (must be tabbed, under a target)
+
+e.g.
+lecture1: lecture1.cpp functions.hpp functions.cpp
+# if any one of these changes, it will rebuild
+    g++ -std=c++0x lecture1.cpp functions.cpp -o lecture1
+
+Can also use variables, e.g.
+
+CXX = g++
+OBJS = functions.o
+SRCS = functions.cpp lecture1.cpp
+HEADERS = functions.hpp
+
+Then, to use variables:
+lecture1: $(SRCS} ${HEADERS}
+# if any one of these changes, it will rebuild
+    ${CXX} ${CXXFLAGS} ${SRCS} -o lecture1
+
+${OBJS}: ${SRCS}
+    # Implicit rule
+    ${CXX} ${CXXFLAGS} -c $(@:.o=.cpp)
