@@ -5,11 +5,12 @@
 ** Description:
 Inputs:
 matrix - 2D Array of ints (technically, pointer to an array of pointers), for
-which the determinant is to be calculated
+which the determinant is to be calculated.
 size - integer, number of rows/columns of matrix
 
 Prerequisities:
 size must be either 2 or 3
+matrix elements must be integers
 
 readMatrix is a function which takes in a matrix, the size of this matrix,
 and prompts the user for values for each element of this matrix.
