@@ -28,6 +28,10 @@ int main()
     // being entered
     while ( !((size == 2) || (size == 3)) )
     {
+        // Flushes cin if invalid type is input (like a char)
+        // http://stackoverflow.com/questions/18400620/cin-for-an-int-inputing-a-char-causes-loop-that-is-supposed-to-check-input-to-go
+        std::cin.clear();
+        std::cin.ignore(100, '\n');
         std::cout << "Must enter a matrix of size 2 or 3." << std::endl;
         std::cout << "Enter number of rows in your matrix: 2 or 3: ";
         std::cin >> size;
@@ -43,6 +47,7 @@ int main()
     readMatrix(matrix, size);
     int det = determinant(matrix, size);
 
+    // Prints out matrix and determinant
     std::cout << "The matrix is:" << std::endl;
     for (int i = 0; i < size; i++)
     {
