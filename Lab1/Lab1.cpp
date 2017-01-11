@@ -9,14 +9,14 @@
 #include <iostream>
 #include "readMatrix.hpp"
 
-void readMatrix(double** matrix, int matrixSize);
 int main()
 {
     int size;
-    std::cout << "Enter number of rows in your matrix: 2 or 3: ";
+    std::cout << "Enter number of rows/columns in your matrix: 2 or 3: ";
     std::cin >> size;
 
-
+    // Error catching - prevents matrices of size other than 2 or 3 from
+    // being entered
     while ( !((size == 2) || (size == 3)) )
     {
         std::cout << "Must enter a matrix of size 2 or 3." << std::endl;
