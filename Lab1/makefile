@@ -1,3 +1,7 @@
+# Lab1 makefile
+# Author: Charles Chen
+# Date: 01/10/2017
+
 all: Lab1.o determinant.o readMatrix.o
 	g++ Lab1.o determinant.o readMatrix.o -o Lab1
 
