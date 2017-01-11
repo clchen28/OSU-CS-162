@@ -1,0 +1,6 @@
+g++ <filename> -c -o
+-c flag compiles the source file into an object file
+
+If there is a source file with functions that should be used with other
+programs, this is useful - the object files can be then linked into other
+programs.
