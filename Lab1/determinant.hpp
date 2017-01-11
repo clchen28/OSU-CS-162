@@ -1,14 +1,14 @@
 /******************************************************************************
-** Program name: readMatrix.hpp
+** Program name: determinant.hpp
 ** Author: Charles Chen
-** Date: 01/09/2017
+** Date: 01/10/2017
 ** Description:
-Specification for readMatrix function
+Specification of determinant function
 ******************************************************************************/
 
-#ifndef READMATRIX_HPP
-#define READMATRIX_HPP
+#ifndef DETERMINANT_HPP
+#define DETERMINANT_HPP
 
-void readMatrix(int** matrix, int size);
+int determinant(int** matrix, int size);
 
 #endif

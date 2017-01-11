@@ -3,14 +3,23 @@
 ** Author: Charles Chen
 ** Date: 01/09/2017
 ** Description:
+Inputs:
+matrix - 2D Array of ints (technically, pointer to an array of pointers), for
+which the determinant is to be calculated
+size - integer, number of rows/columns of matrix
 
+Prerequisities:
+size must be either 2 or 3
+
+readMatrix is a function which takes in a matrix, the size of this matrix,
+and prompts the user for values for each element of this matrix.
 ******************************************************************************/
 
 #include <iostream>
 
-void readMatrix(double** matrix, int matrixSize)
+void readMatrix(int** matrix, int size)
 {
-    if (matrixSize == 2)
+    if (size == 2)
     {
         std::cout << "Enter in the number for Row 1/Col 1:" << std::endl;
         std::cin >> matrix[0][0];
@@ -23,7 +32,7 @@ void readMatrix(double** matrix, int matrixSize)
         return;
     }
 
-    if (matrixSize == 3)
+    if (size == 3)
     {
         std::cout << "Enter in the number for Row 1/Col 1:" << std::endl;
         std::cin >> matrix[0][0];
