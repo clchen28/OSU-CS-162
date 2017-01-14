@@ -46,7 +46,7 @@ void printMenu(int rows, int cols, int steps, int startingRow, int startingCol,
     return;
 }
 
-void menu()
+Ant menu()
 {
     int rows = 10;
     int *rowsPtr = &rows;
@@ -112,7 +112,8 @@ void menu()
             case 4:
             std::cout << "Enter starting row of ant" << std::endl;
             std::cin >> startingRow;
-            while (!((startingRow >= 1) && (startingRow <= rows)))
+            startingRow -= 1;
+            while (!((startingRow >= 0) && (startingRow <= rows - 1)))
             {
                 std::cout << "Starting row of ant must be on the board"
                     << std::endl;
@@ -120,13 +121,15 @@ void menu()
                     << "the number of rows, inclusive" << std::endl;
                 std::cout << "Enter starting row of ant" << std::endl;
                 std::cin >> startingRow;
+                startingRow -= 1;
             }
             break;
 
             case 5:
             std::cout << "Enter starting col of ant" << std::endl;
             std::cin >> startingCol;
-            while (!((startingCol >= 1) && (startingCol <= cols)))
+            startingCol -= 1;
+            while (!((startingCol >= 0) && (startingCol <= cols - 1)))
             {
                 std::cout << "Starting col of ant must be on the board"
                     << std::endl;
@@ -134,6 +137,7 @@ void menu()
                     << "the number of cols, inclusive" << std::endl;
                 std::cout << "Enter starting col of ant" << std::endl;
                 std::cin >> startingCol;
+                startingCol -= 1;
             }
             break;
 
@@ -160,5 +164,5 @@ void menu()
         }
     }
     // Create object with given parameters
-    return;
+    return Ant(rows, cols, startingRow, startingCol, startingDir);
 }

@@ -13,6 +13,6 @@
 
 void printMenu(int rows, int cols, int steps, int startingRow, int startingCol,
     std::string startingDir)
-void menu();
+Ant menu();
 
 #endif
