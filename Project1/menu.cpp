@@ -42,8 +42,9 @@ void printMenu(int rows, int cols, int steps, int startingRow, int startingCol,
     std::cout << "3. Number of steps: " << steps << std::endl;
     std::cout << "4. Starting row of ant: " << startingRow << std::endl;
     std::cout << "5. Starting col of ant: " << startingCol << std::endl;
-    std::cout << "6. Starting direction of ant: " << startingDir << std::endl;
-    std::cout << "7. Start simulation" << std::endl;
+    std::cout << "6. Randomize the starting position of ant" << std::endl;
+    std::cout << "7. Starting direction of ant: " << startingDir << std::endl;
+    std::cout << "8. Start simulation" << std::endl;
     return;
 }
 
@@ -68,7 +69,7 @@ Ant menu()
     std::string *startingDirPtr = &startingDir;
 
     int selection = -1;
-    while (selection != 7)
+    while (selection != 8)
     {
         printMenu(rows, cols, steps, startingRow, startingCol, startingDir);
         std::cin >> selection;
@@ -138,8 +139,16 @@ Ant menu()
             }
             break;
 
-            case 6: 
+            case 6:
+            std::cout << "Randomizing location of ant..." << std::endl;
+            startingRow = rand() % rows + 1;
+            startingCol = rand() % cols + 1;
+            break;
+
+            case 7: 
             std::cout << "Enter starting direction of ant" << std::endl;
+            std::cout << "Starting direction of ant must be up, down, "
+                    << "left, or right" << std::endl;
             // Use different method to read in string
             std::cin >> startingDir;
             while (!(startingDir == "up" || startingDir == "down"
@@ -152,12 +161,12 @@ Ant menu()
             }
             break;
 
-            case 7:
+            case 8:
             std::cout << "Executing simulation..." << std::endl;
             break;
 
             default:
-            std::cout << "Enter a valid menu item (1 through 7)" << std::endl;
+            std::cout << "Enter a valid menu item (1 through 8)" << std::endl;
         }
     }
     
