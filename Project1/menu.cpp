@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <string>
+#include "Ant.hpp"
 
 /*
 void inputValidator(int *input, bool validator, std::string errorMsg)
@@ -61,7 +62,7 @@ Ant menu()
     int *startingRowPtr = &startingRow;
 
     int startingCol = 0;
-    int *startingColPtr = &startingCol
+    int *startingColPtr = &startingCol;
 
     std::string startingDir = "up";
     std::string *startingDirPtr = &startingDir;
@@ -159,7 +160,7 @@ Ant menu()
             std::cout << "Executing simulation..." << std::endl;
             break;
 
-            case default:
+            default:
             std::cout << "Enter a valid menu item (1 through 7)" << std::endl;
         }
     }

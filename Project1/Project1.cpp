@@ -8,28 +8,17 @@
 
 #include <iostream>
 #include <string>
+#include "Ant.hpp"
+#include "menu.hpp"
 
 int main()
 {
-	int rows;
-	int cols;
-	int steps;
-	int startingRow;
-	int startingCol;
-	string startingDir;
-	std::cout << "Enter number of rows: ";
-	std::cin >> rows;
-	std::cout << "Enter number of cols: ";
-	std::cin >> cols;
-	std::cout << "Enter number of steps: ";
-	std::cin >> steps;
-	std::cout << "Enter row of starting location of ant. Enter -1 for a" <<
-		" random row";
-	std::cin >> startingRow;
-	std::cout << "Enter col of starting location of ant. Enter -1 for a" <<
-		" random col";
-	std::cin > startingCol;
-	std::cout << "Enter starting direction of ant: left, right, up, or " <<
-		"down";
-	std::cin > startingDir;
+	Ant myAnt = menu();
+	std::cout << myAnt.stepCount << std::endl;
+    std::cout << myAnt.rows << std::endl;
+    std::cout << myAnt.cols << std::endl;
+    std::cout << myAnt.antRow << std::endl;
+    std::cout << myAnt.antCol << std::endl;
+    std::cout << myAnt.antDir << std::endl;
+	return 0;
 }

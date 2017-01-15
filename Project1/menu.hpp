@@ -12,7 +12,7 @@
 #define MENU_HPP
 
 void printMenu(int rows, int cols, int steps, int startingRow, int startingCol,
-    std::string startingDir)
+    std::string startingDir);
 Ant menu();
 
 #endif

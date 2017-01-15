@@ -6,12 +6,18 @@
 
 ******************************************************************************/
 
-Ant::Ant(int nRows, int mCols, int startingRow, int startingCol)
+#include <iostream>
+#include <string>
+#include "Ant.hpp"
+
+Ant::Ant(int nRows, int mCols, int startingRow, int startingCol,
+	std::string startingDir)
 {
 	stepCount = 0;
 	rows = nRows;
 	cols = mCols;
 	antRow = startingRow;
 	antCol = startingCol;
-	createBoard(rows, cols, antRow, antCol);
+	antDir = startingDir;
+	//createBoard(rows, cols, antRow, antCol, startingDir);
 }
