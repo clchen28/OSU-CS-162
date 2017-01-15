@@ -21,3 +21,13 @@ Ant::Ant(int nRows, int mCols, int startingRow, int startingCol,
 	antDir = startingDir;
 	//createBoard(rows, cols, antRow, antCol, startingDir);
 }
+
+std::string** Ant::createBoard(int rows, int cols)
+{
+	std::string** board = new std::string*[rows];
+    for (int i = 0; i < rows; i++)
+    {
+        board[i] = new std::string[cols];
+    }
+	return board;
+}
