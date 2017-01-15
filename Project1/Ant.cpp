@@ -28,6 +28,16 @@ Ant::Ant(int nRows, int mCols, int startingRow, int startingCol,
 	antBoard = createBoard(rows, cols, antRow, antCol);
 }
 
+Ant::~Ant()
+{
+	// Deallocate memory for antBoard array
+	for (int i = 0; i < rows; i++)
+    {
+		delete [] antBoard[i];
+    }
+    delete [] antBoard;
+}
+
 std::string** Ant::createBoard(int rows, int cols, int antRow, int antCol)
 {
 	// Representing the board as a 2D array of strings

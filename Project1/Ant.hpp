@@ -15,6 +15,7 @@ class Ant
     public:
     Ant(int nRows, int mCols, int startingRow, int startingCol,
 	    std::string startingDir);
+    ~Ant();
     void printBoard();
 
     private:
