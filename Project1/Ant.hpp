@@ -18,13 +18,12 @@ class Ant
     ~Ant();
     void printBoard();
     bool advancePosition();
-    int steps;
 
     private:
     int stepCount;
     int rows;
     int cols;
-    
+    int steps;
     int antRow;
     int antCol;
     std::string antColor;

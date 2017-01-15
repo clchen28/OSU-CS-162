@@ -78,6 +78,7 @@ std::string** Ant::createBoard(int rows, int cols, int antRow, int antCol)
 
 void Ant::printBoard()
 {
+	// Print underscores to denote the top border of board
 	for (int i = 0; i < rows; i++)
 	{
 		std::cout << "_";
@@ -97,6 +98,7 @@ void Ant::printBoard()
 
 bool Ant::advancePosition()
 {
+	// Save last coordinate and color - needed to modify board representation
 	int lastRow = antRow;
 	int lastCol = antCol;
 	std::string lastColor = antColor;
