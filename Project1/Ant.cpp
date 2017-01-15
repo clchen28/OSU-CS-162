@@ -79,6 +79,7 @@ std::string** Ant::createBoard(int rows, int cols, int antRow, int antCol)
 void Ant::printBoard()
 {
 	// Print underscores to denote the top border of board
+	std::cout << "Step " << stepCount << ":" << std::endl;
 	for (int i = 0; i < cols; i++)
 	{
 		std::cout << "_";
@@ -93,6 +94,8 @@ void Ant::printBoard()
 		}
 		std::cout << std::endl;
 	}
+
+	std::cout << std::endl;
 	return;
 }
 
