@@ -11,29 +11,6 @@
 #include <cstdlib>
 #include "Ant.hpp"
 
-/*
-void inputValidator(int *input, bool validator, std::string errorMsg)
-{
-    // for validator - could this be a pointer to a parameter?
-    while (!validator)
-    {
-        std::cout << errorMsg << std::endl;
-        std::cin >> *input;
-    }
-}
-
-
-void inputValidator(std::string *input, bool validator, std::string errorMsg)
-{
-    // for validator - could this be a pointer to a parameter?
-    while (!validator)
-    {
-        std::cout << errorMsg << std::endl;
-        std::cin >> *input;
-    }
-}
-*/
-
 void printMenu(int rows, int cols, int steps, int startingRow, int startingCol,
     std::string startingDir)
 {
