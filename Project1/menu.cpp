@@ -58,10 +58,10 @@ Ant menu()
     int steps = 10;
     int *stepsPtr = &steps;
 
-    int startingRow = 0;
+    int startingRow = 1;
     int *startingRowPtr = &startingRow;
 
-    int startingCol = 0;
+    int startingCol = 1;
     int *startingColPtr = &startingCol;
 
     std::string startingDir = "up";
@@ -165,7 +165,7 @@ Ant menu()
     // matrix index
     startingRow -= 1;
     startingCol -= 1;
-    
+
     // Create object with given parameters
     return Ant(rows, cols, startingRow, startingCol, startingDir);
 }
