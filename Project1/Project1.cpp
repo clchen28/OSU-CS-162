@@ -14,13 +14,6 @@
 int main()
 {
 	Ant myAnt = menu();
-	/*
-	std::cout << myAnt.stepCount << std::endl;
-    std::cout << myAnt.rows << std::endl;
-    std::cout << myAnt.cols << std::endl;
-    std::cout << myAnt.antRow << std::endl;
-    std::cout << myAnt.antCol << std::endl;
-    std::cout << myAnt.antDir << std::endl;
-	*/
+	myAnt.printBoard();
 	return 0;
 }
