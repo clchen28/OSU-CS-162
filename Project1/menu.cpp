@@ -73,47 +73,66 @@ Ant menu()
     {
         printMenu(rows, cols, steps, startingRow, startingCol, startingDir);
         std::cin >> selection;
+        // cin.clear will clear the error flag in cin if an invalid input is
+        // presented
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         switch (selection)
         {
             case 1:
             std::cout << "Enter number of board rows" << std::endl;
             std::cin >> rows;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             while (rows < 1)
             {
                 std::cout << "Must enter a positive integer number of rows"
                     << std::endl;
                 std::cout << "Enter number of board rows" << std::endl;
                 std::cin >> rows;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             }
             break;
 
             case 2:
             std::cout << "Enter number of board cols" << std::endl;
             std::cin >> cols;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             while (cols < 1)
             {
                 std::cout << "Must enter a positive integer number of cols"
                     << std::endl;
                 std::cout << "Enter number of board cols" << std::endl;
                 std::cin >> cols;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             }
             break;
 
             case 3:
             std::cout << "Enter number of steps" << std::endl;
             std::cin >> steps;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             while (steps < 1)
             {
                 std::cout << "Must enter a positive integer number of steps"
                     << std::endl;
                 std::cout << "Enter number of steps" << std::endl;
                 std::cin >> steps;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             }
             break;
 
             case 4:
             std::cout << "Enter starting row of ant" << std::endl;
             std::cin >> startingRow;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             while (!((startingRow >= 1) && (startingRow <= rows)))
             {
                 std::cout << "Starting row of ant must be on the board"
@@ -122,12 +141,16 @@ Ant menu()
                     << "the number of rows, inclusive" << std::endl;
                 std::cout << "Enter starting row of ant" << std::endl;
                 std::cin >> startingRow;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             }
             break;
 
             case 5:
             std::cout << "Enter starting col of ant" << std::endl;
             std::cin >> startingCol;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             while (!((startingCol >= 1) && (startingCol <= cols)))
             {
                 std::cout << "Starting col of ant must be on the board"
@@ -136,6 +159,8 @@ Ant menu()
                     << "the number of cols, inclusive" << std::endl;
                 std::cout << "Enter starting col of ant" << std::endl;
                 std::cin >> startingCol;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             }
             break;
 
@@ -151,6 +176,8 @@ Ant menu()
                     << "left, or right" << std::endl;
             // Use different method to read in string
             std::cin >> startingDir;
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             while (!(startingDir == "up" || startingDir == "down"
                 || startingDir == "left" || startingDir == "right"))
             {
@@ -158,6 +185,8 @@ Ant menu()
                     << "left, or right" << std::endl;
                 std::cout << "Enter starting direction of ant" << std::endl;
                 std::cin >> startingDir;
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             }
             break;
 
