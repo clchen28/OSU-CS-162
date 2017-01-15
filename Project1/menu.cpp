@@ -113,8 +113,7 @@ Ant menu()
             case 4:
             std::cout << "Enter starting row of ant" << std::endl;
             std::cin >> startingRow;
-            startingRow -= 1;
-            while (!((startingRow >= 0) && (startingRow <= rows - 1)))
+            while (!((startingRow >= 1) && (startingRow <= rows)))
             {
                 std::cout << "Starting row of ant must be on the board"
                     << std::endl;
@@ -122,15 +121,13 @@ Ant menu()
                     << "the number of rows, inclusive" << std::endl;
                 std::cout << "Enter starting row of ant" << std::endl;
                 std::cin >> startingRow;
-                startingRow -= 1;
             }
             break;
 
             case 5:
             std::cout << "Enter starting col of ant" << std::endl;
             std::cin >> startingCol;
-            startingCol -= 1;
-            while (!((startingCol >= 0) && (startingCol <= cols - 1)))
+            while (!((startingCol >= 1) && (startingCol <= cols)))
             {
                 std::cout << "Starting col of ant must be on the board"
                     << std::endl;
@@ -138,7 +135,6 @@ Ant menu()
                     << "the number of cols, inclusive" << std::endl;
                 std::cout << "Enter starting col of ant" << std::endl;
                 std::cin >> startingCol;
-                startingCol -= 1;
             }
             break;
 
@@ -164,6 +160,12 @@ Ant menu()
             std::cout << "Enter a valid menu item (1 through 7)" << std::endl;
         }
     }
+    
+    // Decrementing row and column by 1 to go from row/col coordinate to
+    // matrix index
+    startingRow -= 1;
+    startingCol -= 1;
+    
     // Create object with given parameters
     return Ant(rows, cols, startingRow, startingCol, startingDir);
 }
