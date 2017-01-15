@@ -10,26 +10,37 @@
 #include <string>
 #include <functional>
 
-void inputValidator(int &input, std::function<bool (int &input)> func, std::string prompt, std::string errorMsg)
+void inputValidator(int &input, std::function<bool (int &input)> func,
+    std::string prompt, std::string errorMsg)
 {
     std::cout << prompt << std::endl;
     std::cin >> input;
-    // for validator - could this be a pointer to a parameter?
+    std::cin.clear();
+    std::cin.ignore(100, '\n');
     while (!func(input))
     {
         std::cout << errorMsg << std::endl;
         std::cin >> input;
+        std::cin.clear();
+        std::cin.ignore(100, '\n');
     }
 }
 
 
-void inputValidator(std::string *input, bool validator, std::string errorMsg)
+void inputValidator(std::string &input,
+    std::function<bool (std::string &input)> func, std::string prompt,
+    std::string errorMsg)
 {
-    // for validator - could this be a pointer to a parameter?
-    while (!validator)
+    std::cout << prompt << std::endl;
+    std::cin >> input;
+    std::cin.clear();
+    std::cin.ignore(100, '\n');
+    while (!func(input))
     {
         std::cout << errorMsg << std::endl;
-        std::cin >> *input;
+        std::cin >> input;
+        std::cin.clear();
+        std::cin.ignore(100, '\n');
     }
 }
 
