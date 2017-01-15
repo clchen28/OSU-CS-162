@@ -44,7 +44,7 @@ void inputValidator(std::string &input,
     }
 }
 
-
+/*
 int main()
 {
     std::cout << "Starting code" << std::endl;
@@ -55,3 +55,4 @@ int main()
     return 0;
     
 }
+*/
