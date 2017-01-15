@@ -14,6 +14,9 @@
 int main()
 {
 	Ant myAnt = menu();
-	myAnt.printBoard();
+	while (myAnt.advancePosition())
+	{
+		;
+	}
 	return 0;
 }

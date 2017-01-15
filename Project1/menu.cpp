@@ -167,5 +167,5 @@ Ant menu()
     startingCol -= 1;
 
     // Create object with given parameters
-    return Ant(rows, cols, startingRow, startingCol, startingDir);
+    return Ant(rows, cols, steps, startingRow, startingCol, startingDir);
 }

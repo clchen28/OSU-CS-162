@@ -13,19 +13,23 @@
 class Ant
 {
     public:
-    Ant(int nRows, int mCols, int startingRow, int startingCol,
+    Ant(int nRows, int mCols, int nSteps, int startingRow, int startingCol,
 	    std::string startingDir);
     ~Ant();
     void printBoard();
+    bool advancePosition();
+    int steps;
 
     private:
     int stepCount;
     int rows;
     int cols;
+    
     int antRow;
     int antCol;
+    std::string antColor;
     std::string antDir;
-    std::string** antBoard;
+    std::string** board;
     std::string** createBoard(int rows, int cols, int antRow, int antCol);
 };
 
