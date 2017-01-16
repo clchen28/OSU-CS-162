@@ -61,15 +61,3 @@ void inputValidator(std::string &input,
         std::cin.ignore(100, '\n');
     }
 }
-/*
-int main()
-{
-    std::cout << "Starting code" << std::endl;
-    int i;
-    auto func1 = [](int input) -> bool {return input > 0;};
-    inputValidator(i, [](int input) -> bool {return input > 0;}, "Enter i", "Try again");
-    std::cout << "i is " << i << std::endl;
-    return 0;
-    
-}
-*/
