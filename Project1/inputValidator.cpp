@@ -20,12 +20,29 @@ void inputValidator(int &input, std::function<bool (int &input)> func,
     while (!func(input))
     {
         std::cout << errorMsg << std::endl;
+        std::cout << prompt << std::endl;
         std::cin >> input;
         std::cin.clear();
         std::cin.ignore(100, '\n');
     }
 }
-
+void inputValidator(int &input, int value1, int value2,
+    std::function<bool (int &input, int value1, int value2)> func,
+    std::string prompt, std::string errorMsg)
+{
+    std::cout << prompt << std::endl;
+    std::cin >> input;
+    std::cin.clear();
+    std::cin.ignore(100, '\n');
+    while (!func(input, value1, value2))
+    {
+        std::cout << errorMsg << std::endl;
+        std::cout << prompt << std::endl;
+        std::cin >> input;
+        std::cin.clear();
+        std::cin.ignore(100, '\n');
+    }
+}
 
 void inputValidator(std::string &input,
     std::function<bool (std::string &input)> func, std::string prompt,
@@ -38,19 +55,19 @@ void inputValidator(std::string &input,
     while (!func(input))
     {
         std::cout << errorMsg << std::endl;
+        std::cout << prompt << std::endl;
         std::cin >> input;
         std::cin.clear();
         std::cin.ignore(100, '\n');
     }
 }
-
 /*
 int main()
 {
     std::cout << "Starting code" << std::endl;
     int i;
     auto func1 = [](int input) -> bool {return input > 0;};
-    inputValidator(i, func1, "Enter i", "Try again");
+    inputValidator(i, [](int input) -> bool {return input > 0;}, "Enter i", "Try again");
     std::cout << "i is " << i << std::endl;
     return 0;
     

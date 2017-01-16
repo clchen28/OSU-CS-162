@@ -10,6 +10,7 @@
 #include <string>
 #include <cstdlib>
 #include "Ant.hpp"
+#include "inputValidator.hpp"
 
 void printMenu(int rows, int cols, int steps, int startingRow, int startingCol,
     std::string startingDir)
@@ -29,24 +30,20 @@ void printMenu(int rows, int cols, int steps, int startingRow, int startingCol,
 Ant menu()
 {
     int rows = 10;
-    int *rowsPtr = &rows;
-
     int cols = 10;
-    int *colsPtr = &cols;
-
     int steps = 10;
-    int *stepsPtr = &steps;
-
     int startingRow = 1;
-    int *startingRowPtr = &startingRow;
-
     int startingCol = 1;
-    int *startingColPtr = &startingCol;
-
     std::string startingDir = "up";
-    std::string *startingDirPtr = &startingDir;
 
     int selection = -1;
+
+    auto inputLessThan1 = [](int input) -> bool {return input > 1;};
+    auto inputBetweenTwoValues = [](int input, int value1, int value2) -> bool
+                    {
+                        return (input >= value1) && (input <= value2);
+                    };
+
     while (selection != 8)
     {
         printMenu(rows, cols, steps, startingRow, startingCol, startingDir);
@@ -59,87 +56,31 @@ Ant menu()
         switch (selection)
         {
             case 1:
-            std::cout << "Enter number of board rows" << std::endl;
-            std::cin >> rows;
-            std::cin.clear();
-            std::cin.ignore(100, '\n');
-            while (rows < 1)
-            {
-                std::cout << "Must enter a positive integer number of rows"
-                    << std::endl;
-                std::cout << "Enter number of board rows" << std::endl;
-                std::cin >> rows;
-                std::cin.clear();
-                std::cin.ignore(100, '\n');
-            }
+            inputValidator(rows, inputLessThan1, "Enter number of board rows",
+                "Must enter a positive integer number of rows");
             break;
 
             case 2:
-            std::cout << "Enter number of board cols" << std::endl;
-            std::cin >> cols;
-            std::cin.clear();
-            std::cin.ignore(100, '\n');
-            while (cols < 1)
-            {
-                std::cout << "Must enter a positive integer number of cols"
-                    << std::endl;
-                std::cout << "Enter number of board cols" << std::endl;
-                std::cin >> cols;
-                std::cin.clear();
-                std::cin.ignore(100, '\n');
-            }
+            inputValidator(cols, inputLessThan1, "Enter number of board cols",
+                "Must enter a positive integer number of cols");
             break;
 
             case 3:
+            inputValidator(steps, inputLessThan1, "Enter number of steps",
+                "Must enter a positive integer number of steps");
             std::cout << "Enter number of steps" << std::endl;
-            std::cin >> steps;
-            std::cin.clear();
-            std::cin.ignore(100, '\n');
-            while (steps < 1)
-            {
-                std::cout << "Must enter a positive integer number of steps"
-                    << std::endl;
-                std::cout << "Enter number of steps" << std::endl;
-                std::cin >> steps;
-                std::cin.clear();
-                std::cin.ignore(100, '\n');
-            }
             break;
 
             case 4:
-            std::cout << "Enter starting row of ant" << std::endl;
-            std::cin >> startingRow;
-            std::cin.clear();
-            std::cin.ignore(100, '\n');
-            while (!((startingRow >= 1) && (startingRow <= rows)))
-            {
-                std::cout << "Starting row of ant must be on the board"
-                    << std::endl;
-                std::cout << "Starting row can be a number from 1 to "
-                    << "the number of rows, inclusive" << std::endl;
-                std::cout << "Enter starting row of ant" << std::endl;
-                std::cin >> startingRow;
-                std::cin.clear();
-                std::cin.ignore(100, '\n');
-            }
+            inputValidator(startingRow, 1, rows, inputBetweenTwoValues,
+                "Enter starting row of ant",
+                "Starting row of ant must be on the board\nStarting row can be a number from 1 to the number of rows, inclusive");
             break;
 
             case 5:
-            std::cout << "Enter starting col of ant" << std::endl;
-            std::cin >> startingCol;
-            std::cin.clear();
-            std::cin.ignore(100, '\n');
-            while (!((startingCol >= 1) && (startingCol <= cols)))
-            {
-                std::cout << "Starting col of ant must be on the board"
-                    << std::endl;
-                std::cout << "Starting col can be a number from 1 to "
-                    << "the number of cols, inclusive" << std::endl;
-                std::cout << "Enter starting col of ant" << std::endl;
-                std::cin >> startingCol;
-                std::cin.clear();
-                std::cin.ignore(100, '\n');
-            }
+            inputValidator(startingCol, 1, cols, inputBetweenTwoValues,
+                "Enter starting col of ant",
+                "Starting col of ant must be on the board\nStarting col can be a number from 1 to the number of cols, inclusive");
             break;
 
             case 6:
@@ -149,23 +90,18 @@ Ant menu()
             break;
 
             case 7: 
+            inputValidator(startingDir,
+                [](std::string input) -> bool
+                    {
+                        return (input == "up") || (input == "down")
+                            || (input == "left")
+                            || (input == "right");
+                    },
+                "Enter starting direction of ant\nStarting direction of ant must be up, down, left, or right",
+                "Starting direction of ant must be up, down, left, or right");
             std::cout << "Enter starting direction of ant" << std::endl;
             std::cout << "Starting direction of ant must be up, down, "
                     << "left, or right" << std::endl;
-            // Use different method to read in string
-            std::cin >> startingDir;
-            std::cin.clear();
-            std::cin.ignore(100, '\n');
-            while (!(startingDir == "up" || startingDir == "down"
-                || startingDir == "left" || startingDir == "right"))
-            {
-                std::cout << "Starting direction of ant must be up, down, "
-                    << "left, or right" << std::endl;
-                std::cout << "Enter starting direction of ant" << std::endl;
-                std::cin >> startingDir;
-                std::cin.clear();
-                std::cin.ignore(100, '\n');
-            }
             break;
 
             case 8:
