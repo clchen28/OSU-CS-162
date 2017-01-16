@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 01/11/2017
 ** Description:
-
+Implementation of Ant class.
 ******************************************************************************/
 
 #include <iostream>
@@ -40,7 +40,7 @@ Ant::Ant(int nRows, int mCols, int nSteps, int startingRow, int startingCol,
 
 Ant::~Ant()
 {
-	// Deallocate memory for board array
+	// Ant destructor deallocates memory for board array
 	for (int i = 0; i < rows; i++)
     {
 		delete [] board[i];
@@ -50,6 +50,9 @@ Ant::~Ant()
 
 std::string** Ant::createBoard(int rows, int cols, int antRow, int antCol)
 {
+	// createBoard takes the row/col count and starting location of the ant,
+	// and creates a new board with these given initial conditions.
+
 	// Representing the board as a 2D array of strings
 	// * represents the ant, a whitespace represents a white square, and
 	// a # represents a black square
@@ -78,6 +81,9 @@ std::string** Ant::createBoard(int rows, int cols, int antRow, int antCol)
 
 void Ant::printBoard()
 {
+	// printBoard takes the current representation of the board array and
+	// prints a graphical representation of it to the terminal
+
 	// Print underscores to denote the top border of board
 	std::cout << "Step " << stepCount << ":" << std::endl;
 	for (int i = 0; i < cols; i++)
@@ -99,6 +105,13 @@ void Ant::printBoard()
 
 bool Ant::advancePosition()
 {
+	// advancePosition advances the Langton's Ant algorithm one step forward.
+	// The return type of this function is a boolean. The function returns true
+	// when the last step of the algorithm has been reached, and returns false
+	// otherwise. This allows the user to either advance the algorithm one step
+	// at a time, or to use a loop to advance the algorithm all the way to
+	// completion.
+
 	// Save last coordinate and color - needed to modify board representation
 	int lastRow = antRow;
 	int lastCol = antCol;

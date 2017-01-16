@@ -3,7 +3,9 @@
 ** Author: Charles Chen
 ** Date: 01/11/2017
 ** Description:
-
+Specification of Ant class. The ant class contains several attributes that
+describe the row and column count of its board, step counts, ant coordinates,
+and methods that advance the Langton's Ant simulations and display the board.
 ******************************************************************************/
 
 #include <string>

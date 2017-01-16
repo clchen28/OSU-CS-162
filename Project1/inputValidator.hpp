@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 01/15/2017
 ** Description:
-
+Function prototypes for inputValidator functions.
 ******************************************************************************/
 
 #ifndef INPUTVALIDATOR_HPP

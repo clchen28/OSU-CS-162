@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 01/13/2017
 ** Description:
-
+Implementation of menu-related functions
 ******************************************************************************/
 
 #include <iostream>
@@ -13,6 +13,10 @@
 #include "Ant.hpp"
 #include "inputValidator.hpp"
 
+/*
+printMenu takes in row/col/step count, starting row and column indices,
+starting direction, and displays this information in a menu format
+*/
 void printMenu(int rows, int cols, int steps, int startingRow, int startingCol,
     std::string startingDir)
 {
@@ -28,8 +32,21 @@ void printMenu(int rows, int cols, int steps, int startingRow, int startingCol,
     return;
 }
 
+/*
+menu is a function that is intended to provide a starting point for
+the Langton's Ant simulation. It provides various default values for
+row/col/step count, ant starting location, and ant starting direction.
+It prints a menu with the current starting settings, and allows the user
+to change any of these initial conditions.
+
+The return type is an Ant object. When the user is done, it
+initializes the simulation with the given initial conditions and
+executes the simulation for the specified number of step counts, returning the
+object with these properties.
+*/
 Ant menu()
 {
+    // Initializes default initial conditions
     int rows = 10;
     int cols = 10;
     int steps = 10;
@@ -39,6 +56,7 @@ Ant menu()
 
     int selection = -1;
 
+    // These lambda functions are used for the input validation function later
     auto inputPositive = [](int input) -> bool {return input >= 1;};
     auto inputBetweenTwoValues = [](int input, int value1, int value2) -> bool
                     {
@@ -54,6 +72,7 @@ Ant menu()
         std::cin.clear();
         std::cin.ignore(100, '\n');
         
+        // Selects submenu item
         switch (selection)
         {
             case 1:

@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 01/14/2017
 ** Description:
-
+Specification of the menu functions
 ******************************************************************************/
 
 #include <string>
