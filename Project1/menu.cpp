@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <functional>
 #include "Ant.hpp"
 #include "inputValidator.hpp"
 
