@@ -39,7 +39,7 @@ Ant menu()
 
     int selection = -1;
 
-    auto inputLessThan1 = [](int input) -> bool {return input > 1;};
+    auto inputPositive = [](int input) -> bool {return input >= 1;};
     auto inputBetweenTwoValues = [](int input, int value1, int value2) -> bool
                     {
                         return (input >= value1) && (input <= value2);
@@ -57,17 +57,17 @@ Ant menu()
         switch (selection)
         {
             case 1:
-            inputValidator(rows, inputLessThan1, "Enter number of board rows",
+            inputValidator(rows, inputPositive, "Enter number of board rows",
                 "Must enter a positive integer number of rows");
             break;
 
             case 2:
-            inputValidator(cols, inputLessThan1, "Enter number of board cols",
+            inputValidator(cols, inputPositive, "Enter number of board cols",
                 "Must enter a positive integer number of cols");
             break;
 
             case 3:
-            inputValidator(steps, inputLessThan1, "Enter number of steps",
+            inputValidator(steps, inputPositive, "Enter number of steps",
                 "Must enter a positive integer number of steps");
             std::cout << "Enter number of steps" << std::endl;
             break;
