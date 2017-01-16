@@ -97,7 +97,7 @@ Ant menu()
                             || (input == "left")
                             || (input == "right");
                     },
-                "Enter starting direction of ant\nStarting direction of ant must be up, down, left, or right",
+                "Enter starting direction of ant",
                 "Starting direction of ant must be up, down, left, or right");
             std::cout << "Enter starting direction of ant" << std::endl;
             std::cout << "Starting direction of ant must be up, down, "
