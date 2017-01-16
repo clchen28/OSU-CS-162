@@ -15,4 +15,4 @@ readMatrix.o: readMatrix.cpp
 	g++ -c readMatrix.cpp
 
 clean:
-	rm *.o a.out Lab1
+	rm *.o a.out
