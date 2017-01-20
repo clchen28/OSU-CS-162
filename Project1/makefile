@@ -18,4 +18,4 @@ menu.o: menu.cpp
 	g++ -std=c++0x -c menu.cpp
 
 clean:
-	rm *.o a.out
+	rm -f *.o a.out Project1
