@@ -8,6 +8,8 @@ Implementation of Ant class.
 
 #include <iostream>
 #include <string>
+#include <thread>
+#include <chrono>
 #include "Ant.hpp"
 
 /*
@@ -216,6 +218,7 @@ bool Ant::advancePosition()
 
 	stepCount++;
 
+	std::this_thread::sleep_for (std::chrono::seconds(1));
 	printBoard();
 
 	if (stepCount < steps)
