@@ -26,16 +26,20 @@ int LoadedDie::rollDie()
     std::random_device rd;
     std::mt19937 gen(rd());
 
+    // Constructing a vector of weights
+    // Higher numbers are 5 times as likely to be generated
     std::vector<double> weights;
     for (int i = 1; i < this->sides/2; i++)
     {
         weights.push_back(1);
     }
-    for (int i = this->sides/2; i <= sides; i++)
+    for (int i = this->sides/2; i <= this->sides; i++)
     {
-        weights.push_back(4);
+        weights.push_back(5);
     }
 
     std::discrete_distribution<> distribution(begin(weights),end(weights));
+
+    // Need to add 1 to have results from [1,sides], not [0,sides-1]
     return distribution(gen) + 1;
 }

@@ -14,5 +14,8 @@ Lab3.o: Lab3.cpp
 LoadedDie.o: LoadedDie.cpp
 	g++ -std=c++0x -c LoadedDie.cpp
 
+menutest: menu.cpp menu.hpp menuTest.cpp inputValidator.cpp
+	g++ -std=c++0x menu.cpp menuTest.cpp inputValidator.cpp -o menuTest
+
 clean:
-	rm -f *.o a.out Lab3
+	rm -f *.o a.out Lab3 menutest

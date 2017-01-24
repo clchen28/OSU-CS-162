@@ -27,6 +27,6 @@ int Die::rollDie()
     // distribution than the pseudo-random rand() function from <cstdlib>
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dist(1,sides);
+    std::uniform_int_distribution<> dist(1,this->sides);
     return dist(gen);
 }
