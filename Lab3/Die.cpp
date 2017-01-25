@@ -6,17 +6,20 @@
 
 ******************************************************************************/
 
+#include <string>
 #include <random>
 #include "Die.hpp"
 
 Die::Die()
 {
     this->sides = 6;
+    this->dieType = "normal";
 }
 
 Die::Die(int sides)
 {
     this->sides = sides;
+    this->dieType = "normal";
 }
 
 int Die::rollDie()
@@ -29,4 +32,9 @@ int Die::rollDie()
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dist(1,this->sides);
     return dist(gen);
+}
+
+std::string Die::getType()
+{
+    return dieType;
 }

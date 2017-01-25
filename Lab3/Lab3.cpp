@@ -1,10 +1,11 @@
 #include <iostream>
 #include "Die.hpp"
 #include "LoadedDie.hpp"
+#include "Game.hpp"
 
 int main()
 {
-    LoadedDie die(6);
-    std::cout << die.rollDie() << std::endl;
+    Game game(10,"loaded",2,"normal",2);
+    game.playGame();
     return 0;
 }

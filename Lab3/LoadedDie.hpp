@@ -6,6 +6,8 @@
 
 ******************************************************************************/
 
+#include <string>
+
 #ifndef LOADEDDIE_HPP
 #define LOADEDDIE_HPP
 
@@ -14,8 +16,9 @@ class LoadedDie : public Die
     public:
         LoadedDie();
         LoadedDie(int sides);
-        int rollDie();
+        virtual int rollDie();
     private:
+        std::string dieType;
 };
 
 #endif

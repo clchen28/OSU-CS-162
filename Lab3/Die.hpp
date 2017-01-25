@@ -6,6 +6,8 @@
 
 ******************************************************************************/
 
+#include <string>
+
 #ifndef DIE_HPP
 #define DIE_HPP
 
@@ -14,9 +16,11 @@ class Die
 	public:
 		Die();
 		Die(int sides);
-		int rollDie();
+		virtual int rollDie();
+		std::string getType();
 	protected:
 		int sides;
+		std::string dieType;
 };
 
 #endif
