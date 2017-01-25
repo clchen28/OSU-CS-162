@@ -6,6 +6,7 @@
 
 ******************************************************************************/
 
+#include <memory>
 #include <string>
 #include "Die.hpp"
 #include "LoadedDie.hpp"

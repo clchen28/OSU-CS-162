@@ -34,19 +34,29 @@ int LoadedDie::rollDie()
     std::random_device rd;
     std::mt19937 gen(rd());
 
-    // Constructing a vector of weights
-    // Higher numbers are 5 times as likely to be generated
-    std::vector<double> weights;
-    for (int i = 1; i < (this->sides)/2; i++)
+    std::vector<int> intervals;
+    for (int i = 1; i <= sides + 1; i++)
     {
-        weights.push_back(0);
-    }
-    for (int i = (this->sides)/2; i <= this->sides; i++)
-    {
-        weights.push_back(1);
+        intervals.push_back(i);
     }
 
-    std::discrete_distribution<> distribution(begin(weights),end(weights));
-    // Need to add 1 to have results from [1,sides], not [0,sides-1]
-    return distribution(gen) + 1;
+    // Constructing a vector of weights
+    // Higher numbers are 3 times as likely to be generated
+    std::vector<double> weights;
+
+    for (int i = 1; i <= sides; i++)
+    {
+        if (i <= sides/2)
+        {
+            weights.push_back(1);
+        }
+        else
+        {
+            weights.push_back(3);
+        }
+    }
+
+    std::piecewise_constant_distribution<> distribution(begin(intervals),
+        end(intervals),begin(weights));
+    return distribution(gen);
 }

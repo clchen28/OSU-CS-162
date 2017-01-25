@@ -6,6 +6,7 @@
 
 ******************************************************************************/
 
+#include <memory>
 #include <iostream>
 #include "Game.hpp"
 #include "Die.hpp"
