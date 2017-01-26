@@ -16,6 +16,7 @@ class Die
 	public:
 		Die();
 		Die(int sides);
+		virtual ~Die();
 		virtual int rollDie();
 		virtual std::string getType();
 		virtual int getSides();

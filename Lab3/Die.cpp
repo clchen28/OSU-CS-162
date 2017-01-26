@@ -22,6 +22,9 @@ Die::Die(int sides)
     this->dieType = "normal";
 }
 
+Die::~Die()
+{}
+
 int Die::rollDie()
 {
     // Using <random> library with a uniform random distribution

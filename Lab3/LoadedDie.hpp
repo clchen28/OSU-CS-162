@@ -16,6 +16,7 @@ class LoadedDie : public Die
     public:
         LoadedDie();
         LoadedDie(int sides);
+        ~LoadedDie();
         int rollDie();
         std::string getType();
 		int getSides();

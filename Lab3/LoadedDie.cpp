@@ -22,6 +22,9 @@ LoadedDie::LoadedDie(int sides) : Die(sides)
     this->dieType = "loaded";
 }
 
+LoadedDie::~LoadedDie()
+{}
+
 int LoadedDie::rollDie()
 {
 
