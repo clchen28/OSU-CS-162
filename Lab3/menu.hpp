@@ -7,12 +7,13 @@ Specification of the menu functions
 ******************************************************************************/
 
 #include <string>
+#include "Game.hpp"
 
 #ifndef MENU_HPP
 #define MENU_HPP
 
 void printMenu(int rows, int cols, int steps, int startingRow, int startingCol,
     std::string startingDir);
-void menu();
+Game menu();
 
 #endif

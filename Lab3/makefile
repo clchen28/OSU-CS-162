@@ -2,8 +2,8 @@
 # Author: Charles Chen
 # Date: 01/23/2017
 
-all: Die.o Lab3.o LoadedDie.o Game.o
-	g++ -std=c++0x Die.o Lab3.o LoadedDie.o Game.o -o Lab3
+all: Die.o Lab3.o LoadedDie.o Game.o menu.o inputValidator.o
+	g++ -std=c++0x Die.o Lab3.o LoadedDie.o Game.o menu.o inputValidator.o -o Lab3
 
 Die.o: Die.cpp
 	g++ -std=c++0x -c Die.cpp
@@ -13,6 +13,9 @@ Lab3.o: Lab3.cpp
 
 LoadedDie.o: LoadedDie.cpp
 	g++ -std=c++0x -c LoadedDie.cpp
+
+menu.o: menu.cpp
+	g++ -std=c++0x -c menu.cpp
 
 Game.o: Game.cpp
 	g++ -std=c++0x -c Game.cpp

@@ -9,6 +9,7 @@ Implementation of menu-related functions
 #include <iostream>
 #include <string>
 #include <functional>
+#include "Game.hpp"
 #include "inputValidator.hpp"
 
 /*
@@ -38,7 +39,7 @@ The return type is a game object. When the user is done, it
 initializes the game with the given initial conditions, returning the object
 with these properties.
 */
-void menu()
+Game menu()
 {
     // Initializes default initial conditions
     int rounds = 5;
@@ -110,5 +111,5 @@ void menu()
     }
     
     // Create object with given parameters
-    // return Game(rounds, die1Type, die1Sides, die2Type, die2Sides);
+    return Game(rounds, die1Type, die1Sides, die2Type, die2Sides);
 }

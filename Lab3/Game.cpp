@@ -56,7 +56,7 @@ void Game::playGame()
     std::cout << "Player 1 has a " << Die1->getSides() << "-sided ";
     std::cout << Die1->getType() << " die." << std::endl;
     std::cout << "Player 2 has a " << Die2->getSides() << "-sided ";
-    std::cout << Die2->getType() << " die." << std::endl;
+    std::cout << Die2->getType() << " die." << std::endl << std::endl;
     int Die1Roll;
     int Die2Roll;
     while (currentRound <= rounds)
