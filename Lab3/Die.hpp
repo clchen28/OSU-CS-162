@@ -17,7 +17,8 @@ class Die
 		Die();
 		Die(int sides);
 		virtual int rollDie();
-		std::string getType();
+		virtual std::string getType();
+		virtual int getSides();
 	protected:
 		int sides;
 		std::string dieType;

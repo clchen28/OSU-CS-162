@@ -60,3 +60,13 @@ int LoadedDie::rollDie()
         end(intervals),begin(weights));
     return distribution(gen);
 }
+
+std::string LoadedDie::getType()
+{
+    return dieType;
+}
+
+int LoadedDie::getSides()
+{
+    return sides;
+}

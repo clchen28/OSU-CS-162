@@ -38,3 +38,8 @@ std::string Die::getType()
 {
     return dieType;
 }
+
+int Die::getSides()
+{
+    return sides;
+}
