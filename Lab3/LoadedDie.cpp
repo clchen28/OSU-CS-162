@@ -24,10 +24,8 @@ LoadedDie::LoadedDie(int sides) : Die(sides)
 
 int LoadedDie::rollDie()
 {
-    // Using a discrete distribution. Documentation:
-    // https://msdn.microsoft.com/en-us/library/ee462326.aspx
 
-    // Try switching to a piecewise constant distribution:
+    // Using a piecewise constant distribution:
     // http://stackoverflow.com/questions/1761626/weighted-random-numbers
     // More resources:
     // https://msdn.microsoft.com/en-us/library/ee462281.aspx
@@ -43,7 +41,6 @@ int LoadedDie::rollDie()
     // Constructing a vector of weights
     // Higher numbers are 3 times as likely to be generated
     std::vector<double> weights;
-
     for (int i = 1; i <= sides; i++)
     {
         if (i <= sides/2)
