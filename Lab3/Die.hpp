@@ -3,7 +3,9 @@
 ** Author: Charles Chen
 ** Date: 01/22/2017
 ** Description:
-
+Die.hpp contains the specification of the Die class. This class is designed
+to create a die with a certain number of sides, and provides a utility for
+rolling the die.
 ******************************************************************************/
 
 #include <string>
