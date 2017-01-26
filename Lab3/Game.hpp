@@ -3,7 +3,9 @@
 ** Author: Charles Chen
 ** Date: 01/23/2017
 ** Description:
-
+Game.hpp contains the specification for the Game class. This class is used to
+store Die objects for two players in a Die game, and provides utilities to
+run the game.
 ******************************************************************************/
 
 #include <memory>
