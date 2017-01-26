@@ -19,6 +19,7 @@ class Game
     public:
         Game(int rounds, std::string die1Type, int die1Sides,
             std::string die2Type, int die2Sides);
+        ~Game();
         void playGame();
 
     private:
@@ -27,8 +28,8 @@ class Game
         int player1RoundsWon;
         int player2RoundsWon;
         int draws;
-        std::unique_ptr<Die> Die1;
-        std::unique_ptr<Die> Die2;
+        Die *Die1;
+        Die *Die2;
 };
 
 

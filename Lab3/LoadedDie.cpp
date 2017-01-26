@@ -39,7 +39,7 @@ int LoadedDie::rollDie()
     }
 
     // Constructing a vector of weights
-    // Higher numbers are 3 times as likely to be generated
+    // Higher numbers are 4 times as likely to be generated
     std::vector<double> weights;
     for (int i = 1; i <= sides; i++)
     {
@@ -49,7 +49,7 @@ int LoadedDie::rollDie()
         }
         else
         {
-            weights.push_back(3);
+            weights.push_back(4);
         }
     }
 

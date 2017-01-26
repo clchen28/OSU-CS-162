@@ -5,7 +5,7 @@
 
 int main()
 {
-    Game game(10,"normal",8,"normal",6);
+    Game game(10,"normal",8,"loaded",6);
     game.playGame();
     return 0;
 }

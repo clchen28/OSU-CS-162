@@ -17,8 +17,14 @@ LoadedDie.o: LoadedDie.cpp
 Game.o: Game.cpp
 	g++ -std=c++0x -c Game.cpp
 
-menutest: menu.cpp menu.hpp menuTest.cpp inputValidator.cpp
-	g++ -std=c++0x menu.cpp menuTest.cpp inputValidator.cpp -o menuTest
+dieTest.o: dieTest.cpp
+	g++ -std=c++0x -c dieTest.cpp
+
+inputValidator.o: inputValidator.cpp
+	g++ -std=c++0x -c inputValidator.cpp
+
+dietest: dieTest.o LoadedDie.o Die.o inputValidator.o
+	g++ -std=c++0x dieTest.o LoadedDie.o Die.o inputValidator.o -o dieTest
 
 clean:
-	rm -f *.o a.out Lab3 menutest
+	rm -f *.o a.out Lab3 dieTest
