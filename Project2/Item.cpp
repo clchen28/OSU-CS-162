@@ -7,6 +7,7 @@
 ******************************************************************************/
 
 #include <iostream>
+#include <algorithm>
 #include "Item.hpp"
 
 Item::Item()
