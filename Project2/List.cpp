@@ -54,7 +54,7 @@ void List::addItem(std::string name, std::string unit, int qtyToBuy,
     
     if (findItem(name) != -1)
     {
-        std::cout << "Item ''" << name << "' already exists, ignoring";
+        std::cout << "Item '" << name << "' already exists, ignoring";
         std::cout << std::endl;
         return;
     }
@@ -84,4 +84,41 @@ void List::addItem(std::string name, std::string unit, int qtyToBuy,
             arraySize += 5;
         }
     }
+}
+
+void List::removeItem(std::string name)
+{
+    if (name == "")
+    {
+        std::cout << "Item not found, ignoring" << std::endl;
+        return;
+    }
+    if (itemCount == 0)
+    {
+        std::cout << "No items in list, ignoring" << std::endl;
+        return;
+    }
+
+    int index = findItem(name);
+    if (index == -1)
+    {
+        std::cout << "Item '" << name << "' not found, ignoring";
+        std::cout << std::endl;
+        return;
+    }
+    else
+    {
+        items[index] = Item();
+        // Test to see if this logical sequence fails when arraySize is 0
+        if ( !((index == arraySize - 1) && (arraySize != 1)) )
+        {
+            for (int i = index; i < arraySize - 1; i++)
+            {
+                items[i] = items[i + 1]; // Assignment operator should be overloaded
+            }
+        }
+        itemCount--;
+        arraySize--;
+    }
+    return;
 }

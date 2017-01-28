@@ -30,12 +30,12 @@ Item::Item(std::string name, std::string unit, int qtyToBuy,
 
 Item::~Item(){}
 
-float Item::getExtPrice()
+float Item::getExtPrice() const
 {
     return qtyToBuy * unitPrice;
 }
 
-void Item::printItem()
+void Item::printItem() const
 {
     std::cout << "Item: " << name << std::endl;
     std::cout << "Unit: " << unit << std::endl;
@@ -53,4 +53,14 @@ const bool Item::operator==(const std::string &RHS)
 const bool Item::operator!=(const std::string &RHS)
 {
     return (this->name) != RHS;
+}
+
+Item& Item::operator=(const Item &RHS)
+{
+    name = RHS.name;
+    unit = RHS.unit;
+    qtyToBuy = RHS.qtyToBuy;
+    unitPrice = RHS.unitPrice;
+
+    return *this;
 }

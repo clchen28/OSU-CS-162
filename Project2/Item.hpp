@@ -18,10 +18,11 @@ class Item
         Item(std::string name, std::string unit, int qtyToBuy,
            float unitPrice);
         ~Item();
-        float getExtPrice();
-        void printItem();
+        float getExtPrice() const;
+        void printItem() const;
         const bool operator==(const std::string &RHS);
         const bool operator!=(const std::string &RHS);
+        Item& operator=(const Item &RHS);
 
         std::string name;
         std::string unit;

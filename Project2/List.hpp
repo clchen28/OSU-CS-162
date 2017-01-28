@@ -19,7 +19,7 @@ class List
         ~List();
         void addItem(std::string name, std::string unit, int qtyToBuy,
     float unitPrice);
-        void printList();
+        void printList() const;
         int findItem(std::string name); // Eventually want to add this to private
         void removeItem(std::string name);
 
