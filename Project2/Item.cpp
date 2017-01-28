@@ -20,6 +20,8 @@ Item::Item(std::string name, std::string unit, int qtyToBuy,
     return;
 }
 
+Item::~Item(){}
+
 float Item::getExtPrice()
 {
     return qtyToBuy * unitPrice;

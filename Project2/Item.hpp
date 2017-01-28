@@ -16,6 +16,7 @@ class Item
     public:
         Item(std::string name, std::string unit, int qtyToBuy,
            float unitPrice);
+        ~Item();
         float getExtPrice();
         void printItem();
         const bool operator==(const std::string &RHS);
