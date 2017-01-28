@@ -19,20 +19,13 @@ class List
         ~List();
         void addItem(std::string name, std::string unit, int qtyToBuy,
     float unitPrice);
-        void printList() const;
-        int findItem(std::string name); // Eventually want to add this to private
-        void removeItem(std::string name);
         void printList();
-
+        void removeItem(std::string name);
+    private:
         size_t arraySize;
         int itemCount;
         Item *items;
-    private:
-    /*
-        size_t arraySize;
-        int itemCount;
-        Item **items;
-    */
+        int findItem(std::string name); // Eventually want to add this to private
 };
 
 #endif

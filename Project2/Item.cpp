@@ -38,11 +38,13 @@ float Item::getExtPrice() const
 
 void Item::printItem() const
 {
+    std::cout << "----------------------------------------------" << std::endl;
     std::cout << "Item: " << name << std::endl;
     std::cout << "Unit: " << unit << std::endl;
     std::cout << "Quantity: " << qtyToBuy << std::endl;
     std::cout << "Unit Price: " << unitPrice << std::endl;
-    std::cout << "Extended Price: " << getExtPrice() << std::endl << std::endl;
+    std::cout << "Extended Price: " << getExtPrice() << std::endl;
+    std::cout << "----------------------------------------------" << std::endl;
     return;
 }
 
