@@ -25,7 +25,7 @@ class List
         size_t arraySize;
         int itemCount;
         Item *items;
-        int findItem(std::string name); // Eventually want to add this to private
+        int findItem(std::string name);
 };
 
 #endif

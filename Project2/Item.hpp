@@ -17,11 +17,14 @@ class Item
         Item();
         Item(std::string name, std::string unit, int qtyToBuy,
            float unitPrice);
-        ~Item();
+        Item(const Item &RHS);
+        ~Item();        
 
         void printItem() const;
         const bool operator==(const std::string &RHS);
+        const bool operator==(const Item &RHS);
         const bool operator!=(const std::string &RHS);
+        const bool operator!=(const Item &RHS);
         Item& operator=(const Item &RHS);
         float getExtPrice() const;
 

@@ -7,6 +7,7 @@
 ******************************************************************************/
 
 #include <iostream>
+#include <iomanip>
 #include <algorithm>
 #include "Item.hpp"
 
@@ -21,11 +22,18 @@ Item::Item()
 Item::Item(std::string name, std::string unit, int qtyToBuy,
             float unitPrice)
 {
-    std::transform(name.begin(), name.end(), name.begin(), tolower);
     this->name = name;
     this->unit = unit;
     this->qtyToBuy = qtyToBuy;
     this->unitPrice = unitPrice;
+    if (unitPrice < 0)
+    {
+        this->unitPrice = 0;
+    }
+    if (qtyToBuy < 0)
+    {
+        this->qtyToBuy = 0;
+    }
     return;
 }
 
@@ -42,20 +50,49 @@ void Item::printItem() const
     std::cout << "Item: " << name << std::endl;
     std::cout << "Unit: " << unit << std::endl;
     std::cout << "Quantity: " << qtyToBuy << std::endl;
-    std::cout << "Unit Price: " << unitPrice << std::endl;
-    std::cout << "Extended Price: " << getExtPrice() << std::endl;
+    std::cout << "Unit Price: ";
+    std::cout << std::setprecision(2) << std::fixed << unitPrice << std::endl;
+    std::cout << "Extended Price: ";
+    std::cout << std::setprecision(2) << std::fixed << getExtPrice();
+    std::cout << std::endl;
     std::cout << "----------------------------------------------" << std::endl;
     return;
 }
 
 const bool Item::operator==(const std::string &RHS)
 {
-    return (this->name) == RHS;
+    std::string LHSName = name;
+    std::string RHSName = RHS;
+    std::transform(LHSName.begin(), LHSName.end(), LHSName.begin(), tolower);
+    std::transform(RHSName.begin(), RHSName.end(), RHSName.begin(), tolower);
+    return LHSName == RHSName;
+}
+
+const bool Item::operator==(const Item &RHS)
+{
+    std::string LHSName = this->name;
+    std::string RHSName = RHS.name;
+    std::transform(LHSName.begin(), LHSName.end(), LHSName.begin(), tolower);
+    std::transform(RHSName.begin(), RHSName.end(), RHSName.begin(), tolower);
+    return LHSName == RHSName;
 }
 
 const bool Item::operator!=(const std::string &RHS)
 {
-    return (this->name) != RHS;
+    std::string LHSName = name;
+    std::string RHSName = RHS;
+    std::transform(LHSName.begin(), LHSName.end(), LHSName.begin(), tolower);
+    std::transform(RHSName.begin(), RHSName.end(), RHSName.begin(), tolower);
+    return LHSName != RHSName;
+}
+
+const bool Item::operator!=(const Item &RHS)
+{
+    std::string LHSName = this->name;
+    std::string RHSName = RHS.name;
+    std::transform(LHSName.begin(), LHSName.end(), LHSName.begin(), tolower);
+    std::transform(RHSName.begin(), RHSName.end(), RHSName.begin(), tolower);
+    return LHSName != RHSName;
 }
 
 Item& Item::operator=(const Item &RHS)
@@ -69,4 +106,20 @@ Item& Item::operator=(const Item &RHS)
     }
 
     return *this;
+}
+
+Item::Item(const Item &RHS)
+{
+    this->name = RHS.name;
+    this->unit = RHS.unit;
+    this->qtyToBuy = RHS.qtyToBuy;
+    this->unitPrice = RHS.unitPrice;
+    if (RHS.unitPrice < 0)
+    {
+        this->unitPrice = 0;
+    }
+    if (RHS.qtyToBuy < 0)
+    {
+        this->qtyToBuy = 0;
+    }
 }

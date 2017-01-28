@@ -7,6 +7,7 @@
 ******************************************************************************/
 
 #include <string>
+#include <iomanip>
 #include <algorithm>
 #include <iterator>
 #include <iostream>
@@ -138,7 +139,8 @@ void List::printList()
             items[i].printItem();
             totalExtPrice += items[i].getExtPrice();
         }
-        std::cout << "Total Price: " << totalExtPrice << std::endl;
+        std::cout << "Total Price: ";
+        std::cout << std::setprecision(2) << std::fixed << totalExtPrice << std::endl;
         std::cout << std::endl;
     }
 }
