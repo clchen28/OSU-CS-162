@@ -22,10 +22,16 @@ class List
         void printList();
         int findItem(std::string name); // Eventually want to add this to private
         void removeItem(std::string name);
-    private:
-        size_t arraySize;
+
+        int arraySize;
         int itemCount;
         Item *items;
+    private:
+    /*
+        size_t arraySize;
+        int itemCount;
+        Item **items;
+    */
 };
 
 #endif

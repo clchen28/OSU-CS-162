@@ -14,6 +14,7 @@
 class Item
 {
     public:
+        Item();
         Item(std::string name, std::string unit, int qtyToBuy,
            float unitPrice);
         ~Item();
@@ -21,11 +22,18 @@ class Item
         void printItem();
         const bool operator==(const std::string &RHS);
         const bool operator!=(const std::string &RHS);
-    private:
+
         std::string name;
         std::string unit;
         int qtyToBuy;
         float unitPrice;
+    private:
+    /*
+        std::string name;
+        std::string unit;
+        int qtyToBuy;
+        float unitPrice;
+        */
 };
 
 #endif

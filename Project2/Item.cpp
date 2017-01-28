@@ -9,6 +9,14 @@
 #include <iostream>
 #include "Item.hpp"
 
+Item::Item()
+{
+    this->name = "";
+    this->unit = "";
+    qtyToBuy = 0;
+    unitPrice = 0;
+}
+
 Item::Item(std::string name, std::string unit, int qtyToBuy,
             float unitPrice)
 {

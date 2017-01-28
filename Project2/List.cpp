@@ -17,7 +17,7 @@ List::List()
 {
     arraySize = 4;
     itemCount = 0;
-    items = new Item*[arraySize];
+    items = new Item[arraySize];
 }
 
 List::~List()
@@ -28,13 +28,16 @@ List::~List()
 int List::findItem(std::string searchTerm)
 {
     int index = -1;
-    std::transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(),
-        tolower);
-    for (int i = 0; i < arraySize; i++)
+    if (searchTerm != "")
     {
-        if ( *(items[i]) == searchTerm )
+        std::transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(),
+            tolower);
+        for (int i = 0; i < arraySize; i++)
         {
-            index = i;
+            if ( items[i] == searchTerm )
+            {
+                index = i;
+            }
         }
     }
     return index;
@@ -48,28 +51,37 @@ void List::addItem(std::string name, std::string unit, int qtyToBuy,
         std::cout << "Empty strings are not allowed" << std::endl;
         return;
     }
+    
     if (findItem(name) != -1)
     {
-        std::cout << "The item already exists, ignoring" << std::endl;
+        std::cout << "Item ''" << name << "' already exists, ignoring";
+        std::cout << std::endl;
         return;
     }
+    
     else
     {  
         itemCount++;
-        Item newItem(name, unit, qtyToBuy, unitPrice);
         if (itemCount <= arraySize)
         {
-            items[itemCount - 1] = &newItem;
+            items[itemCount - 1] = Item(name, unit, qtyToBuy, unitPrice);
         }
         else if (itemCount > arraySize)
         {
-            Item **newItems = new Item*[arraySize + 5];
-            std::copy(std::begin(items), std::end(items), newItems);
+            Item *newItems = new Item[arraySize + 5];
+            // std::copy(std::begin(*items), std::end(*items), newItems);
+            for (int i = 0; i < itemCount - 1; i++)
+            {
+                newItems[i] = items[i];
+            }
+            newItems[itemCount - 1] = Item(name, unit, qtyToBuy, unitPrice);
+
+            // Deallocate memory that was originally allocated for items
             delete [] items;
+
+            // Set items to the pointer to newly allocated arrray
             items = newItems;
+            arraySize += 5;
         }
     }
 }
-
-int main()
-{return 0;}
