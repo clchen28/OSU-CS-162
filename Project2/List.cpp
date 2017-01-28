@@ -95,7 +95,7 @@ void List::removeItem(std::string name)
     }
     if (itemCount == 0)
     {
-        std::cout << "No items in list, ignoring" << std::endl;
+        std::cout << "No items to remove" << std::endl;
         return;
     }
 
@@ -121,4 +121,24 @@ void List::removeItem(std::string name)
         arraySize--;
     }
     return;
+}
+
+void List::printList()
+{
+    float totalExtPrice = 0;
+    if (itemCount == 0)
+    {
+        std::cout << "No items" << std::endl;
+        return;
+    }
+    else
+    {
+        for (int i = 0; i < itemCount; i++)
+        {
+            items[i].printItem();
+            totalExtPrice += items[i].getExtPrice();
+        }
+        std::cout << "Total Price: " << totalExtPrice << std::endl;
+        std::cout << std::endl;
+    }
 }

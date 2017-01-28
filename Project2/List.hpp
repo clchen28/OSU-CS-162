@@ -22,8 +22,9 @@ class List
         void printList() const;
         int findItem(std::string name); // Eventually want to add this to private
         void removeItem(std::string name);
+        void printList();
 
-        int arraySize;
+        size_t arraySize;
         int itemCount;
         Item *items;
     private:
