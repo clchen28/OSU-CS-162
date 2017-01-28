@@ -47,21 +47,19 @@ void inputValidator(float &input, std::function<bool (float &input)> func,
 {
     // Prompts the user for input
     std::cout << prompt << std::endl;
-    std::cin >> input;
+   // std::cin >> input;
+    //std::cin.ignore(100, '\n');
 
     // Flushes keyboard buffer, in case an invalid input is received
-    while (!func(input) || !std::cin || std::cin.fail())
+    while (!(std::cin >> input) || !func(input))
     {
         std::cin.clear();
         std::cin.ignore(100, '\n');
+        input = -1;
         std::cout << errorMsg << std::endl;
         std::cout << prompt << std::endl;
-        std::cin >> input;
     }
-    
-
-    // Uses lambda function to check if the input is valid. If it is not valid,
-    // then prompt the user for the input again
+    std::cin.clear();
 
 }
 
