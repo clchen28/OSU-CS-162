@@ -7,6 +7,7 @@ int main()
 {
     
     List myList;
+    myList.removeItem("item");
     myList.addItem("item1", "unit1", 1, 1.00);
     myList.addItem("item2", "unit2", 2, 2.00);
     myList.addItem("item3", "unit3", 3, 3.00);
@@ -22,8 +23,6 @@ int main()
     */
     myList.printList();
 
-    myList.removeItem("item5");
-    myList.removeItem("item4");
     myList.removeItem("item3");
     myList.removeItem("item2");
     myList.removeItem("item1");

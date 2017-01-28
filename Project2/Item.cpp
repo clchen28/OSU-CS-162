@@ -57,10 +57,13 @@ const bool Item::operator!=(const std::string &RHS)
 
 Item& Item::operator=(const Item &RHS)
 {
-    name = RHS.name;
-    unit = RHS.unit;
-    qtyToBuy = RHS.qtyToBuy;
-    unitPrice = RHS.unitPrice;
+    if (this != &RHS)
+    {
+        name = RHS.name;
+        unit = RHS.unit;
+        qtyToBuy = RHS.qtyToBuy;
+        unitPrice = RHS.unitPrice;
+    }
 
     return *this;
 }
