@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 01/27/2017
 ** Description:
-
+Contains the specification of the List class.
 ******************************************************************************/
 
 #include <string>

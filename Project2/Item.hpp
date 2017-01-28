@@ -3,7 +3,13 @@
 ** Author: Charles Chen
 ** Date: 01/26/2017
 ** Description:
+Contains the specification of the Item class.
 
+Item contains name, unit, qtyToBuy, and unitPrice member attributes.
+Default constructor and overloaded constructors are provided.
+Copy constructors and assignment overloads are provided.
+== and != operators are overloaded to allow users to compare Item objects
+to other Item objects, or by name.
 ******************************************************************************/
 
 #include <string>
@@ -29,7 +35,6 @@ class Item
         float getExtPrice() const;
 
     private:
-
         std::string name;
         std::string unit;
         int qtyToBuy;

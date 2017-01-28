@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 01/26/2017
 ** Description:
-
+Contains the implementation of the Item class.
 ******************************************************************************/
 
 #include <iostream>
@@ -11,6 +11,11 @@
 #include <algorithm>
 #include "Item.hpp"
 
+/*
+Item()
+Default constructor, which sets empty strings for the name and unit, and
+sets qtyToBuy and unitPrice to 0.
+*/
 Item::Item()
 {
     this->name = "";
@@ -19,6 +24,12 @@ Item::Item()
     unitPrice = 0;
 }
 
+/*
+Item(std::string name, std::string unit, int qtyToBuy,
+            float unitPrice)
+Overloaded constructor, which allows name, unit, qtyToBuy, and unitPrice to be
+set at initialization time.
+*/
 Item::Item(std::string name, std::string unit, int qtyToBuy,
             float unitPrice)
 {
@@ -37,13 +48,26 @@ Item::Item(std::string name, std::string unit, int qtyToBuy,
     return;
 }
 
+/*
+~Item()
+Empty destructor
+*/
 Item::~Item(){}
 
+
+/*
+getExtPrice()
+Calculates and returns the extended price of this Item object
+*/
 float Item::getExtPrice() const
 {
     return qtyToBuy * unitPrice;
 }
 
+/*
+printItem()
+Prints relevant attributes of this Item object, as well as the extended price.
+*/
 void Item::printItem() const
 {
     std::cout << "----------------------------------------------" << std::endl;
@@ -59,6 +83,12 @@ void Item::printItem() const
     return;
 }
 
+/*
+operator==(const std::string &RHS)
+Overloaded == operator allows user to compare an Item object on the left hand
+side with a string on the right hand side. If the name attribute of the Item
+object matches the string on the right hand side, returns True.
+*/
 const bool Item::operator==(const std::string &RHS)
 {
     std::string LHSName = name;
@@ -68,6 +98,12 @@ const bool Item::operator==(const std::string &RHS)
     return LHSName == RHSName;
 }
 
+/*
+operator==(const Item &RHS)
+Overloaded == operator allows user to compare an Item object on the left hand
+side with aanother Item on the right hand side. If the name attribute of the Item
+object matches the right hand side's name attribute, returns True.
+*/
 const bool Item::operator==(const Item &RHS)
 {
     std::string LHSName = this->name;
@@ -77,6 +113,12 @@ const bool Item::operator==(const Item &RHS)
     return LHSName == RHSName;
 }
 
+/*
+operator!=(const std::string &RHS)
+Overloaded != operator allows user to compare an Item object on the left hand
+side with a string on the right hand side. If the name attribute of the Item
+object doesn't match the string on the right hand side, returns True.
+*/
 const bool Item::operator!=(const std::string &RHS)
 {
     std::string LHSName = name;
@@ -86,6 +128,12 @@ const bool Item::operator!=(const std::string &RHS)
     return LHSName != RHSName;
 }
 
+/*
+operator!=(const std::string &RHS)
+Overloaded == operator allows user to compare an Item object on the left hand
+side with aanother Item on the right hand side. If the name attribute of the Item
+object doesn't match the right hand side's name attribute, returns True.
+*/
 const bool Item::operator!=(const Item &RHS)
 {
     std::string LHSName = this->name;
@@ -95,6 +143,11 @@ const bool Item::operator!=(const Item &RHS)
     return LHSName != RHSName;
 }
 
+/*
+operator=(const Item &RHS)
+Overloaded = operator. Allows contents of right hand side Item object to be
+copied to the contents of an initialize left hand side Item object.
+*/
 Item& Item::operator=(const Item &RHS)
 {
     if (this != &RHS)
@@ -108,6 +161,11 @@ Item& Item::operator=(const Item &RHS)
     return *this;
 }
 
+/*
+Item(const Item &RHS)
+Copy constructor. Allows contents of right hand side object to be copied to
+left hand side object on initialization.
+*/
 Item::Item(const Item &RHS)
 {
     this->name = RHS.name;

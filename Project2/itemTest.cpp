@@ -3,7 +3,14 @@
 ** Author: Charles Chen
 ** Date: 01/28/2017
 ** Description:
+itemTest contains a test program which demonstrates multiple test cases
+of the Item object, shown in isolation.
 
+To compile:
+make itemTest
+
+To run:
+./itemTest
 ******************************************************************************/
 
 #include <iostream>
