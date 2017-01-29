@@ -16,6 +16,8 @@ class List
 {
     public:
         List();
+        List(const List &RHS);
+        List& operator=(const List &RHS);
         ~List();
         void addItem(std::string name, std::string unit, int qtyToBuy,
     float unitPrice);

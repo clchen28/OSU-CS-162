@@ -27,6 +27,52 @@ List::List()
 }
 
 /*
+List(const List &RHS)
+Copy constructor to copy contents of one List to another.
+items is a pointer to an array, so this constructor needs to allocate
+memory for a new array for new List.
+*/
+List::List(const List &RHS)
+{
+    this->arraySize = RHS.arraySize;
+    this->itemCount = RHS.itemCount;
+    items = new Item[RHS.arraySize];
+    for (int i = 0; i < arraySize; i++)
+    {
+        items[i] = RHS.items[i];
+    }
+}
+
+/*
+operator=(const List &RHS)
+Assignment overload to copy contents of one List to another.
+items is a pointer to an array, so this constructor needs to allocate
+memory for a new array for new List.
+Left hand side List has already been initialized, so also need to deallocate
+memory for old lists array.
+*/
+List& List::operator=(const List &RHS)
+{
+    if (this != &RHS)
+    {
+        this->arraySize = RHS.arraySize;
+        this->itemCount = RHS.itemCount;
+
+        // Need to deallocate the memory that was already allocated for
+        // items array in old List
+        delete [] items;
+        
+        items = new Item[RHS.arraySize];
+        for (int i = 0; i < arraySize; i++)
+        {
+            items[i] = RHS.items[i];
+        }
+    }
+
+    return *this;
+}
+
+/*
 ~List()
 Destructor deallocates memory that was allocated for items
 */
