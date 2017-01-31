@@ -2,8 +2,11 @@
 # Author: Charles Chen
 # Date: 01/30/2017
 
-all: Faculty.o Lab4.o People.o Student.o
+all: Building.o Faculty.o Lab4.o People.o Student.o
 	g++ -std=c++0x Faculty.o Lab4.o People.o Student.o -o Lab4
+
+Building.o: Building.cpp
+	g++ -std=c++0x -c Building.cpp
 
 Faculty.o: Faculty.cpp
 	g++ -std=c++0x -c Faculty.cpp
