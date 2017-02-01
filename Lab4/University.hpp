@@ -3,7 +3,10 @@
 ** Author: Charles Chen
 ** Date: 01/31/2017
 ** Description:
-
+Contains the specification for the University class.
+This class has People (Student, Faculty) and Building objects, stored in
+vectors of pointers. It also provides utilities for adding People and
+Buildings, as well as printing the contents of People and Buildings.
 ******************************************************************************/
 
 #include <string>

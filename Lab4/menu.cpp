@@ -31,12 +31,13 @@ void printMenu()
 
 /*
 menu is a function that is intended to provide a starting point for
-the Shopping List simulator.
+the University
 
-It takes in an initialized list object as reference, and provides an API for
-accessing the list object's methods. Specifically, it allows the user to
-add an item to the list, remove an item, and display the shopping list, which
-are all done through the List class's member methods.
+It takes in an initialized University object as reference, and provides an API
+for accessing its methods. Specifically, it allows the user to add People and
+Buildings to the University, print the details of Buildings and People, and
+choose a Person to do work. These tasks are all performed through University
+member methods.
 */
 void menu(University &university)
 {
@@ -103,7 +104,10 @@ void menu(University &university)
             break;
 
             case 4:
+                // Prints everyone's name
                 university.printPeopleNames();
+
+                // Will do nothing if there is no one in University
                 if (university.getPeopleCount() != 0)
                 {
                     std::cout << std::endl;
@@ -143,6 +147,7 @@ void menu(University &university)
             break;
 
             case 6:
+                // Adds a new person
                 inputValidator(personType, allowedPersonTypes,
                         "Adding student or faculty? ",
                         "Enter: student or faculty");
@@ -152,6 +157,9 @@ void menu(University &university)
                 inputValidator(personAge, intAbove18,
                         "Enter person's age - must be 18 or older",
                         "Age must be a number 18 or older");
+
+                // Call different method depending on whether new Person is a 
+                // Student or Faculty
                 if (personType == "student")
                 {
                     inputValidator(studentGPA, validGPA,

@@ -3,7 +3,9 @@
 ** Author: Charles Chen
 ** Date: 01/30/2017
 ** Description:
-
+Specification of the Faculty class. The Faculty class is derived from the
+Person class, and has specialized do_work and printPerson methods. Faculty
+also have a rating.
 ******************************************************************************/
 
 #include "Person.hpp"
@@ -18,7 +20,6 @@ class Faculty : public Person
         virtual ~Faculty();
         virtual void do_work(int hoursWorked);
         virtual void printPerson();
-        Faculty& operator=(const Faculty &RHS);
     
     private:
         float rating;

@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 01/30/2017
 ** Description:
-
+Implementation of the Student class.
 ******************************************************************************/
 
 #include <iostream>
@@ -11,12 +11,9 @@
 #include "Student.hpp"
 
 /*
-Student::Student(std::string name, int age) : People(name, age)
-{
-    // Set gpa to a random number
-}
+Student(std::string name, int age, float gpa) : Person(name, age)
+Creates a new Student object with the specified name, age, and GPA.
 */
-
 Student::Student(std::string name, int age, float gpa) : Person(name, age)
 {
     this->gpa = gpa;
@@ -30,8 +27,16 @@ Student::Student(std::string name, int age, float gpa) : Person(name, age)
     }
 }
 
+/*
+~Student()
+Empty destructor.
+*/
 Student::~Student(){}
 
+/*
+do_work(int hoursWorked)
+do_work takes the input hours worked, and prints out what the student worked on
+*/
 void Student::do_work(int hoursWorked)
 {
     std::cout << name << " did " << hoursWorked << " hours of homework.";
@@ -39,6 +44,10 @@ void Student::do_work(int hoursWorked)
     return;
 }
 
+/*
+printPerson()
+printPerson prints out the details of this specific Student.
+*/
 void Student::printPerson()
 {
     std::cout << "Student" << std::endl;

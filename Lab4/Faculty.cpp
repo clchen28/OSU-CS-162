@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 01/30/2017
 ** Description:
-
+Implementation of the Faculty class.
 ******************************************************************************/
 
 #include <iostream>
@@ -11,12 +11,9 @@
 #include "Faculty.hpp"
 
 /*
-Faculty::Faculty(std::string name, int age) : People(name, age)
-{
-    // Set rating to a random number
-}
+Faculty(std::string name, int age, float rating) : Person(name, age)
+Creates a new Faculty with the given name, age, and faculty rating.
 */
-
 Faculty::Faculty(std::string name, int age, float rating) : Person(name, age)
 {
     this->rating = rating;
@@ -30,8 +27,16 @@ Faculty::Faculty(std::string name, int age, float rating) : Person(name, age)
     }
 }
 
+/*
+~Faculty()
+Empty destructor.
+*/
 Faculty::~Faculty(){}
 
+/*
+do_work(int hoursWorked)
+Prints out the number of hours that the Faculty has worked
+*/
 void Faculty::do_work(int hoursWorked)
 {
     std::cout << "Instructor " << name << " graded papers for " << hoursWorked;
@@ -39,21 +44,14 @@ void Faculty::do_work(int hoursWorked)
     return;
 }
 
+/*
+printPerson()
+Prints the details of the specified Instructor.
+*/
 void Faculty::printPerson()
 {
     std::cout << "Faculty" << std::endl;
     std::cout << "Name: " << name << std::endl;
     std::cout << "Age: " << age << std::endl;
     std::cout << "Instructor Rating: " << rating << std::endl;
-}
-
-Faculty& Faculty::operator=(const Faculty &RHS)
-{
-    if (this != &RHS)
-    {
-        name = RHS.name;
-        age = RHS.age;
-        rating = RHS.rating;
-    }
-    return *this;
 }
