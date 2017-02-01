@@ -59,6 +59,7 @@ void menu(University &university)
                     return (input >= value1) && (input <= value2);
                 };
     auto intInputPositive = [](int input) -> bool {return input >= 1;};
+    auto intAbove18 = [](int input) -> bool {return input >= 18;};
     auto notEmptyString = [](std::string input) -> bool {return input != "";};
     auto validGPA = [](float input) -> bool
                 {
@@ -120,7 +121,6 @@ void menu(University &university)
                     personInd = -1;
                     hours = -1;
                     std::cout << std::endl;
-
                 }
             break;
 
@@ -149,9 +149,9 @@ void menu(University &university)
                 inputValidator(personName, notEmptyString,
                         "Enter name of person",
                         "Do not enter an empty string for person's name");
-                inputValidator(personAge, intInputPositive,
-                        "Enter person's age",
-                        "Age must be a positive number");
+                inputValidator(personAge, intAbove18,
+                        "Enter person's age - must be 18 or older",
+                        "Age must be a number 18 or older");
                 if (personType == "student")
                 {
                     inputValidator(studentGPA, validGPA,

@@ -33,18 +33,42 @@ University::~University()
 
 void University::addStudent(std::string name, int age, float gpa)
 {
+    for (int i = 0; i < people.size(); i++)
+    {
+        if (people[i]->getName() == name)
+        {
+            std::cout << "Student already exists - ignoring" << std::endl;
+            return;
+        }
+    }
     people.push_back(new Student(name, age, gpa));
     return;
 }
 
 void University::addFaculty(std::string name, int age, float rating)
 {
+    for (int i = 0; i < people.size(); i++)
+    {
+        if (people[i]->getName() == name)
+        {
+            std::cout << "Faculty already exists - ignoring" << std::endl;
+            return;
+        }
+    }
     people.push_back(new Faculty(name, age, rating));
     return;
 }
 
 void University::addBuilding(std::string name, int size, std::string address)
 {
+    for (int i = 0; i < buildings.size(); i++)
+    {
+        if (buildings[i]->getBuildingName() == name)
+        {
+            std::cout << "Building already exists - ignoring" << std::endl;
+            return;
+        }
+    }
     buildings.push_back(new Building(name, size, address));
     return;
 }

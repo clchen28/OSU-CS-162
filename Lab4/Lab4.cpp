@@ -20,6 +20,9 @@ int main()
     University osu("Oregon State University");
     osu.addStudent("Charles Chen", 24, 3.9);
     osu.addFaculty("Tim Alcon", 35, 4.9);
+    osu.addBuilding("Bell Tower", 518, "CORVALLIS, OR 97331");
+    osu.addBuilding("Dryden Hall", 19418,
+        "450 SW 30TH STREET, CORVALLIS, OR 97331");
     
     menu(osu);
     

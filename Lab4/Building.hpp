@@ -17,6 +17,7 @@ class Building
         Building(std::string name, int size, std::string address);
         ~Building();
         void printBuilding();
+        std::string getBuildingName();
     
     private:
         std::string name;

@@ -26,3 +26,8 @@ void Building::printBuilding()
     std::cout << "Address of building: " << address << std::endl;
     return;
 }
+
+std::string Building::getBuildingName()
+{
+    return name;
+}
