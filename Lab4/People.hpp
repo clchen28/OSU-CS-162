@@ -17,6 +17,7 @@ class People
         People(std::string name, int age);
         virtual ~People();
         virtual void do_work(int hoursWorked) = 0;
+        virtual void printPerson() = 0;
         std::string getName();
 
     protected:

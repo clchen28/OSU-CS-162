@@ -7,6 +7,7 @@
 ******************************************************************************/
 
 #include <iostream>
+#include <string>
 #include "Building.hpp"
 
 Building::Building(std::string name, int size, std::string address)
@@ -15,6 +16,8 @@ Building::Building(std::string name, int size, std::string address)
     this->size = size;
     this->address = address;
 }
+
+Building::~Building(){}
 
 void Building::printBuilding()
 {

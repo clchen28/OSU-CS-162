@@ -17,6 +17,8 @@ class Faculty : public People
         Faculty(std::string name, int age, float rating);
         virtual ~Faculty();
         virtual void do_work(int hoursWorked);
+        virtual void printPerson();
+        Faculty& operator=(const Faculty &RHS);
     
     private:
         float rating;
