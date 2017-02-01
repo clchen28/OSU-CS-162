@@ -8,14 +8,14 @@
 
 #include <string>
 
-#ifndef PEOPLE_HPP
-#define PEOPLE_HPP
+#ifndef PERSON_HPP
+#define PERSON_HPP
 
-class People
+class Person
 {
     public:
-        People(std::string name, int age);
-        virtual ~People();
+        Person(std::string name, int age);
+        virtual ~Person();
         virtual void do_work(int hoursWorked) = 0;
         virtual void printPerson() = 0;
         std::string getName();

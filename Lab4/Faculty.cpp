@@ -7,7 +7,7 @@
 ******************************************************************************/
 
 #include <iostream>
-#include "People.hpp"
+#include "Person.hpp"
 #include "Faculty.hpp"
 
 /*
@@ -17,7 +17,7 @@ Faculty::Faculty(std::string name, int age) : People(name, age)
 }
 */
 
-Faculty::Faculty(std::string name, int age, float rating) : People(name, age)
+Faculty::Faculty(std::string name, int age, float rating) : Person(name, age)
 {
     this->rating = rating;
     if (rating > 5.0)

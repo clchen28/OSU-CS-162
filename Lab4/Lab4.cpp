@@ -8,19 +8,20 @@
 
 #include <iostream>
 #include <string>
-#include "People.hpp"
+#include "Person.hpp"
 #include "Student.hpp"
 #include "Faculty.hpp"
 #include "Building.hpp"
+#include "University.hpp"
+#include "menu.hpp"
 
 int main()
 {
-    Building *myBuilding;
-    myBuilding = new Building("Azalea House",10457,"1050 SW MADISON AVE, CORVALLIS, OR 97331");
-    //Student *myStudent = Student("Charles Chen", 24, 3.5);
-    //Faculty *myFaculty = Faculty("Prof Wee", 35, 3.2);
-
-    myBuilding->printBuilding();
+    University osu("Oregon State University");
+    osu.addStudent("Charles Chen", 24, 3.9);
+    osu.addFaculty("Tim Alcon", 35, 4.9);
+    
+    menu(osu);
     
     /*
     myBuilding.printBuilding();

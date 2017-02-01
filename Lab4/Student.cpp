@@ -7,7 +7,7 @@
 ******************************************************************************/
 
 #include <iostream>
-#include "People.hpp"
+#include "Person.hpp"
 #include "Student.hpp"
 
 /*
@@ -17,7 +17,7 @@ Student::Student(std::string name, int age) : People(name, age)
 }
 */
 
-Student::Student(std::string name, int age, float gpa) : People(name, age)
+Student::Student(std::string name, int age, float gpa) : Person(name, age)
 {
     this->gpa = gpa;
     if (gpa > 4.0)

@@ -6,12 +6,12 @@
 
 ******************************************************************************/
 
-#include "People.hpp"
+#include "Person.hpp"
 
 #ifndef STUDENT_HPP
 #define STUDENT_HPP
 
-class Student : public People
+class Student : public Person
 {
     public:
         Student(std::string name, int age, float gpa);

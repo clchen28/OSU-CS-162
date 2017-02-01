@@ -6,17 +6,17 @@
 
 ******************************************************************************/
 
-#include "People.hpp"
+#include "Person.hpp"
 
-People::People(std::string name, int age)
+Person::Person(std::string name, int age)
 {
     this->name = name;
     this->age = age;
 }
 
-People::~People(){}
+Person::~Person(){}
 
-std::string People::getName()
+std::string Person::getName()
 {
     return name;
 }
