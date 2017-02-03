@@ -6,6 +6,8 @@
 Function prototypes for inputValidator functions.
 ******************************************************************************/
 
+#include <functional>
+
 #ifndef INPUTVALIDATOR_HPP
 #define INPUTVALIDATOR_HPP
 
