@@ -68,16 +68,13 @@ void inputValidator(int &input, int value1, int value2,
     std::string prompt, std::string errorMsg)
 {
     std::cout << prompt << std::endl;
-    std::cin >> input;
-    std::cin.clear();
-    std::cin.ignore(100, '\n');
-    while (!func(input, value1, value2))
+    while (!(std::cin >> input) || !func(input, value1, value2))
     {
-        std::cout << errorMsg << std::endl;
-        std::cout << prompt << std::endl;
-        std::cin >> input;
         std::cin.clear();
         std::cin.ignore(100, '\n');
+        input = -1;
+        std::cout << errorMsg << std::endl;
+        std::cout << prompt << std::endl;
     }
 }
 

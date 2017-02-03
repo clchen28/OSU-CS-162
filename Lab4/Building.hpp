@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 01/30/2017
 ** Description:
-
+Specification of Building class.
 ******************************************************************************/
 
 #include <string>

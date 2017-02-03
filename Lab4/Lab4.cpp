@@ -3,7 +3,17 @@
 ** Author: Charles Chen
 ** Date: 01/30/2017
 ** Description:
+Lab4 is a University information system simulator, containing information
+about the university. It contains Building and Person objects. The main program
+manually initializes the University, adds a Student, a Faculty, and two
+Buildings, then displays a menu which gives the user the ability to add
+more objects, display results, or to have a Person do work.
 
+To compile:
+make
+
+To run:
+./Lab4
 ******************************************************************************/
 
 #include <iostream>
@@ -25,13 +35,6 @@ int main()
         "450 SW 30TH STREET, CORVALLIS, OR 97331");
     
     menu(osu);
-    
-    /*
-    myBuilding.printBuilding();
-    myStudent.printPerson();
-    myFaculty.printPerson();
-    */
-
 
     return 0;
 }
