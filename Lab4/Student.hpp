@@ -7,6 +7,7 @@ Specification of the Student class. Students are derived from the Person class.
 Students have GPA's, and specialized printPerson and do_work methods.
 ******************************************************************************/
 
+#include <string>
 #include "Person.hpp"
 
 #ifndef STUDENT_HPP
@@ -19,6 +20,7 @@ class Student : public Person
         virtual ~Student();
         virtual void do_work(int hoursWorked);
         virtual void printPerson();
+        virtual std::string returnPerson();
 
     private:
         float gpa;

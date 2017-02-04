@@ -25,7 +25,10 @@ void printMenu()
     std::cout << "4. Choose a person to do work" << std::endl;
     std::cout << "5. Add building to university" << std::endl;
     std::cout << "6. Add person to university" << std::endl;
-    std::cout << "7. Exit program" << std::endl;
+    std::cout << "7. Clear all people and buildings" << std::endl;
+    std::cout << "8. Save all people and buildings to file" << std::endl;
+    std::cout << "9. Load all people and buildings from file" << std::endl;
+    std::cout << "10. Exit program" << std::endl;
     return;
 }
 
@@ -76,7 +79,7 @@ void menu(University &university)
                         || (input == "faculty");
                 };
 
-    while (selection != 7)
+    while (selection != 10)
     {
         printMenu();
         std::cin >> selection;
@@ -184,11 +187,26 @@ void menu(University &university)
             break;
 
             case 7:
+                std::cout << "Clearing university..." << std::endl;
+                university.deleteAll();
+            break;
+
+            case 8:
+                std::cout << "Saving..." << std::endl;
+                university.saveAll();
+            break;
+
+            case 9:
+                std::cout << "Loading..." << std::endl;
+                university.loadAll();
+            break;
+
+            case 10:
                 std::cout << "Exiting..." << std::endl;
             break;
 
             default:
-                std::cout << "Enter a valid menu item (1 through 7)" << std::endl;
+                std::cout << "Enter a valid menu item (1 through 10)" << std::endl;
         }
     }
 

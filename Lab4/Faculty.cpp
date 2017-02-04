@@ -55,3 +55,14 @@ void Faculty::printPerson()
     std::cout << "Age: " << age << std::endl;
     std::cout << "Instructor Rating: " << rating << std::endl;
 }
+
+
+/*
+returnPerson()
+returnPerson returns the details of this Student in a string
+*/
+std::string Faculty::returnPerson()
+{
+    return "Faculty\n" + name + "\n" + std::to_string(age) +
+        "\n" + std::to_string(rating) + "\n";
+}

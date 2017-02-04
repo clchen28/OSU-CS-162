@@ -40,6 +40,16 @@ void Building::printBuilding()
 }
 
 /*
+returnBuilding()
+Returns the details of Building in string
+*/
+std::string Building::returnBuilding()
+{
+    return "Building\n" + name + "\n" + std::to_string(size) + "\n" + address
+        + "\n";
+}
+
+/*
 getBuildingName()
 Returns the name of the building.
 */

@@ -8,6 +8,7 @@ Person class, and has specialized do_work and printPerson methods. Faculty
 also have a rating.
 ******************************************************************************/
 
+#include <string>
 #include "Person.hpp"
 
 #ifndef FACULTY_HPP
@@ -20,6 +21,7 @@ class Faculty : public Person
         virtual ~Faculty();
         virtual void do_work(int hoursWorked);
         virtual void printPerson();
+        virtual std::string returnPerson();
     
     private:
         float rating;

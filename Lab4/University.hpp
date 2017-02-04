@@ -32,6 +32,9 @@ class University
         void printBuildings();
         void personToDoWork(int personInd, int hours);
         int getPeopleCount();
+        void deleteAll();
+        void saveAll();
+        void loadAll();
     private:
         std::string universityName;
         std::vector<Building*> buildings;

@@ -22,6 +22,7 @@ class Person
         virtual ~Person();
         virtual void do_work(int hoursWorked) = 0;
         virtual void printPerson() = 0;
+        virtual std::string returnPerson() = 0;
         std::string getName();
 
     protected:

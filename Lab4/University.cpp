@@ -7,6 +7,7 @@ Contains the implementation of the University class.
 ******************************************************************************/
 
 #include <string>
+#include <fstream>
 #include <iostream>
 #include "Person.hpp"
 #include "Student.hpp"
@@ -198,4 +199,109 @@ getPeopleCount returns the number of People in the University.
 int University::getPeopleCount()
 {
     return people.size();
+}
+
+/*
+deleteAll()
+deleteAll will deallocate memory that was dynamically allocated for every
+object in the University, and then set the people and buildings member
+attributes to be empty vectors.
+*/
+void University::deleteAll()
+{
+    // Deallocates memory allocated for every Person in people
+    for (int i = 0; i < people.size(); i++)
+    {
+        delete people[i];
+    }
+    people.clear();
+
+    // Deallocates memory allocated for every Building in buildings
+    for (int i = 0; i < buildings.size(); i++)
+    {
+        delete buildings[i];
+    }
+    buildings.clear();
+
+}
+
+/*
+saveAll
+saveAll takes all Person and Building members in the University and outputs
+the details to an output.txt file on disk.
+*/
+void University::saveAll()
+{
+    std::ofstream outputFile;
+    outputFile.open("output.txt");
+    // Uses returnPerson method of each member attribute, and saves to
+    // output.txt
+    if (outputFile)
+    {
+        for (int i = 0; i < people.size(); i++)
+        {
+            outputFile << people[i]->returnPerson();
+        }
+        for (int i = 0; i < buildings.size(); i++)
+        {
+            outputFile << buildings[i]->returnBuilding();
+        }
+        outputFile.close();
+    }
+}
+
+/*
+loadAll
+loadAll reads in output.txt and reads in attribute information, and adds these
+members to the current university
+*/
+void University::loadAll()
+{
+    // First, delete all attributes of current University
+    // This allows loadAll to overwrite the contents of the current University
+    this->deleteAll();
+
+    std::string inputType;
+    std::string input1;
+    std::string input2;
+    std::string input3;
+
+    std::ifstream inputFile;
+    inputFile.open("output.txt");
+    if (inputFile)
+    {
+        // output.txt is formatted with 4 lines for each Building or Person
+        // The first line is either Building, Student, or Faculty
+        // input1, input2, and input3 (the next 3 lines) correspond to strings
+        // that can be used with each class's constructor
+        while (std::getline(inputFile, inputType))
+        {
+            std::getline(inputFile, input1);
+            std::getline(inputFile, input2);
+            std::getline(inputFile, input3);
+
+            std::cout << "input1 is " << input1 << std::endl;
+            std::cout << "input2 is " << input2 << std::endl;
+            std::cout << "input3 is " << input3 << std::endl;
+
+            // input1, inptu2, and input3 are, in order, the parameters
+            // needed for each class's constructor
+            // This selects the appropriate constructor, based on the input
+            // type
+            if (inputType == "Student")
+            {
+                this->addStudent(input1, std::stoi(input2), std::stof(input3));
+            }
+            else if (inputType == "Faculty")
+            {
+                this->addFaculty(input1, std::stoi(input2), std::stof(input3));
+            }
+            else if (inputType == "Building")
+            {
+                this->addBuilding(input1, std::stoi(input2), input3);
+            }
+        }
+        
+        inputFile.close();
+    }
 }
