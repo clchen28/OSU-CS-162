@@ -280,10 +280,6 @@ void University::loadAll()
             std::getline(inputFile, input2);
             std::getline(inputFile, input3);
 
-            std::cout << "input1 is " << input1 << std::endl;
-            std::cout << "input2 is " << input2 << std::endl;
-            std::cout << "input3 is " << input3 << std::endl;
-
             // input1, inptu2, and input3 are, in order, the parameters
             // needed for each class's constructor
             // This selects the appropriate constructor, based on the input
