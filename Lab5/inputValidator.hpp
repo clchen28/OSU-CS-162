@@ -1,7 +1,7 @@
 /******************************************************************************
 ** Program name: inputValidator.hpp
 ** Author: Charles Chen
-** Date: 01/15/2017
+** Date: 02/05/2017
 ** Description:
 Function prototypes for inputValidator functions.
 ******************************************************************************/

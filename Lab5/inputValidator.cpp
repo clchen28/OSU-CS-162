@@ -1,7 +1,7 @@
 /******************************************************************************
 ** Program name: inputValidator.cpp
 ** Author: Charles Chen
-** Date: 01/28/2017
+** Date: 02/05/2017
 ** Description:
 Contains the inputValidator function, which is used to validate given inputs
 based on whether or not they match a given criteria. The criteria is provided
