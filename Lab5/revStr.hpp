@@ -1,14 +1,16 @@
 /******************************************************************************
-** Program name: sumArr.hpp
+** Program name: revStr.hpp
 ** Author: Charles Chen
 ** Date: 02/04/2017
 ** Description:
 
 ******************************************************************************/
 
-#ifndef SUMARR_HPP
-#define SUMARR_HPP
+#include <string>
 
-int sumArr(int arr[], int arrSize);
+#ifndef REVSTR_HPP
+#define REVSTR_HPP
+
+void revStr(std::string str);
 
 #endif

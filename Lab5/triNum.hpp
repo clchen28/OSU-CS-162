@@ -1,14 +1,14 @@
 /******************************************************************************
-** Program name: sumArr.hpp
+** Program name: triNum.hpp
 ** Author: Charles Chen
 ** Date: 02/04/2017
 ** Description:
 
 ******************************************************************************/
 
-#ifndef SUMARR_HPP
-#define SUMARR_HPP
+#ifndef TRINUM_HPP
+#define TRINUM_HPP
 
-int sumArr(int arr[], int arrSize);
+int triNum(int n);
 
 #endif
