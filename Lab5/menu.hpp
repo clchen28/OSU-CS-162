@@ -1,18 +1,17 @@
 /******************************************************************************
-** Program name: Lab5.cpp
+** Program name: menu.hpp
 ** Author: Charles Chen
-** Date: 02/04/2017
+** Date: 01/14/2017
 ** Description:
-
+Specification of the menu functions
 ******************************************************************************/
 
-#include <iostream>
-#include "revStr.hpp"
-#include "sumArr.hpp"
-#include "triNum.hpp"
-#include "menu.hpp"
+#include <string>
 
-int main()
-{
-    menu();
-}
+#ifndef MENU_HPP
+#define MENU_HPP
+
+void printMenu();
+void menu();
+
+#endif
