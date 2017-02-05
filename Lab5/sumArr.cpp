@@ -8,6 +8,8 @@ this array, and returns an intger containing the  sum of all elements in the
 array.
 ******************************************************************************/
 
+#include "sumArr.hpp"
+
 int sumArr(int arr[], int arrSize)
 {
     // Error protection - if array size is less than 0, just return sum as 0
@@ -21,7 +23,7 @@ int sumArr(int arr[], int arrSize)
     {
         return arr[0];
     }
-    
+
     // Recursive step - The sum of all elements of an array is the value of the
     // last element of the array, plus the sum of the rest of the array
     else

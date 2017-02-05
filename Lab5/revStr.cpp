@@ -9,6 +9,7 @@ that string, using recursion.
 
 #include <string>
 #include <iostream>
+#include "revStr.hpp"
 
 void revStr(std::string str)
 {
@@ -25,7 +26,7 @@ void revStr(std::string str)
     else
     {
         std::cout << str.at(str.length() - 1);  // Last element of string
-        revStr(str.substr(0,str.length() - 1)); // Concatenate with reverse of 
+        revStr(str.substr(0,str.length() - 1)); // Concatenate with reverse of
                                                 // rest of string
         return;
     }

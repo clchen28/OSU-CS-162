@@ -20,6 +20,7 @@ To run:
 #include <string>
 #include <cstdlib>
 #include <functional>
+#include <algorithm>
 #include "revStr.hpp"
 #include "sumArr.hpp"
 #include "triNum.hpp"
@@ -49,15 +50,16 @@ int main()
 {
     std::string str;
     int *arr = nullptr;
-    int arrSize = -1;
-    int arrInput = -1;
+    int arrSize = 5;
+    int arrNumOfInputs = 0;
+    std::string arrInput = "-1";
     int triNumN;
 
     int selection = -1;
-    
+
     // These lambda functions are used for the input validation function later
-    auto intInputPositive = [](int input) -> bool {return input >= 1;};
     auto intInputNonNeg = [](int input) -> bool {return input >= 0;};
+    auto exitInput = [](std::string input) -> bool {return input == "e";};
 
     while (selection != 4)
     {
@@ -67,7 +69,7 @@ int main()
         // presented
         std::cin.clear();
         std::cin.ignore(100, '\n');
-        
+
         // Selects submenu item
         switch (selection)
         {
@@ -82,29 +84,45 @@ int main()
             case 2:
                 // Gets an array size from user, then asks user to populate the
                 // array
-                inputValidator(arrSize, intInputPositive,
-                    "Enter the size of the array",
-                    "Size of array must be a positive integer");
                 arr = new int[arrSize];
 
-                // For each element of the array, ask for an input
-                for (int i = 0; i < arrSize; i++)
-                {
-                    inputValidator(arrInput,
-                        "Enter number " + std::to_string(i+1) + ": ",
-                        "Only integer inputs are allowed");
-                    arr[i] = arrInput;
-                }
+                do {
+                    std::cout << "Enter an integer, or enter e to stop"; std::cout << std::endl;
+                    inputValidator(arrInput, exitInput,
+                    "Enter number " + std::to_string(arrNumOfInputs+1) + ": ",
+                    "Only integer inputs are allowed");
+
+                    if (arrNumOfInputs + 1 > arrSize)
+                    {
+                        arrSize *= 2;
+                        int *tempArr = new int[arrSize];
+                        for (int i = 0; i < arrNumOfInputs; i++)
+                        {
+                            tempArr[i] = arr[i];
+                        }
+                        delete [] arr;
+                        arr = tempArr;
+                    }
+
+                    if (isAllDigit(arrInput))
+                    {
+                        arr[arrNumOfInputs] = std::stoi(arrInput);
+                        arrNumOfInputs++;
+                    }
+                } while (arrInput != "e");
 
                 std::cout << "Calculating sum of array... " << std::endl;
-                std::cout << "Sum is " << sumArr(arr, arrSize) << std::endl;
+                std::cout << "Sum is " << sumArr(arr, arrNumOfInputs);
+                std::cout << std::endl;
 
                 delete [] arr;
                 arr = nullptr;
+                arrNumOfInputs = 0;
+                arrSize = 5;
             break;
 
             case 3:
-                // Asks user for an intger about which to calculate the
+                // Asks user for an integer about which to calculate the
                 // triangular number
                 std::cout << "triNum will calculate the triangle number for ";
                 std::cout << "integer N" << std::endl;

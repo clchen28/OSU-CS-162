@@ -18,6 +18,7 @@ This function is provided for various input types.
 #include <iostream>
 #include <string>
 #include <functional>
+#include "inputValidator.hpp"
 
 void inputValidator(int &input, std::function<bool (int &input)> func,
     std::string prompt, std::string errorMsg)
@@ -95,10 +96,36 @@ void inputValidator(std::string &input,
 {
     std::cout << prompt << std::endl;
     std::getline(std::cin, input);
-    while (!func(input))
+    while (!func(input) && !isAllDigit(input))
     {
         std::cout << errorMsg << std::endl;
         std::cout << prompt << std::endl;
         std::getline(std::cin, input);
+    }
+}
+/*
+isAllDigit(const std::string &str)
+isAllDigit takes a string input and checks to see if it can be converted
+to a valid integer. If it can be converted to a valid integer, returns true
+*/
+bool isAllDigit(const std::string &str)
+{
+    std::string myStr = str;
+    try
+    {
+        std::stoi(myStr);
+    }
+    catch (std::invalid_argument)
+    {
+        return false;
+    }
+
+    if (std::to_string(std::stoi(myStr)).compare(str) == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
     }
 }

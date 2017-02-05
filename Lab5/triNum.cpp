@@ -7,6 +7,8 @@ triNum takes an integer, n, and calculates the triangular number about this n.
 The triangular number is returned as an integer.
 ******************************************************************************/
 
+#include "triNum.hpp"
+
 int triNum(int n)
 {
     // Base case - triangular number about 0 is 0
