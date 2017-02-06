@@ -25,6 +25,11 @@ int Creature::getStrength()
     return strength;
 }
 
+int Creature::getLife()
+{
+    return life;
+}
+
 void Creature::takeDamage(int attack, int defense)
 {
     if (attack > (defense + armor))

@@ -20,6 +20,7 @@ public:
     virtual int rollDefense() = 0;
     int getArmor();
     int getStrength();
+    int getLife();
     virtual void takeDamage(int attack, int defense);
 protected:
     int armor;

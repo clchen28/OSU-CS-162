@@ -11,19 +11,45 @@
 #include "Creature.hpp"
 #include "Barbarian.hpp"
 #include "Medusa.hpp"
+#include "HarryPotter.hpp"
 
 int main()
 {
     Creature* creature;
-    creature = new Medusa;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
+    creature = new HarryPotter;
+    creature->takeDamage(5, 2);
+    std::cout << creature->getStrength() << std::endl;
+    std::cout << creature->getLife() << std::endl;
+    creature->takeDamage(5, 2);
+    std::cout << creature->getStrength() << std::endl;
+    std::cout << creature->getLife() << std::endl;
+    creature->takeDamage(5, 2);
+    std::cout << creature->getStrength() << std::endl;
+    std::cout << creature->getLife() << std::endl;
+    creature->takeDamage(5, 2);
+    std::cout << creature->getStrength() << std::endl;
+    std::cout << creature->getLife() << std::endl;
+    creature->takeDamage(5, 2);
+    std::cout << creature->getStrength() << std::endl;
+    std::cout << creature->getLife() << std::endl;
+    creature->takeDamage(5, 2);
+    std::cout << creature->getStrength() << std::endl;
+    std::cout << creature->getLife() << std::endl;
+    creature->takeDamage(5, 2);
+    std::cout << creature->getStrength() << std::endl;
+    std::cout << creature->getLife() << std::endl;
+    creature->takeDamage(5, 2);
+    std::cout << creature->getStrength() << std::endl;
+    std::cout << creature->getLife() << std::endl;
+    creature->takeDamage(5, 2);
+    std::cout << creature->getStrength() << std::endl;
+    std::cout << creature->getLife() << std::endl;
+    creature->takeDamage(5, 2);
+    std::cout << creature->getStrength() << std::endl;
+    std::cout << creature->getLife() << std::endl;
+    creature->takeDamage(5, 2);
+    std::cout << creature->getStrength() << std::endl;
+    std::cout << creature->getLife() << std::endl;
     delete creature;
     return 0;
 }
