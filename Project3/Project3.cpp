@@ -17,47 +17,41 @@
 int main()
 {
     Creature* creature;
-    //creature = new Vampire;
-    /*
-    creature->takeDamage(3,creature->rollAttack());
+    creature = new Vampire;
+
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollAttack());
+    creature->takeDamage(3,creature->rollDefense());
     std::cout << creature->getStrength() << std::endl;
-    */
-    /*
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
+
     std::cout << creature->rollAttack() << std::endl;
     std::cout << creature->rollAttack() << std::endl;
     std::cout << creature->rollAttack() << std::endl;
@@ -73,26 +67,6 @@ int main()
     std::cout << creature->rollAttack() << std::endl;
 
     delete creature;
-    */
 
-    Vampire vampire;
-
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
-    std::cout << vampire.rollAttack() << std::endl;
     return 0;
 }

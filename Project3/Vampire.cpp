@@ -38,9 +38,11 @@ int Vampire::rollAttack()
     return AttackDie.rollDie();
 }
 
+/*
+rollDefense()
+*/
 int Vampire::rollDefense()
 {
-    /*
     if (CharmDie.rollDie() == 2)
     {
         std::cout << "Vampire uses Charm! Attack is negated" << std::endl;
@@ -50,6 +52,5 @@ int Vampire::rollDefense()
     {
         return DefenseDie.rollDie();
     }
-    */
-    return CharmDie.rollDie();
+
 }
