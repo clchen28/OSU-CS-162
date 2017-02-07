@@ -69,3 +69,16 @@ int Die::getSides()
 {
     return sides;
 }
+
+/*
+setSides(int sides)
+setSides takes and integer number of sides as input, and sets the number of
+sides of this Die object.
+*/
+void Die::setSides(int sides)
+{
+    if (sides >= 2)
+    {
+        this->sides = sides;
+    }
+}

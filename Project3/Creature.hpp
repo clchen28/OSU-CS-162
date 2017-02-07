@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 02/05/2017
 ** Description:
-
+Specification for abstract Creature class.
 ******************************************************************************/
 
 #include "Die.hpp"
@@ -13,6 +13,12 @@
 
 class Creature
 {
+protected:
+    int armor;
+    int strength;
+    int life;
+    Die AttackDie;
+    Die DefenseDie;
 public:
     Creature();
     virtual ~Creature();
@@ -22,12 +28,6 @@ public:
     int getStrength();
     int getLife();
     virtual void takeDamage(int attack, int defense);
-protected:
-    int armor;
-    int strength;
-    int life;
-    Die AttackDie;
-    Die DefenseDie;
 };
 
 #endif

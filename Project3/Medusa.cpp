@@ -14,8 +14,6 @@ Medusa::Medusa() : Creature()
 {
     this->armor = 3;
     this->strength = 8;
-    Die AttackDie(6);
-    Die DefenseDie(6);
 }
 
 Medusa::~Medusa(){}

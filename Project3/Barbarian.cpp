@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 02/05/2017
 ** Description:
-
+Implementation for Barbarian class.
 ******************************************************************************/
 
 #include "Creature.hpp"
@@ -14,8 +14,6 @@ Barbarian::Barbarian() : Creature()
 {
     this->armor = 0;
     this->strength = 12;
-    Die AttackDie(6);
-    Die DefenseDie(6);
 }
 
 Barbarian::~Barbarian(){}

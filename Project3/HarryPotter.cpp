@@ -15,8 +15,6 @@ HarryPotter::HarryPotter() : Creature()
     this->life = 2;
     this->armor = 0;
     this->strength = 10;
-    Die AttackDie(6);
-    Die DefenseDie(6);
 }
 
 HarryPotter::~HarryPotter(){}
