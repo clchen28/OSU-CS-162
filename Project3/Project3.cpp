@@ -14,24 +14,11 @@
 #include "HarryPotter.hpp"
 #include "Vampire.hpp"
 #include "BlueMen.hpp"
+#include "menu.hpp"
+
 
 int main()
 {
-    Creature* creature;
-    creature = new BlueMen;
-
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-
-    delete creature;
-
+    menu();
     return 0;
 }
