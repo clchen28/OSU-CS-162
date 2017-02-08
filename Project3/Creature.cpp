@@ -19,6 +19,7 @@ Creature::Creature()
     life = 1;
     Die AttackDie(6);
     Die DefenseDie(6);
+    name = "Creature";
 }
 
 /*
@@ -91,4 +92,13 @@ bool Creature::isDead()
     {
         return false;
     }
+}
+
+/*
+getName()
+Returns the type of Creature
+*/
+std::string Creature::getName()
+{
+    return name;
 }

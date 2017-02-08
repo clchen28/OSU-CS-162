@@ -7,6 +7,7 @@
 ******************************************************************************/
 
 #include <iostream>
+#include <string>
 #include "Creature.hpp"
 #include "BlueMen.hpp"
 
@@ -22,6 +23,7 @@ BlueMen::BlueMen() : Creature()
     this->strength = 12;
     this->numDefenseDie = 3;
     Creature::AttackDie.setSides(10);
+    this->name = "Blue Men";
 }
 
 /*

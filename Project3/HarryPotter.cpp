@@ -7,6 +7,7 @@
 ******************************************************************************/
 
 #include <iostream>
+#include <string>
 #include "Creature.hpp"
 #include "HarryPotter.hpp"
 
@@ -15,6 +16,7 @@ HarryPotter::HarryPotter() : Creature()
     this->life = 2;
     this->armor = 0;
     this->strength = 10;
+    this->name = "Harry Potter";
 }
 
 HarryPotter::~HarryPotter(){}

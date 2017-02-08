@@ -7,6 +7,7 @@
 ******************************************************************************/
 
 #include <iostream>
+#include <string>
 #include "Creature.hpp"
 #include "Medusa.hpp"
 
@@ -14,6 +15,7 @@ Medusa::Medusa() : Creature()
 {
     this->armor = 3;
     this->strength = 8;
+    this->name = "Medusa";
 }
 
 Medusa::~Medusa(){}

@@ -7,6 +7,7 @@ Implementation for Barbarian class.
 ******************************************************************************/
 
 #include <iostream>
+#include <string>
 #include "Creature.hpp"
 #include "Barbarian.hpp"
 #include "Die.hpp"
@@ -15,6 +16,7 @@ Barbarian::Barbarian() : Creature()
 {
     this->armor = 0;
     this->strength = 12;
+    this->name = "Barbarian";
 }
 
 Barbarian::~Barbarian(){}

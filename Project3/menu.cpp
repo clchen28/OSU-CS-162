@@ -12,6 +12,11 @@ Implementation of menu-related functions
 #include <functional>
 #include "inputValidator.hpp"
 #include "Creature.hpp"
+#include "Barbarian.hpp"
+#include "BlueMen.hpp"
+#include "HarryPotter.hpp"
+#include "Medusa.hpp"
+#include "Vampire.hpp"
 
 /*
 printMenu displays the available options
@@ -35,6 +40,8 @@ void menu()
 {
     std::string creature1Name = "Barbarian";
     std::string creature2Name = "Medusa";
+    Creature* Creature1 = nullptr;
+    Creature* Creature2 = nullptr;
 
     int selection = -1;
 
@@ -82,7 +89,50 @@ void menu()
             break;
 
             case 3:
-                //
+                if (creature1Name == "Barbarian")
+                {
+                    Creature1 = new Barbarian;
+                }
+                else if (creature1Name == "Blue Men")
+                {
+                    Creature1 = new BlueMen;
+                }
+                else if (creature1Name == "Harry Potter")
+                {
+                    Creature1 = new HarryPotter;
+                }
+                else if (creature1Name == "Medusa")
+                {
+                    Creature1 = new Medusa;
+                }
+                else if (creature1Name == "Vampire")
+                {
+                    Creature1 = new Vampire;
+                }
+
+                if (creature2Name == "Barbarian")
+                {
+                    Creature2 = new Barbarian;
+                }
+                else if (creature2Name == "Blue Men")
+                {
+                    Creature2 = new BlueMen;
+                }
+                else if (creature2Name == "Harry Potter")
+                {
+                    Creature2 = new HarryPotter;
+                }
+                else if (creature2Name == "Medusa")
+                {
+                    Creature2 = new Medusa;
+                }
+                else if (creature2Name == "Vampire")
+                {
+                    Creature2 = new Vampire;
+                }
+                // playGame
+                delete Creature1;
+                delete Creature2;
                 std::cout << std::endl;
             break;
 

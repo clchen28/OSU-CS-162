@@ -7,6 +7,7 @@
 ******************************************************************************/
 
 #include <iostream>
+#include <string>
 #include "Die.hpp"
 #include "Creature.hpp"
 #include "Vampire.hpp"
@@ -22,6 +23,7 @@ Vampire::Vampire() : Creature(), CharmDie(2)
     this->armor = 1;
     this->strength = 18;
     Creature::AttackDie.setSides(12);
+    this->name = "Vampire";
 }
 
 /*

@@ -6,6 +6,7 @@
 Specification for abstract Creature class.
 ******************************************************************************/
 
+#include <string>
 #include "Die.hpp"
 
 #ifndef CREATURE_HPP
@@ -17,6 +18,7 @@ protected:
     int armor;
     int strength;
     int life;
+    std::string name;
     Die AttackDie;
     Die DefenseDie;
 public:
@@ -29,6 +31,7 @@ public:
     int getLife();
     virtual void takeDamage(int attack, int defense);
     bool isDead();
+    std::string getName();
 };
 
 #endif
