@@ -20,16 +20,23 @@ Medusa::~Medusa(){}
 
 int Medusa::rollAttack()
 {
-    int attack = AttackDie.rollDie() + AttackDie.rollDie();
-    if (attack == 12)
+    int roll = AttackDie.rollDie() + AttackDie.rollDie();
+    if (roll == 12)
     {
-        attack = 9999; // Glare
+        roll = 9999; // Glare
         std::cout << "Medusa used Glare!" << std::endl;
     }
-    return attack;
+    else
+    {
+        std::cout << "Medusa rolled " << roll << " attack points!";
+        std::cout << std::endl;
+    }
+    return roll;
 }
 
 int Medusa::rollDefense()
 {
-    return DefenseDie.rollDie();
+    int roll = DefenseDie.rollDie();
+    std::cout << "Medusa rolled " << roll << " defense points!" << std::endl;
+    return roll;
 }

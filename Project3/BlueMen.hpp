@@ -1,26 +1,26 @@
 /******************************************************************************
-** Program name: Vampire.hpp
+** Program name: BlueMen.hpp
 ** Author: Charles Chen
-** Date: 02/06/2017
+** Date: 02/07/2017
 ** Description:
-Specification for Vampire class.
+
 ******************************************************************************/
 
-#include "Die.hpp"
 #include "Creature.hpp"
 
-#ifndef VAMPIRE_HPP
-#define VAMPIRE_HPP
+#ifndef BLUEMEN_HPP
+#define BLUEMEN_HPP
 
-class Vampire : public Creature
+class BlueMen : public Creature
 {
 private:
-    Die CharmDie;
+    int numDefenseDie;
 public:
-    Vampire();
-    ~Vampire();
-    virtual int rollAttack();
+    BlueMen();
+    ~BlueMen();
     virtual int rollDefense();
+    virtual int rollAttack();
+    virtual void takeDamage(int attack, int defense);
 };
 
 #endif

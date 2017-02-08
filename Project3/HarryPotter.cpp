@@ -21,12 +21,20 @@ HarryPotter::~HarryPotter(){}
 
 int HarryPotter::rollAttack()
 {
-    return AttackDie.rollDie() + AttackDie.rollDie();
+    int roll;
+    roll = AttackDie.rollDie() + AttackDie.rollDie();
+    std::cout << "Harry Potter rolled " << roll << " attack points!";
+    std::cout << std::endl;
+    return roll;
 }
 
 int HarryPotter::rollDefense()
 {
-    return DefenseDie.rollDie() + DefenseDie.rollDie();
+    int roll;
+    roll = DefenseDie.rollDie() + DefenseDie.rollDie();
+    std::cout << "Harry Potter rolled " << roll << " defense points!";
+    std::cout << std::endl;
+    return roll;
 }
 
 void HarryPotter::takeDamage(int attack, int defense)
@@ -35,6 +43,7 @@ void HarryPotter::takeDamage(int attack, int defense)
     {
         strength -= (attack - defense - armor);
     }
+    std::cout << "Strength is now " << strength << std::endl;
 
     if (strength <= 0)
     {
@@ -43,8 +52,9 @@ void HarryPotter::takeDamage(int attack, int defense)
 
         if (life == 1)
         {
-            std::cout << "Harry Potter uses Hogwarts ability" << std::endl;
+            std::cout << "Harry Potter uses Hogwarts ability!" << std::endl;
             strength = 20;
+            std::cout << "Strength is now " << strength << std::endl;
         }
     }
 }

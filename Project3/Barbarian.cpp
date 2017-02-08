@@ -6,6 +6,7 @@
 Implementation for Barbarian class.
 ******************************************************************************/
 
+#include <iostream>
 #include "Creature.hpp"
 #include "Barbarian.hpp"
 #include "Die.hpp"
@@ -20,10 +21,15 @@ Barbarian::~Barbarian(){}
 
 int Barbarian::rollAttack()
 {
-    return AttackDie.rollDie() + AttackDie.rollDie();
+    int roll = AttackDie.rollDie() + AttackDie.rollDie();
+    std::cout << "Barbarian rolled " << roll << " attack points!" << std::endl;
+    return roll;
 }
 
 int Barbarian::rollDefense()
 {
-    return DefenseDie.rollDie() + DefenseDie.rollDie();
+    int roll = DefenseDie.rollDie() + DefenseDie.rollDie();
+    std::cout << "Barbarian rolled " << roll << " defense points!";
+    std::cout << std::endl;
+    return roll;
 }

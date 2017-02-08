@@ -73,5 +73,6 @@ void Creature::takeDamage(int attack, int defense)
         strength = 0;
         life--;
     }
+    std::cout << "Strength is now " << strength << std::endl;
 
 }

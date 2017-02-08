@@ -13,48 +13,13 @@
 #include "Medusa.hpp"
 #include "HarryPotter.hpp"
 #include "Vampire.hpp"
+#include "BlueMen.hpp"
 
 int main()
 {
     Creature* creature;
-    creature = new Vampire;
+    creature = new BlueMen;
 
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-    creature->takeDamage(3,creature->rollDefense());
-    std::cout << creature->getStrength() << std::endl;
-
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
-    std::cout << creature->rollAttack() << std::endl;
     std::cout << creature->rollAttack() << std::endl;
     std::cout << creature->rollAttack() << std::endl;
     std::cout << creature->rollAttack() << std::endl;
