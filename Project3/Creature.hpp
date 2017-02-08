@@ -28,6 +28,7 @@ public:
     int getStrength();
     int getLife();
     virtual void takeDamage(int attack, int defense);
+    bool isDead();
 };
 
 #endif

@@ -6,6 +6,7 @@
 Implementation of Creature class.
 ******************************************************************************/
 
+#include <iostream>
 #include "Creature.hpp"
 
 /*
@@ -17,7 +18,7 @@ Creature::Creature()
 {
     life = 1;
     Die AttackDie(6);
-    Die DefenseSie(6);
+    Die DefenseDie(6);
 }
 
 /*
@@ -74,5 +75,20 @@ void Creature::takeDamage(int attack, int defense)
         life--;
     }
     std::cout << "Strength is now " << strength << std::endl;
+}
 
+/*
+isDead()
+isDead returns true if the Creature is dead
+*/
+bool Creature::isDead()
+{
+    if (life <= 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
