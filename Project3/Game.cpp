@@ -7,6 +7,7 @@ Implementation of functions related to running the game.
 ******************************************************************************/
 
 #include <iostream>
+#include <random>
 #include "Game.hpp"
 #include "Creature.hpp"
 
@@ -72,4 +73,18 @@ void playGame(Creature* Creature1, Creature* Creature2)
         std::cout << "winner!" << std::endl;
     }
     return;
+}
+
+/*
+randNum(int n)
+randNum takes in a number n of integers, and will return a random integer
+between 1 and n, inclusive. Similar functionality as Die object, bundled into
+a function instead.
+*/
+int randNum(int n)
+{
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dist(1,n);
+    return dist(gen);
 }

@@ -13,5 +13,6 @@ Specification of functions related to running the game.
 
 void attackCreature(Creature* Attacker, Creature* Defender);
 void playGame(Creature* Creature1, Creature* Creature2);
+int randNum(int n);
 
 #endif

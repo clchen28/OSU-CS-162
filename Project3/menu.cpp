@@ -59,9 +59,6 @@ void menu()
                 {
                     return (input >= value1) && (input <= value2);
                 };
-    auto intInputPositive = [](int input) -> bool {return input >= 1;};
-    auto intAbove18 = [](int input) -> bool {return input >= 18;};
-    auto notEmptyString = [](std::string input) -> bool {return input != "";};
     auto allowedCreatureTypes = [](std::string input) -> bool
                 {
                     return (input == "Barbarian")
@@ -141,8 +138,15 @@ void menu()
                 {
                     Creature2 = new Vampire;
                 }
+                if (randNum(2) == 2)
+                {
+                    playGame(Creature2, Creature1);
+                }
+                else
+                {
+                    playGame(Creature1, Creature2);
+                }
 
-                playGame(Creature1, Creature2);
                 delete Creature1;
                 delete Creature2;
                 std::cout << std::endl;
@@ -169,6 +173,7 @@ void menu()
                             std::cout << "(1 or 2)" << std::endl;
                     }
                 }
+                subSelection = -1;
             break;
 
             case 4:
