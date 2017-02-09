@@ -65,6 +65,7 @@ Creature loses. If strength drops to zero, life is decremented.
 */
 void Creature::takeDamage(int attack, int defense)
 {
+    int origStrength = strength;
     if (attack > (defense + armor))
     {
         strength -= (attack - defense - armor);
@@ -75,7 +76,8 @@ void Creature::takeDamage(int attack, int defense)
         strength = 0;
         life--;
     }
-    std::cout << "Strength is now " << strength << std::endl;
+    std::cout << name << " strength was " << origStrength;
+    std::cout << ", strength is now " << strength << std::endl << std::endl;
 }
 
 /*

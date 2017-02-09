@@ -45,7 +45,7 @@ int BlueMen::rollDefense()
     {
         roll += DefenseDie.rollDie();
     }
-    std::cout << "BlueMen rolled " << roll << " defense points!";
+    std::cout << "Blue Men rolled " << roll << " defense points!";
     std::cout << std::endl;
     return roll;
 }
@@ -57,7 +57,7 @@ Returns an integer representing the roll of the Attack dice
 int BlueMen::rollAttack()
 {
     int roll = AttackDie.rollDie() + AttackDie.rollDie();
-    std::cout << "BlueMen rolled " << roll << " attack points!";
+    std::cout << "Blue Men rolled " << roll << " attack points!";
     std::cout << std::endl;
     return roll;
 }
@@ -76,11 +76,13 @@ decremented for every time that strength drops by 4 from the original value of
 */
 void BlueMen::takeDamage(int attack, int defense)
 {
+    int origStrength = strength;
     if (attack > (defense + armor))
     {
         strength -= (attack - defense - armor);
     }
-    std::cout << "Strength is now " << strength << std::endl;
+    std::cout << name << " strength was " << origStrength;
+    std::cout << ", strength is now " << strength << std::endl;
 
     // Check strength to determine if number of DefenseDie needs to be reduced
     // This if branch is set up so that the method will only change the
@@ -88,21 +90,22 @@ void BlueMen::takeDamage(int attack, int defense)
     if (numDefenseDie == 3 && strength <= 8)
     {
         numDefenseDie = 2;
-        std::cout << "Blue Man strength dropped below 8 - two Defense Die ";
+        std::cout << "Blue Men strength dropped below 8 - two Defense Die ";
         std::cout << "left!" << std::endl;
         if (strength <= 4)
         {
             numDefenseDie = 1;
-            std::cout << "Blue man strength dropped below 4 - one Defense ";
+            std::cout << "Blue Men strength dropped below 4 - one Defense ";
             std::cout << "Die left!" << std::endl;
         }
     }
     else if (numDefenseDie == 2 && strength <= 4)
     {
         numDefenseDie = 1;
-        std::cout << "Blue man strength dropped below 4 - one Defense ";
+        std::cout << "Blue Men strength dropped below 4 - one Defense ";
         std::cout << "Die left!" << std::endl;
     }
+    std::cout << std::endl;
 
     if (strength <= 0)
     {

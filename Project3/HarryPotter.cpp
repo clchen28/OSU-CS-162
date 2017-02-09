@@ -41,11 +41,13 @@ int HarryPotter::rollDefense()
 
 void HarryPotter::takeDamage(int attack, int defense)
 {
+    int origStrength = strength;
     if (attack > (defense + armor))
     {
         strength -= (attack - defense - armor);
     }
-    std::cout << "Strength is now " << strength << std::endl;
+    std::cout << name << " strength was " << origStrength;
+    std::cout << ", strength is now " << strength << std::endl << std::endl;
 
     if (strength <= 0)
     {
@@ -56,7 +58,8 @@ void HarryPotter::takeDamage(int attack, int defense)
         {
             std::cout << "Harry Potter uses Hogwarts ability!" << std::endl;
             strength = 20;
-            std::cout << "Strength is now " << strength << std::endl;
+            std::cout << name << " strength is now " << strength << std::endl;
+            std::cout << std::endl;
         }
     }
 }

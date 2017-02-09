@@ -83,6 +83,8 @@ void menu()
         // Selects submenu item
         switch (selection)
         {
+            case -1:
+                break;
             case 1:
                 inputValidator(creature1Name, allowedCreatureTypes,
                     "Enter Creature 1 type. May be Barbarian, Blue Men, Harry Potter, Medusa, or Vampire",
@@ -144,7 +146,7 @@ void menu()
                 delete Creature1;
                 delete Creature2;
                 std::cout << std::endl;
-                while (subSelection != 2)
+                while (subSelection != 2 && subSelection != 1)
                 {
                     printSubMenu();
 
@@ -157,6 +159,7 @@ void menu()
                     switch(subSelection)
                     {
                         case 1:
+                            selection = -1;
                             break;
                         case 2:
                             selection = 4;
