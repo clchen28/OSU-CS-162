@@ -17,6 +17,7 @@ Implementation of menu-related functions
 #include "HarryPotter.hpp"
 #include "Medusa.hpp"
 #include "Vampire.hpp"
+#include "Game.hpp"
 
 /*
 printMenu displays the available options
@@ -32,6 +33,13 @@ void printMenu(std::string creature1Name, std::string creature2Name)
     std::cout << "4. Exit program" << std::endl;
 }
 
+void printSubMenu()
+{
+    std::cout << "Play Again?" << std::endl;
+    std::cout << "1. Yes" << std::endl;
+    std::cout << "2. No" << std::endl;
+}
+
 /*
 menu is a function that is intended to provide a starting point for
 the fantasy game
@@ -44,6 +52,7 @@ void menu()
     Creature* Creature2 = nullptr;
 
     int selection = -1;
+    int subSelection = -1;
 
     // These lambda functions are used for the input validation function later
     auto inputBetweenTwoValues = [](int input, int value1, int value2) -> bool
@@ -130,10 +139,33 @@ void menu()
                 {
                     Creature2 = new Vampire;
                 }
-                // playGame
+
+                playGame(Creature1, Creature2);
                 delete Creature1;
                 delete Creature2;
                 std::cout << std::endl;
+                while (subSelection != 2)
+                {
+                    printSubMenu();
+
+                    std::cin >> subSelection;
+                    // cin.clear will clear the error flag in cin if an invalid
+                    // input is presented
+                    std::cin.clear();
+                    std::cin.ignore(100, '\n');
+
+                    switch(subSelection)
+                    {
+                        case 1:
+                            break;
+                        case 2:
+                            selection = 4;
+                            break;
+                        default:
+                            std::cout << "Enter a valid menu item ";
+                            std::cout << "(1 or 2)" << std::endl;
+                    }
+                }
             break;
 
             case 4:

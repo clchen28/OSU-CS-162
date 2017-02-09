@@ -12,6 +12,7 @@ Specification of the menu functions
 #define MENU_HPP
 
 void printMenu(std::string creature1Name, std::string creature2Name);
+void printSubMenu();
 void menu();
 
 #endif
