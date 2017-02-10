@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 02/07/2017
 ** Description:
-
+Implementation of BlueMen class
 ******************************************************************************/
 
 #include <iostream>
@@ -107,6 +107,7 @@ void BlueMen::takeDamage(int attack, int defense)
     }
     std::cout << std::endl;
 
+    // Decrement life if strength drops to 0
     if (strength <= 0)
     {
         strength = 0;

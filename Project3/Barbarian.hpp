@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 02/05/2017
 ** Description:
-
+Specification of Barbarian class
 ******************************************************************************/
 
 #include "Creature.hpp"

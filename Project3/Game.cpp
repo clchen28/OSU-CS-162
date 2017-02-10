@@ -7,6 +7,8 @@ Implementation of functions related to running the game.
 ******************************************************************************/
 
 #include <iostream>
+#include <thread>
+#include <chrono>
 #include <random>
 #include "Game.hpp"
 #include "Creature.hpp"
@@ -53,8 +55,9 @@ void playGame(Creature* Creature1, Creature* Creature2)
         {
             curAttacker = 1;
         }
+        std::this_thread::sleep_for (std::chrono::seconds(1));
     }
-
+    std::this_thread::sleep_for (std::chrono::seconds(1));
     // Determine which Creature is dead, print who won
     if (Creature1->isDead() && !Creature2->isDead())
     {

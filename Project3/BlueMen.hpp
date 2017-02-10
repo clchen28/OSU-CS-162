@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 02/07/2017
 ** Description:
-
+Specification of BlueMen class
 ******************************************************************************/
 
 #include "Creature.hpp"

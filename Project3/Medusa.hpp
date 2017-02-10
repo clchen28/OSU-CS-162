@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 02/05/2017
 ** Description:
-
+Specification of Medusa class
 ******************************************************************************/
 
 #ifndef MEDUSA_HPP

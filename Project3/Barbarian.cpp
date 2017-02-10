@@ -12,6 +12,10 @@ Implementation for Barbarian class.
 #include "Barbarian.hpp"
 #include "Die.hpp"
 
+/*
+Barbarian()
+Barbarian constructor sets armor and strength
+*/
 Barbarian::Barbarian() : Creature()
 {
     this->armor = 0;
@@ -19,15 +23,26 @@ Barbarian::Barbarian() : Creature()
     this->name = "Barbarian";
 }
 
+/*
+~Barbarian()
+Empty destructor
+*/
 Barbarian::~Barbarian(){}
 
+/*
+rollAttack()
+rollAttack rolls the Barbarian's attack die
+*/
 int Barbarian::rollAttack()
 {
     int roll = AttackDie.rollDie() + AttackDie.rollDie();
     std::cout << "Barbarian rolled " << roll << " attack points!" << std::endl;
     return roll;
 }
-
+/*
+rollDefense()
+rollDefense rolls the Barbarian's defense die
+*/
 int Barbarian::rollDefense()
 {
     int roll = DefenseDie.rollDie() + DefenseDie.rollDie();

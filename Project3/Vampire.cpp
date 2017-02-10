@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 02/06/2017
 ** Description:
-
+Implementation for Vampire class
 ******************************************************************************/
 
 #include <iostream>
@@ -50,6 +50,9 @@ determine if Vampire's Charm ability is activated.
 */
 int Vampire::rollDefense()
 {
+    // 50% chance of Vampire activating Charm
+    // If Vampire activates Charm, return 8888 defense points - will protect
+    // against anything except for Medusa's Glare
     if (CharmDie.rollDie() == 2)
     {
         std::cout << "Vampire uses Charm!" << std::endl;

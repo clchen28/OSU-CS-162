@@ -42,7 +42,8 @@ void printSubMenu()
 
 /*
 menu is a function that is intended to provide a starting point for
-the fantasy game
+the fantasy game. Allows the user to select creature types, and then to start
+the game.
 */
 void menu()
 {
@@ -97,6 +98,8 @@ void menu()
             break;
 
             case 3:
+                // Creates a new object for Creature 1+2 depending on user
+                // input
                 if (creature1Name == "Barbarian")
                 {
                     Creature1 = new Barbarian;
@@ -138,6 +141,8 @@ void menu()
                 {
                     Creature2 = new Vampire;
                 }
+
+                // Randomly selects the first character to attack
                 if (randNum(2) == 2)
                 {
                     playGame(Creature2, Creature1);
@@ -147,9 +152,15 @@ void menu()
                     playGame(Creature1, Creature2);
                 }
 
+                // Deallocate memory for characters when game is over
                 delete Creature1;
                 delete Creature2;
+                Creature1 = nullptr;
+                Creature2 = nullptr;
+
                 std::cout << std::endl;
+
+                // Submenu - allows user to exit, or play another game
                 while (subSelection != 2 && subSelection != 1)
                 {
                     printSubMenu();
