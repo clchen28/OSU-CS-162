@@ -83,6 +83,8 @@ void printRollResults(std::vector<int> &rolls, std::vector<int> &results)
 
 int main()
 {
+    std::cout << "Warning - this will take a few seconds to start displaying ";
+    std::cout << "outputs on flip" << std::endl;
     Creature* barbarian = new Barbarian;
     Creature* medusa = new Medusa;
     Creature* harryPotter = new HarryPotter;
@@ -204,4 +206,10 @@ int main()
     {
         attackCreature(vampire, blueMen);
     }
+
+    delete barbarian;
+    delete medusa;
+    delete harryPotter;
+    delete vampire;
+    delete blueMen;
 }
