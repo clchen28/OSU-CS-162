@@ -23,6 +23,33 @@ Medusa::Medusa() : Creature()
 }
 
 /*
+Medusa(const Medusa &RHS)
+Copy constructor copies over Medusa specific attributes
+*/
+Medusa::Medusa(const Medusa &RHS) : Creature(RHS)
+{
+    this->armor = RHS.armor;
+    this->strength = RHS.strength;
+    this->name = RHS.name;
+}
+
+/*
+operator=(const Medusa &RHS)
+Assignment operator overload copies over Medusa specific attributes
+*/
+Medusa& Medusa::operator=(const Medusa &RHS)
+{
+    if (this != &RHS)
+    {
+        Creature::operator=(RHS);
+        this->armor = RHS.armor;
+        this->strength = RHS.strength;
+        this->name = RHS.name;
+    }
+    return *this;
+}
+
+/*
 ~Medusa()
 Empty destructor
 */

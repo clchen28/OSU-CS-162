@@ -17,6 +17,8 @@ private:
     int numDefenseDie;
 public:
     BlueMen();
+    BlueMen(const BlueMen &RHS);
+    BlueMen& operator=(const BlueMen &RHS);
     ~BlueMen();
     virtual int rollDefense();
     virtual int rollAttack();

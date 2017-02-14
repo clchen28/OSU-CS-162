@@ -27,6 +27,35 @@ Vampire::Vampire() : Creature(), CharmDie(2)
 }
 
 /*
+Vampire(const Vampire &RHS)
+Copy constructor copies Vampire specific attributes
+*/
+Vampire::Vampire(const Vampire &RHS) : Creature(RHS)
+{
+    this->armor = RHS.armor;
+    this->strength = RHS.strength;
+    Creature::AttackDie.setSides(RHS.AttackDie.getSides());
+    this->name = "Vampire";
+}
+
+/*
+operator=(const Vampire &RHS)
+Assignment overload copies Vampire specific attributes
+*/
+Vampire& Vampire::operator=(const Vampire &RHS)
+{
+    if (this != &RHS)
+    {
+        Creature::operator=(RHS);
+        this->armor = RHS.armor;
+        this->strength = RHS.strength;
+        Creature::AttackDie.setSides(RHS.AttackDie.getSides());
+        this->name = "Vampire";
+    }
+    return *this;
+}
+
+/*
 ~Vampire()
 Empty destructor.
 */

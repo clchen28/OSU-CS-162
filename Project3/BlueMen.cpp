@@ -27,6 +27,39 @@ BlueMen::BlueMen() : Creature()
 }
 
 /*
+BlueMen(const BlueMen &RHS)
+Copy constructor copies BlueMen speciifc attributes, and also sets the
+number of sides on the AttackDie appropriately.
+*/
+BlueMen::BlueMen(const BlueMen &RHS) : Creature(RHS)
+{
+    this->armor = RHS.armor;
+    this->strength = RHS.strength;
+    this->numDefenseDie = RHS.numDefenseDie;
+    Creature::AttackDie.setSides(RHS.AttackDie.getSides());
+    this->name = RHS.name;
+}
+
+/*
+operator=(const BlueMen &RHS)
+Assignment overload sets BlueMen specific attributes, and also sets the number
+of sides on the AttackDie appropriately.
+*/
+BlueMen& BlueMen::operator=(const BlueMen &RHS)
+{
+    if (this != &RHS)
+    {
+        Creature::operator=(RHS);
+        this->armor = RHS.armor;
+        this->strength = RHS.strength;
+        this->numDefenseDie = RHS.numDefenseDie;
+        Creature::AttackDie.setSides(RHS.AttackDie.getSides());
+        this->name = RHS.name;
+    }
+    return *this;
+}
+
+/*
 ~BlueMen()
 Empty destructor
 */

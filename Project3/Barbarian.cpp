@@ -24,6 +24,34 @@ Barbarian::Barbarian() : Creature()
 }
 
 /*
+Barbarian(const Barbarian &RHS);
+Copy constructor ensures that Barbarian specific attributes are copied.
+*/
+Barbarian::Barbarian(const Barbarian &RHS) : Creature(RHS)
+{
+    this->armor = RHS.armor;
+    this->strength = RHS.strength;
+    this->name = RHS.name;
+}
+
+/*
+Barbarian& operator=(const Barbarian &RHS)
+Assignment operator overload calls Creature assignment overload, then sets
+Barbarian specific attributes.
+*/
+Barbarian& Barbarian::operator=(const Barbarian &RHS)
+{
+    if (this != &RHS)
+    {
+        Creature::operator=(RHS);
+        this->armor = RHS.armor;
+        this->strength = RHS.strength;
+        this->name = RHS.name;
+    }
+    return *this;
+}
+
+/*
 ~Barbarian()
 Empty destructor
 */

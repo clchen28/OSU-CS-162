@@ -23,6 +23,40 @@ Creature::Creature()
 }
 
 /*
+Creature(const Creature &RHS)
+Copy constructor. Copied Creature has its own instance of AttackDie and
+DefenseDie.
+*/
+Creature::Creature(const Creature &RHS)
+{
+    this->armor = RHS.armor;
+    this->strength = RHS.strength;
+    this->life = RHS.life;
+    this->name = RHS.name;
+    Die AttackDie(RHS.AttackDie.getSides());
+    Die DefenseDie(RHS.DefenseDie.getSides());
+}
+
+/*
+operator=(const Creature &RHS)
+Overloaded assignment operator. Copied Creature has its own instance of
+AttackDie and DefenseDie.
+*/
+Creature& Creature::operator=(const Creature &RHS)
+{
+    if (this != &RHS)
+    {
+        this->armor = RHS.armor;
+        this->strength = RHS.strength;
+        this->life = RHS.life;
+        this->name = RHS.name;
+        Die AttackDie(RHS.AttackDie.getSides());
+        Die DefenseDie(RHS.DefenseDie.getSides());
+    }
+    return *this;
+}
+
+/*
 ~Creature()
 Empty ~Creature() destructor.
 */

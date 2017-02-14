@@ -13,6 +13,8 @@ class Medusa : public Creature
 {
 public:
     Medusa();
+    Medusa(const Medusa &RHS);
+    Medusa& operator=(const Medusa &RHS);
     ~Medusa();
     virtual int rollAttack();
     virtual int rollDefense();

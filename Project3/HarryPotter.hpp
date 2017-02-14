@@ -15,6 +15,8 @@ class HarryPotter : public Creature
 {
 public:
     HarryPotter();
+    HarryPotter(const HarryPotter &RHS);
+    HarryPotter& operator=(const HarryPotter &RHS);
     ~HarryPotter();
     virtual int rollAttack();
     virtual int rollDefense();

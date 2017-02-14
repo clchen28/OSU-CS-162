@@ -24,6 +24,35 @@ HarryPotter::HarryPotter() : Creature()
 }
 
 /*
+HarryPotter(const HarryPotter &RHS)
+Copy constructor copies HarryPotter specific attributes
+*/
+HarryPotter::HarryPotter(const HarryPotter &RHS) : Creature(RHS)
+{
+    this->life = RHS.life;
+    this->armor = RHS.armor;
+    this->strength = RHS.strength;
+    this->name = RHS.name;
+}
+
+/*
+operator=(const HarryPotter &RHS)
+Assignment overload copies HarryPotter specific attributes
+*/
+HarryPotter& HarryPotter::operator=(const HarryPotter &RHS)
+{
+    if (this != &RHS)
+    {
+        Creature::operator=(RHS);
+        this->life = RHS.life;
+        this->armor = RHS.armor;
+        this->strength = RHS.strength;
+        this->name = RHS.name;
+    }
+    return *this;
+}
+
+/*
 ~HarryPotter()
 Empty destructor
 */

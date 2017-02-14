@@ -21,7 +21,7 @@ class Die
 		virtual ~Die();
 		virtual int rollDie();
 		virtual std::string getType();
-		virtual int getSides();
+		virtual int getSides() const;
 		virtual void setSides(int sides);
 	protected:
 		int sides;

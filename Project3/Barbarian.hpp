@@ -16,6 +16,8 @@ class Barbarian : public Creature
 {
 public:
     Barbarian();
+    Barbarian(const Barbarian &RHS);
+    Barbarian& operator=(const Barbarian &RHS);
     ~Barbarian();
     virtual int rollAttack();
     virtual int rollDefense();

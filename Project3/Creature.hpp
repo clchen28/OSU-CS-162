@@ -23,6 +23,8 @@ protected:
     Die DefenseDie;
 public:
     Creature();
+    Creature(const Creature &RHS);
+    Creature& operator=(const Creature &RHS);
     virtual ~Creature();
     virtual int rollAttack() = 0;
     virtual int rollDefense() = 0;

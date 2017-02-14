@@ -18,6 +18,8 @@ private:
     Die CharmDie;
 public:
     Vampire();
+    Vampire(const Vampire &RHS);
+    Vampire& operator=(const Vampire &RHS);
     ~Vampire();
     virtual int rollAttack();
     virtual int rollDefense();

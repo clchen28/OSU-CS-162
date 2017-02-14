@@ -65,7 +65,7 @@ std::string Die::getType()
 /*
 getSides() returns the number of sides of the specified Die object.
 */
-int Die::getSides()
+int Die::getSides() const
 {
     return sides;
 }
