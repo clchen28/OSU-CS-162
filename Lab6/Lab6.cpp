@@ -4,6 +4,10 @@
 ** Date: 02/12/2017
 ** Description:
 Lab6 is a demonstration of an implementation of a Linked List.
+The getNextNode and setNextNode methods do nothing other than to return
+the next node, or to set the next node based on a given parameter - that's it.
+This fulfills the intent of the Lab - manipulating the list using pointer
+operations, while maintaining data encapsulation.
 ******************************************************************************/
 
 #include <iostream>
@@ -25,14 +29,30 @@ void printMenu()
 
 struct Node
 {
-public:
+private:
     int data;
     Node* nextNode;
 
+public:
     Node(int value)
     {
         data = value;
         this->nextNode = nullptr;
+    }
+
+    int getData()
+    {
+        return data;
+    }
+
+    Node* getNextNode()
+    {
+        return nextNode;
+    }
+
+    void setNextNode(Node* newNode)
+    {
+        nextNode = newNode;
     }
 };
 
@@ -82,8 +102,8 @@ int main()
                     }
                     else
                     {
-                        tempTail->nextNode = new Node(intInput);
-                        tempTail = tempTail->nextNode;
+                        tempTail->setNextNode(new Node(intInput));
+                        tempTail = tempTail->getNextNode();
                     }
 
                     inputValidator(yOrNSelection, yOrN,
@@ -98,7 +118,7 @@ int main()
                 }
                 else
                 {
-                    tempTail->nextNode = head;
+                    tempTail->setNextNode(head);
                     head = tempHead;
                 }
 
@@ -122,8 +142,8 @@ int main()
                     }
                     else
                     {
-                        tempTail->nextNode = new Node(intInput);
-                        tempTail = tempTail->nextNode;
+                        tempTail->setNextNode(new Node(intInput));
+                        tempTail = tempTail->getNextNode();
                     }
 
                     inputValidator(yOrNSelection, yOrN,
@@ -138,7 +158,7 @@ int main()
                 }
                 else
                 {
-                    tail->nextNode = tempHead;
+                    tail->setNextNode(tempHead);
                     tail = tempTail;
                 }
 
@@ -160,7 +180,7 @@ int main()
                     // linked list
                     // In this case, linked list should be empty after
                     // deleting
-                    if (head->nextNode == nullptr)
+                    if (head->getNextNode() == nullptr)
                     {
                         delete head;
                         head = nullptr;
@@ -172,12 +192,12 @@ int main()
                     else
                     {
                         cur = head;
-                        head = head->nextNode;
+                        head = head->getNextNode();
                         delete cur;
                         cur = nullptr;
 
                         std::cout << "The new head node is ";
-                        std::cout << head->data << std::endl;
+                        std::cout << head->getData() << std::endl;
                     }
                 }
             break;
@@ -195,7 +215,7 @@ int main()
                     // linked list
                     // In this case, linked list should be empty after
                     // deleting
-                    if (head->nextNode == nullptr)
+                    if (head->getNextNode() == nullptr)
                     {
                         delete tail;
                         head = nullptr;
@@ -207,17 +227,17 @@ int main()
                     else
                     {
                         cur = head;
-                        while (cur->nextNode != tail)
+                        while (cur->getNextNode() != tail)
                         {
-                            cur = cur->nextNode;
+                            cur = cur->getNextNode();
                         }
                         delete tail;
                         tail = cur;
-                        tail->nextNode = nullptr;
+                        tail->setNextNode(nullptr);
                         cur = nullptr;
 
                         std::cout << "The new tail node is ";
-                        std::cout << tail->data << std::endl;
+                        std::cout << tail->getData() << std::endl;
                     }
                 }
             break;
@@ -233,8 +253,8 @@ int main()
                     std::cout << "Printing list..." << std::endl;
                     while (cur != nullptr)
                     {
-                        std::cout << cur->data << " " << std::endl;
-                        cur = cur->nextNode;
+                        std::cout << cur->getData() << " " << std::endl;
+                        cur = cur->getNextNode();
                     }
                 }
                 cur = nullptr;
@@ -248,7 +268,7 @@ int main()
                 else
                 {
                     std::cout << "Head node is ";
-                    std::cout << head->data << std::endl;
+                    std::cout << head->getData() << std::endl;
                 }
             break;
 
@@ -260,7 +280,7 @@ int main()
                 else
                 {
                     std::cout << "Tail node is ";
-                    std::cout << tail->data << std::endl;
+                    std::cout << tail->getData() << std::endl;
                 }
             break;
             case 8:
