@@ -4,6 +4,12 @@
 ** Date: 02/12/2017
 ** Description:
 Lab6 is a demonstration of an implementation of a Linked List.
+For the purposes of this lab, I have left the parameters of the Node struct
+public. I assume that in general, this is poor practice - we could make the
+attributes private, and use getter/setter functions to access them. However,
+because of the requirement that methods not be used to access and set the
+Nodes, I have chosen to make all attributes public, and to access them
+directly.
 ******************************************************************************/
 
 #include <iostream>
@@ -265,6 +271,19 @@ int main()
             break;
             case 8:
                 std::cout << "Exiting..." << std::endl;
+                if (head != nullptr)
+                {
+                    cur = head;
+                    while (cur != nullptr)
+                    {
+                        head = cur;
+                        cur = cur->nextNode;
+                        delete head;
+                    }
+                }
+                head = nullptr;
+                tail = nullptr;
+                cur = nullptr;
             break;
 
             default:
