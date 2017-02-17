@@ -97,7 +97,7 @@ void inputValidator(std::string &input,
 {
     std::cout << prompt << std::endl;
     std::getline(std::cin, input);
-    while (!func(input) && !isAllDigit(input))
+    while (!func(input))
     {
         std::cout << errorMsg << std::endl;
         std::cout << prompt << std::endl;

@@ -4,18 +4,31 @@
 ** Date: 02/12/2017
 ** Description:
 Lab6 is a demonstration of an implementation of a Linked List.
-For the purposes of this lab, I have left the parameters of the Node struct
-public. I assume that in general, this is poor practice - we could make the
-attributes private, and use getter/setter functions to access them. However,
-because of the requirement that methods not be used to access and set the
-Nodes, I have chosen to make all attributes public, and to access them
-directly.
+
+The main function provides an interface, allowing the user to easily create,
+manipulate, and display a linked list.
+
+The getNextNode and setNextNode methods do nothing other than to return
+the next node, or to set the next node based on a given parameter - that's it.
+This fulfills the intent of the Lab - manipulating the list using pointer
+operations, while maintaining data encapsulation.
+
+To compile:
+make
+
+To run:
+./Lab6
 ******************************************************************************/
 
 #include <iostream>
 #include <string>
+#include "Node.hpp"
 #include "inputValidator.hpp"
 
+/*
+printMenu()
+Prints the menu options for this program.
+*/
 void printMenu()
 {
     std::cout << "Select a menu option: " << std::endl;
@@ -29,27 +42,26 @@ void printMenu()
     std::cout << "8. Exit program" << std::endl;
 }
 
-struct Node
-{
-public:
-    int data;
-    Node* nextNode;
-
-    Node(int value)
-    {
-        data = value;
-        this->nextNode = nullptr;
-    }
-};
-
+/*
+main()
+Contains a menu interface for the program. main also contains an implementation
+of a linked list structure, using Node structs. The menu contains options that
+will directly manipulate the defined linked list.
+*/
 int main()
 {
+    // These pointers are pointers to linked list Nodes.
     Node* head = nullptr;
     Node* cur = nullptr;
     Node* tail = nullptr;
 
+    // These pointers are meant to be used as temporary head and tail Nodes,
+    // for when the user is adding more elements to the existing list.
     Node* tempHead = nullptr;
     Node* tempTail = nullptr;
+
+    // intInput is a placeholder for the integer data that is used to
+    // initialize a new Node.
     int intInput;
 
     int selection = -1;
@@ -74,22 +86,51 @@ int main()
         switch (selection)
         {
             case 1:
+                // Think of this menu option as a subroutine that creates a new
+                // linked list, and then stitches it with the currently
+                // existing list, such that the head of the total list points
+                // to the head of this temporary list, and the tail of this
+                // temporary list points to the old head of the whole list
+
+                // Reset these to null for new inputs
                 tempHead = nullptr;
                 tempTail = nullptr;
+
+                std::cout << "Note the following assumption about what is ";
+                std::cout << "meant by 'adding to the head' of the list.";
+                std::cout << std::endl;
+                std::cout << "Note - the numbers you enter will become the new";
+                std::cout << " head, in the order you specify." << std::endl;
+                std::cout << "e.g., say our linked list is currently ";
+                std::cout << "1->2->3" << std::endl;
+                std::cout << "If you then enter in 4, 5, 6 in that sequence,";
+                std::cout << " the new linked list will be" << std::endl;
+                std::cout << "4->5->6->1->2->3" << std::endl;
+
                 while (yOrNSelection == "y")
                 {
+                    // While the user has more integers to input into the list,
+                    // prompt for more inputs
                     inputValidator(intInput,
                         "Enter number: ",
                         "Only integer inputs are allowed");
+
                     if (tempHead == nullptr)
                     {
+                        // If this is the first element in the new temporary
+                        // list, then the head and tail are equal to the same
+                        // value
                         tempHead = new Node(intInput);
                         tempTail = tempHead;
                     }
                     else
                     {
-                        tempTail->nextNode = new Node(intInput);
-                        tempTail = tempTail->nextNode;
+                        // Otherwise, after we create the the new node,
+                        // we have to set the second to last element to point
+                        // to the new node, and the new node is now the new
+                        // tail of the list.
+                        tempTail->setNextNode(new Node(intInput));
+                        tempTail = tempTail->getNextNode();
                     }
 
                     inputValidator(yOrNSelection, yOrN,
@@ -99,12 +140,16 @@ int main()
 
                 if (head == nullptr)
                 {
+                    // If a linked list has not been created yet, then the list
+                    // we just created is the full list
                     head = tempHead;
                     tail = tempTail;
                 }
                 else
                 {
-                    tempTail->nextNode = head;
+                    // Otherwise, we have to put the newly constructed temp
+                    // list at the head of the already existing list
+                    tempTail->setNextNode(head);
                     head = tempHead;
                 }
 
@@ -114,22 +159,36 @@ int main()
             break;
 
             case 2:
+            // Think of this menu option as a subroutine that creates a new
+            // linked list, and then stitches it with the currently
+            // existing list, such that this new temporary list comes after
+            // the last element in the total list.
                 tempHead = nullptr;
                 tempTail = nullptr;
                 while (yOrNSelection == "y")
                 {
+                    // While the user has more integers to input into the list,
+                    // prompt for more inputs
                     inputValidator(intInput,
                         "Enter number: ",
                         "Only integer inputs are allowed");
+
                     if (tempHead == nullptr)
                     {
+                        // If this is the first element in the new temporary
+                        // list, then the head and tail are equal to the same
+                        // value
                         tempHead = new Node(intInput);
                         tempTail = tempHead;
                     }
                     else
                     {
-                        tempTail->nextNode = new Node(intInput);
-                        tempTail = tempTail->nextNode;
+                        // Otherwise, after we create the the new node,
+                        // we have to set the second to last element to point
+                        // to the new node, and the new node is now the new
+                        // tail of the list.
+                        tempTail->setNextNode(new Node(intInput));
+                        tempTail = tempTail->getNextNode();
                     }
 
                     inputValidator(yOrNSelection, yOrN,
@@ -139,12 +198,16 @@ int main()
 
                 if (head == nullptr)
                 {
+                    // If a linked list has not been created yet, then the list
+                    // we just created is the full list
                     head = tempHead;
                     tail = tempTail;
                 }
                 else
                 {
-                    tail->nextNode = tempHead;
+                    // Otherwise, we have to put the newly constructed temp
+                    // list at the tail of the already existing list
+                    tail->setNextNode(tempHead);
                     tail = tempTail;
                 }
 
@@ -166,7 +229,7 @@ int main()
                     // linked list
                     // In this case, linked list should be empty after
                     // deleting
-                    if (head->nextNode == nullptr)
+                    if (head->getNextNode() == nullptr)
                     {
                         delete head;
                         head = nullptr;
@@ -178,12 +241,12 @@ int main()
                     else
                     {
                         cur = head;
-                        head = head->nextNode;
+                        head = head->getNextNode();
                         delete cur;
                         cur = nullptr;
 
                         std::cout << "The new head node is ";
-                        std::cout << head->data << std::endl;
+                        std::cout << head->getData() << std::endl;
                     }
                 }
             break;
@@ -201,7 +264,7 @@ int main()
                     // linked list
                     // In this case, linked list should be empty after
                     // deleting
-                    if (head->nextNode == nullptr)
+                    if (head->getNextNode() == nullptr)
                     {
                         delete tail;
                         head = nullptr;
@@ -213,17 +276,17 @@ int main()
                     else
                     {
                         cur = head;
-                        while (cur->nextNode != tail)
+                        while (cur->getNextNode() != tail)
                         {
-                            cur = cur->nextNode;
+                            cur = cur->getNextNode();
                         }
                         delete tail;
                         tail = cur;
-                        tail->nextNode = nullptr;
+                        tail->setNextNode(nullptr);
                         cur = nullptr;
 
                         std::cout << "The new tail node is ";
-                        std::cout << tail->data << std::endl;
+                        std::cout << tail->getData() << std::endl;
                     }
                 }
             break;
@@ -236,11 +299,14 @@ int main()
                 }
                 else
                 {
+                    // Prints list
+                    // We know the tail has been reached when the next pointer
+                    // is null
                     std::cout << "Printing list..." << std::endl;
                     while (cur != nullptr)
                     {
-                        std::cout << cur->data << " " << std::endl;
-                        cur = cur->nextNode;
+                        std::cout << cur->getData() << " " << std::endl;
+                        cur = cur->getNextNode();
                     }
                 }
                 cur = nullptr;
@@ -254,7 +320,7 @@ int main()
                 else
                 {
                     std::cout << "Head node is ";
-                    std::cout << head->data << std::endl;
+                    std::cout << head->getData() << std::endl;
                 }
             break;
 
@@ -266,21 +332,27 @@ int main()
                 else
                 {
                     std::cout << "Tail node is ";
-                    std::cout << tail->data << std::endl;
+                    std::cout << tail->getData() << std::endl;
                 }
             break;
+
             case 8:
                 std::cout << "Exiting..." << std::endl;
+
+                // If there are elements in the list, we need to traverse the
+                // list and deallocate memory for every Node, so there are no
+                // memory leaks
                 if (head != nullptr)
                 {
                     cur = head;
                     while (cur != nullptr)
                     {
                         head = cur;
-                        cur = cur->nextNode;
+                        cur = cur->getNextNode();
                         delete head;
                     }
                 }
+
                 head = nullptr;
                 tail = nullptr;
                 cur = nullptr;
