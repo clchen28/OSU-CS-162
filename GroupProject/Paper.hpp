@@ -17,6 +17,9 @@ class Paper : public Tool
 public:
     Paper();
     Paper(int strength);
+    Paper(const Paper &RHS);
+    Paper& operator=(const Paper &RHS);
+    virtual ~Paper();
     virtual std::string fight(Tool* opponentTool);
 };
 

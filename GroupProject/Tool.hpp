@@ -16,8 +16,11 @@ class Tool
 public:
     Tool();
     Tool(int strength);
+    Tool(const Tool &RHS);
+    Tool& operator=(const Tool &RHS);
+    virtual ~Tool();
     void setStrength(int strength);
-    int getStrength();
+    int getStrength() const;
     char getType();
     virtual std::string fight(Tool* opponentTool) = 0;
 protected:

@@ -17,6 +17,9 @@ class Rock : public Tool
 public:
     Rock();
     Rock(int strength);
+    Rock(const Rock &RHS);
+    Rock& operator=(const Rock &RHS);
+    virtual ~Rock();
     virtual std::string fight(Tool* opponentTool);
 };
 

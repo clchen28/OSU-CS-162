@@ -30,6 +30,36 @@ Rock::Rock(int strength) : Tool(strength)
 }
 
 /*
+Rock(const Rock &RHS)
+Copy constructor creates a new Paper with the same strength as another
+*/
+Rock::Rock(const Rock &RHS) : Tool(RHS)
+{
+    this->type[0] = 'r';
+}
+
+/*
+operator=(const Rock &RHS)
+Assignment overload changes the attributes of one Rock to match that of
+the other
+*/
+Rock& Rock::operator=(const Rock &RHS)
+{
+    if (this != &RHS)
+    {
+        Tool::operator=(RHS);
+        this->type[0] = 'r';
+    }
+    return *this;
+}
+
+/*
+~Rock()
+Empty destructor
+*/
+Rock::~Rock(){}
+
+/*
 std::string Fight(Tool* opponentTool)
 Fight method takes a pointer to another Tool, and determines which will win,
 based on the relative values of their strength attributes.

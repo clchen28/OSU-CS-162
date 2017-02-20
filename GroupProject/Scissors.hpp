@@ -17,6 +17,9 @@ class Scissors : public Tool
 public:
     Scissors();
     Scissors(int strength);
+    Scissors(const Scissors &RHS);
+    Scissors& operator=(const Scissors &RHS);
+    ~Scissors();
     virtual std::string fight(Tool* opponentTool);
 };
 

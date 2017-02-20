@@ -17,10 +17,12 @@ int main()
 {
     Tool* tool1;
     Tool* tool2;
-    tool1 = new Rock;
-    tool2 = new Paper;
+    tool1 = new Scissors;
+    tool2 = new Scissors;
 
     std::cout << tool1->fight(tool2) << std::endl;
 
+    delete tool1;
+    delete tool2;
     return 0;
 }

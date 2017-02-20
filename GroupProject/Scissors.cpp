@@ -30,6 +30,36 @@ Scissors::Scissors(int strength) : Tool(strength)
 }
 
 /*
+Scissors(const Scissors &RHS)
+Copy constructor creates a new Scissors with the same strength as another
+*/
+Scissors::Scissors(const Scissors &RHS) : Tool(RHS)
+{
+    this->type[0] = 's';
+}
+
+/*
+operator=(const Scissors &RHS)
+Assignment overload changes the attributes of one Paper to match that of
+the other
+*/
+Scissors& Scissors::operator=(const Scissors &RHS)
+{
+    if (this != &RHS)
+    {
+        Tool::operator=(RHS);
+        this->type[0] = 's';
+    }
+    return *this;
+}
+
+/*
+~Scissors()
+Empty destructor
+*/
+Scissors::~Scissors(){}
+
+/*
 std::string Fight(Tool* opponentTool)
 Fight method takes a pointer to another Tool, and determines which will win,
 based on the relative values of their strength attributes.
