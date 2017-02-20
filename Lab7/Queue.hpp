@@ -24,6 +24,8 @@ public:
     void addBack(int newData);
     int getFront();
     int removeFront();
+    void printAll();
+private:
     QueueNode* front;
     QueueNode* back;
 };

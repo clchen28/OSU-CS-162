@@ -4,8 +4,8 @@
 
 CXX = g++
 CXXFLAGS = -std=c++0x
-OBJS = Queue.o Lab7.o
-SRCS = Queue.cpp Lab7.cpp
+OBJS = Queue.o inputValidator.o Lab7.o
+SRCS = Queue.cpp inputValidator.cpp Lab7.cpp
 
 all: ${OBJS}
 	${CXX} ${OBJS} -o Lab7

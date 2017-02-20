@@ -78,3 +78,21 @@ int Queue::removeFront()
 
     return removedVal;
 }
+
+void Queue::printAll()
+{
+    if (getFront() == -1)
+    {
+        std::cout << "No elements in queue" << std::endl;
+    }
+    else
+    {
+        QueueNode* temp = front;
+        do
+        {
+            std::cout << temp->data << std::endl;
+            temp = temp->next;
+        } while (temp->data != -1 && temp != front);
+    }
+    return;
+}
