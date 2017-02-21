@@ -3,7 +3,15 @@
 ** Author: Charles Chen
 ** Date: 02/19/2017
 ** Description:
+Implementation of a queue ADT. Creates a Queue object. Gives options to user
+to add values to the queue, get a value from the queue, remove a value from
+the queue, or to display the contents of the queue in order.
 
+To compile:
+make
+
+To run:
+./Lab7
 ******************************************************************************/
 
 #include <iostream>
@@ -23,9 +31,15 @@ void printMenu()
     std::cout << "x. Exit" << std::endl;
 }
 
+/*
+main()
+main contains a menu which prompts the user to interact with the queue.
+*/
 int main()
 {
     Queue queue;
+
+    // Initializes menu options
     int newVal = -1;
     char selection = 'z';
 
@@ -35,7 +49,7 @@ int main()
     while (selection != 'x')
     {
         printMenu();
-        std::cin.get(selection);
+        std::cin >> selection;
         // cin.clear will clear the error flag in cin if an invalid input is
         // presented
         std::cin.clear();
@@ -44,6 +58,7 @@ int main()
         // Selects submenu item
         switch (selection)
         {
+            // Adds an item to the queue
             case 'a':
                 inputValidator(newVal, intInputNonNeg,
                     "Enter a positive integer to add to the queue: ",
@@ -52,11 +67,13 @@ int main()
             break;
 
             case 'b':
+            // Checks to see if there are items in the queue first
                 if (queue.getFront() == -1)
                 {
                     std::cout << "There are no elements in the queue";
                     std::cout << std::endl;
                 }
+            // If there are items in the queue prints the front value
                 else
                 {
                     std::cout << "Front is " << queue.getFront() << std::endl;
@@ -64,11 +81,13 @@ int main()
             break;
 
             case 'c':
+            // Checks to see if there are items in the queue first
                 if (queue.getFront() == -1)
                 {
                     std::cout << "There are no elements in the queue";
                     std::cout << std::endl;
                 }
+            // If there are items, removes the front of the queue
                 else
                 {
                     std::cout << "Removed front: " << queue.removeFront();
@@ -77,6 +96,7 @@ int main()
             break;
 
             case 'd':
+            // Prints all items in the queue in order
                 queue.printAll();
             break;
 

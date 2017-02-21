@@ -3,7 +3,8 @@
 ** Author: Charles Chen
 ** Date: 02/19/2017
 ** Description:
-
+Specification of Queue class, and QueueNode structs which are used to construct
+a Queue.
 ******************************************************************************/
 
 #ifndef QUEUE_HPP
