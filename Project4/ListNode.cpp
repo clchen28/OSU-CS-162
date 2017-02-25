@@ -24,7 +24,6 @@ ListNode::ListNode(Creature* thisCreature)
     creature = thisCreature;
 }
 
-
 void ListNode::setNext(ListNode* nextCreature)
 {
     next = nextCreature;
@@ -48,4 +47,9 @@ ListNode* ListNode::getPrev()
 ListNode* ListNode::getNext()
 {
     return next;
+}
+
+Creature* ListNode::getCreature()
+{
+    return creature;
 }

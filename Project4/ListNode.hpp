@@ -26,6 +26,7 @@ public:
     void setPrev(ListNode* prevCreature);
     ListNode* getPrev();
     ListNode* getNext();
+    Creature* getCreature();
 };
 
 #endif
