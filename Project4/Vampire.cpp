@@ -22,6 +22,7 @@ Vampire::Vampire() : Creature(), CharmDie(2)
 {
     this->armor = 1;
     this->strength = 18;
+    this->startingStrength = 18;
     Creature::AttackDie.setSides(12);
     this->name = "Vampire";
 }
@@ -34,6 +35,7 @@ Vampire::Vampire(const Vampire &RHS) : Creature(RHS)
 {
     this->armor = RHS.armor;
     this->strength = RHS.strength;
+    this->startingStrength = RHS.startingStrength;
     Creature::AttackDie.setSides(RHS.AttackDie.getSides());
     this->name = "Vampire";
 }
@@ -49,6 +51,7 @@ Vampire& Vampire::operator=(const Vampire &RHS)
         Creature::operator=(RHS);
         this->armor = RHS.armor;
         this->strength = RHS.strength;
+        this->startingStrength = RHS.startingStrength;
         Creature::AttackDie.setSides(RHS.AttackDie.getSides());
         this->name = "Vampire";
     }

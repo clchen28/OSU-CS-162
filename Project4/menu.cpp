@@ -1,7 +1,7 @@
 /******************************************************************************
 ** Program name: menu.cpp
 ** Author: Charles Chen
-** Date: 02/07/2017
+** Date: 02/25/2017
 ** Description:
 Implementation of menu-related functions
 ******************************************************************************/
@@ -17,29 +17,9 @@ Implementation of menu-related functions
 #include "HarryPotter.hpp"
 #include "Medusa.hpp"
 #include "Vampire.hpp"
-#include "Game.hpp"
+#include "Round.hpp"
 
 /*
-printMenu displays the available options
-*/
-void printMenu(std::string creature1Name, std::string creature2Name)
-{
-    std::cout << "Select a menu option: " << std::endl;
-    std::cout << "First creature: " << creature1Name << std::endl;
-    std::cout << "Second creature: " << creature2Name << std::endl;
-    std::cout << "1. Change first creature" << std::endl;
-    std::cout << "2. Change second creature" << std::endl;
-    std::cout << "3. Start the fight!" << std::endl;
-    std::cout << "4. Exit program" << std::endl;
-}
-
-void printSubMenu()
-{
-    std::cout << "Play Again?" << std::endl;
-    std::cout << "1. Yes" << std::endl;
-    std::cout << "2. No" << std::endl;
-}
-
 /*
 menu is a function that is intended to provide a starting point for
 the fantasy game. Allows the user to select creature types, and then to start

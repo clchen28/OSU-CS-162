@@ -20,6 +20,7 @@ HarryPotter::HarryPotter() : Creature()
     this->life = 2;
     this->armor = 0;
     this->strength = 10;
+    this->startingStrength = 10;
     this->name = "Harry Potter";
 }
 
@@ -32,6 +33,7 @@ HarryPotter::HarryPotter(const HarryPotter &RHS) : Creature(RHS)
     this->life = RHS.life;
     this->armor = RHS.armor;
     this->strength = RHS.strength;
+    this->startingStrength = RHS.startingStrength;
     this->name = RHS.name;
 }
 
@@ -47,6 +49,7 @@ HarryPotter& HarryPotter::operator=(const HarryPotter &RHS)
         this->life = RHS.life;
         this->armor = RHS.armor;
         this->strength = RHS.strength;
+        this->startingStrength = RHS.startingStrength;
         this->name = RHS.name;
     }
     return *this;
@@ -113,6 +116,7 @@ void HarryPotter::takeDamage(int attack, int defense)
         {
             std::cout << "Harry Potter uses Hogwarts ability!" << std::endl;
             strength = 20;
+            startingStrength = 20;
             std::cout << name << " strength is now " << strength << std::endl;
             std::cout << std::endl;
         }

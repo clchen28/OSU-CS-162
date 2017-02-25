@@ -20,6 +20,7 @@ Barbarian::Barbarian() : Creature()
 {
     this->armor = 0;
     this->strength = 12;
+    this->startingStrength = 12;
     this->name = "Barbarian";
 }
 
@@ -31,6 +32,7 @@ Barbarian::Barbarian(const Barbarian &RHS) : Creature(RHS)
 {
     this->armor = RHS.armor;
     this->strength = RHS.strength;
+    this->startingStrength = RHS.startingStrength;
     this->name = RHS.name;
 }
 
@@ -46,6 +48,7 @@ Barbarian& Barbarian::operator=(const Barbarian &RHS)
         Creature::operator=(RHS);
         this->armor = RHS.armor;
         this->strength = RHS.strength;
+        this->startingStrength = RHS.startingStrength;
         this->name = RHS.name;
     }
     return *this;

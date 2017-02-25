@@ -1,5 +1,5 @@
 /******************************************************************************
-** Program name: Game.cpp
+** Program name: Round.cpp
 ** Author: Charles Chen
 ** Date: 02/09/2017
 ** Description:
@@ -10,7 +10,7 @@ Implementation of functions related to running the game.
 #include <thread>
 #include <chrono>
 #include <random>
-#include "Game.hpp"
+#include "Round.hpp"
 #include "Creature.hpp"
 
 /*
@@ -26,14 +26,18 @@ void attackCreature(Creature* Attacker, Creature* Defender)
 }
 
 /*
-playGame(Creature* Creature1, Creature* Creature2)
-playGame takes pointers to two Creature objects, and sets the first one to
+playRound(Creature* Creature1, Creature* Creature2)
+playRound takes pointers to two Creature objects, and sets the first one to
 attack first, and has them attack each other until one of them dies.
 */
-void playGame(Creature* Creature1, Creature* Creature2)
+void playRound(Creature* Creature1, Creature* Creature2, int roundN)
 {
     // Set first attack to Creature1
     int curAttacker = 1;
+
+    std::cout << "Round " << roundN << ": ";
+    std::cout << Creature1->getName() << "vs. " << Creature2->getName();
+    std::cout << std::endl;
     while (!Creature1->isDead() && !Creature2->isDead())
     {
         // Attack the other Creature

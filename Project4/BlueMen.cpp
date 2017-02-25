@@ -21,6 +21,7 @@ BlueMen::BlueMen() : Creature()
 {
     this->armor = 3;
     this->strength = 12;
+    this->startingStrength = 12;
     this->numDefenseDie = 3;
     Creature::AttackDie.setSides(10);
     this->name = "Blue Men";
@@ -35,6 +36,7 @@ BlueMen::BlueMen(const BlueMen &RHS) : Creature(RHS)
 {
     this->armor = RHS.armor;
     this->strength = RHS.strength;
+    this->startingStrength = RHS.startingStrength;
     this->numDefenseDie = RHS.numDefenseDie;
     Creature::AttackDie.setSides(RHS.AttackDie.getSides());
     this->name = RHS.name;
@@ -52,6 +54,7 @@ BlueMen& BlueMen::operator=(const BlueMen &RHS)
         Creature::operator=(RHS);
         this->armor = RHS.armor;
         this->strength = RHS.strength;
+        this->startingStrength = RHS.startingStrength;
         this->numDefenseDie = RHS.numDefenseDie;
         Creature::AttackDie.setSides(RHS.AttackDie.getSides());
         this->name = RHS.name;

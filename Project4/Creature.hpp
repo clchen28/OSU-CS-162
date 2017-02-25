@@ -18,6 +18,7 @@ protected:
     int armor;
     int strength;
     int life;
+    int startingStrength;
     std::string name;
     Die AttackDie;
     Die DefenseDie;
@@ -34,6 +35,7 @@ public:
     virtual void takeDamage(int attack, int defense);
     bool isDead();
     std::string getName();
+    void restoreStrength();
 };
 
 #endif

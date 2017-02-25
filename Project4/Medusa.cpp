@@ -19,6 +19,7 @@ Medusa::Medusa() : Creature()
 {
     this->armor = 3;
     this->strength = 8;
+    this->startingStrength = 8;
     this->name = "Medusa";
 }
 
@@ -30,6 +31,7 @@ Medusa::Medusa(const Medusa &RHS) : Creature(RHS)
 {
     this->armor = RHS.armor;
     this->strength = RHS.strength;
+    this->startingStrength = RHS.startingStrength;
     this->name = RHS.name;
 }
 
@@ -44,6 +46,7 @@ Medusa& Medusa::operator=(const Medusa &RHS)
         Creature::operator=(RHS);
         this->armor = RHS.armor;
         this->strength = RHS.strength;
+        this->startingStrength = RHS.startingStrength;
         this->name = RHS.name;
     }
     return *this;

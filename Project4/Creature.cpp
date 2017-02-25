@@ -31,6 +31,7 @@ Creature::Creature(const Creature &RHS)
 {
     this->armor = RHS.armor;
     this->strength = RHS.strength;
+    this->startingStrength = RHS.startingStrength;
     this->life = RHS.life;
     this->name = RHS.name;
     Die AttackDie(RHS.AttackDie.getSides());
@@ -48,6 +49,7 @@ Creature& Creature::operator=(const Creature &RHS)
     {
         this->armor = RHS.armor;
         this->strength = RHS.strength;
+        this->startingStrength = RHS.startingStrength;
         this->life = RHS.life;
         this->name = RHS.name;
         Die AttackDie(RHS.AttackDie.getSides());
@@ -137,4 +139,10 @@ Returns the type of Creature
 std::string Creature::getName()
 {
     return name;
+}
+
+void Creature::restoreStrength()
+{
+    strength = strength + (startingStrength - strength) * 2;
+    return;
 }
