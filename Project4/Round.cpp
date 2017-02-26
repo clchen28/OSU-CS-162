@@ -32,11 +32,14 @@ attack first, and has them attack each other until one of them dies.
 */
 void playRound(Creature* Creature1, Creature* Creature2, int roundN)
 {
-    // Set first attack to Creature1
-    int curAttacker = 1;
+    // Sets a random first attacker for each round
+    int curAttacker = randNum(2);
 
     std::cout << "Round " << roundN << ": ";
-    std::cout << Creature1->getName() << "vs. " << Creature2->getName();
+    std::cout << "Team A " << Creature1->getName() << " '";
+    std::cout << Creature1->getNickname() << "' vs. ";
+    std::cout << "Team B " << Creature2->getName() << " '";
+    std::cout << Creature2->getNickname() << "'";
     std::cout << std::endl;
     while (!Creature1->isDead() && !Creature2->isDead())
     {
@@ -61,22 +64,25 @@ void playRound(Creature* Creature1, Creature* Creature2, int roundN)
         }
         std::this_thread::sleep_for (std::chrono::seconds(1));
     }
-    std::this_thread::sleep_for (std::chrono::seconds(1));
     // Determine which Creature is dead, print who won
     if (Creature1->isDead() && !Creature2->isDead())
     {
-        std::cout << "Creature 1, " << Creature1->getName() << ", is dead!";
+        std::cout << "Team A " << Creature1->getName();
+        std::cout << " '" << Creature1->getNickname() << "' is dead!";
         std::cout << std::endl;
 
-        std::cout << "Creature 2, " << Creature2->getName() << ", is the ";
+        std::cout << "Team B " << Creature2->getName();
+        std::cout << " '" << Creature2->getNickname() << "' is the ";
         std::cout << "winner!" << std::endl;
     }
     else if (Creature2->isDead() && !Creature1->isDead())
     {
-        std::cout << "Creature 2, " << Creature2->getName() << ", is dead!";
+        std::cout << "Team B " << Creature2->getName();
+        std::cout << " '" << Creature2->getNickname() << "' is dead!";
         std::cout << std::endl;
 
-        std::cout << "Creature 1, " << Creature1->getName() << ", is the ";
+        std::cout << "Team A " << Creature1->getName();
+        std::cout << " '" << Creature1->getNickname() << "' is the ";
         std::cout << "winner!" << std::endl;
     }
     return;

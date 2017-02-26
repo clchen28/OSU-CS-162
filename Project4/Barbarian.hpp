@@ -16,6 +16,7 @@ class Barbarian : public Creature
 {
 public:
     Barbarian();
+    Barbarian(std::string newNickname);
     Barbarian(const Barbarian &RHS);
     Barbarian& operator=(const Barbarian &RHS);
     ~Barbarian();

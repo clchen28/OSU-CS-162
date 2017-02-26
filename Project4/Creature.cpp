@@ -7,6 +7,7 @@ Implementation of Creature class.
 ******************************************************************************/
 
 #include <iostream>
+#include <string>
 #include "Creature.hpp"
 
 /*
@@ -23,6 +24,20 @@ Creature::Creature()
 }
 
 /*
+Creature()
+Creature() constructor creates a new Creature object, and initializes a
+common life attribute for all Creature objects.
+*/
+Creature::Creature(std::string newNickname)
+{
+    life = 1;
+    Die AttackDie(6);
+    Die DefenseDie(6);
+    name = "Creature";
+    nickname = newNickname;
+}
+
+/*
 Creature(const Creature &RHS)
 Copy constructor. Copied Creature has its own instance of AttackDie and
 DefenseDie.
@@ -34,6 +49,7 @@ Creature::Creature(const Creature &RHS)
     this->startingStrength = RHS.startingStrength;
     this->life = RHS.life;
     this->name = RHS.name;
+    this->nickname = RHS.nickname;
     Die AttackDie(RHS.AttackDie.getSides());
     Die DefenseDie(RHS.DefenseDie.getSides());
 }
@@ -52,6 +68,7 @@ Creature& Creature::operator=(const Creature &RHS)
         this->startingStrength = RHS.startingStrength;
         this->life = RHS.life;
         this->name = RHS.name;
+        this->nickname = RHS.nickname;
         Die AttackDie(RHS.AttackDie.getSides());
         Die DefenseDie(RHS.DefenseDie.getSides());
     }
@@ -141,8 +158,22 @@ std::string Creature::getName()
     return name;
 }
 
+void Creature::setNickname(std::string newNickname)
+{
+    nickname = newNickname;
+}
+
+std::string Creature::getNickname()
+{
+    return nickname;
+}
+
 void Creature::restoreStrength()
 {
-    strength = strength + (startingStrength - strength) * 2;
+    std::cout << getName() << " strength was " << std::to_string(strength);
+    std::cout << std::endl;
+    strength = strength + (startingStrength - strength) / 2;
+    std::cout << getName() << " strength is now " << std::to_string(strength);
+    std::cout << std::endl;
     return;
 }

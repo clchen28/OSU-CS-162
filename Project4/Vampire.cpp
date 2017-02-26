@@ -28,6 +28,21 @@ Vampire::Vampire() : Creature(), CharmDie(2)
 }
 
 /*
+Vampire()
+Vampire constructor. Creates a new vampire with appropriate armor and
+strength. Vampire also has a Charm ability, which has a 50% chance of
+activating. This is controlled by a CharmDie, which is initialized here.
+*/
+Vampire::Vampire(std::string newNickname) : Creature(newNickname), CharmDie(2)
+{
+    this->armor = 1;
+    this->strength = 18;
+    this->startingStrength = 18;
+    Creature::AttackDie.setSides(12);
+    this->name = "Vampire";
+}
+
+/*
 Vampire(const Vampire &RHS)
 Copy constructor copies Vampire specific attributes
 */

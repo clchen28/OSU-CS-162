@@ -28,6 +28,22 @@ BlueMen::BlueMen() : Creature()
 }
 
 /*
+BlueMen()
+Creates a new BlueMen object. Sets armor and strength attributes. BlueMen
+defense attribute scales with strength, so numDefenseDie is initialized here
+as well.
+*/
+BlueMen::BlueMen(std::string newNickname) : Creature(newNickname)
+{
+    this->armor = 3;
+    this->strength = 12;
+    this->startingStrength = 12;
+    this->numDefenseDie = 3;
+    Creature::AttackDie.setSides(10);
+    this->name = "Blue Men";
+}
+
+/*
 BlueMen(const BlueMen &RHS)
 Copy constructor copies BlueMen speciifc attributes, and also sets the
 number of sides on the AttackDie appropriately.

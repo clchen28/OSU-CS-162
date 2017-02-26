@@ -15,6 +15,7 @@ class HarryPotter : public Creature
 {
 public:
     HarryPotter();
+    HarryPotter(std::string newNickname);
     HarryPotter(const HarryPotter &RHS);
     HarryPotter& operator=(const HarryPotter &RHS);
     ~HarryPotter();

@@ -36,6 +36,7 @@ void inputValidator(int &input, std::function<bool (int &input)> func,
         std::cout << prompt << std::endl;
     }
     std::cin.clear();
+    std::cin.ignore(100, '\n');
 }
 
 void inputValidator(int &input, std::string prompt, std::string errorMsg)
@@ -51,6 +52,7 @@ void inputValidator(int &input, std::string prompt, std::string errorMsg)
         std::cout << prompt << std::endl;
     }
     std::cin.clear();
+    std::cin.ignore(100, '\n');
 
 }
 
@@ -72,6 +74,7 @@ void inputValidator(float &input, std::function<bool (float &input)> func,
         std::cout << prompt << std::endl;
     }
     std::cin.clear();
+    std::cin.ignore(100, '\n');
 
 }
 

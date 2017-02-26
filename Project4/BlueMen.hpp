@@ -17,6 +17,7 @@ private:
     int numDefenseDie;
 public:
     BlueMen();
+    BlueMen(std::string newNickname);
     BlueMen(const BlueMen &RHS);
     BlueMen& operator=(const BlueMen &RHS);
     ~BlueMen();

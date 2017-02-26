@@ -20,10 +20,12 @@ protected:
     int life;
     int startingStrength;
     std::string name;
+    std::string nickname;
     Die AttackDie;
     Die DefenseDie;
 public:
     Creature();
+    Creature(std::string newNickname);
     Creature(const Creature &RHS);
     Creature& operator=(const Creature &RHS);
     virtual ~Creature();
@@ -35,6 +37,8 @@ public:
     virtual void takeDamage(int attack, int defense);
     bool isDead();
     std::string getName();
+    void setNickname(std::string newNickname);
+    std::string getNickname();
     void restoreStrength();
 };
 

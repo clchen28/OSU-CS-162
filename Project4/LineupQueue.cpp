@@ -12,14 +12,14 @@
 
 LineupQueue::LineupQueue()
 {
-    stackSize = 0;
+    queueSize = 0;
     front = nullptr;
     back = nullptr;
 }
 
 LineupQueue::~LineupQueue()
 {
-    if (stackSize == 0)
+    if (queueSize == 0)
     {
         return;
     }
@@ -39,7 +39,7 @@ LineupQueue::~LineupQueue()
 void LineupQueue::addCreature(Creature* newCreature)
 {
     ListNode* newNode = new ListNode(newCreature);
-    if (stackSize == 0)
+    if (queueSize == 0)
     {
         front = newNode;
         back = newNode;
@@ -54,12 +54,12 @@ void LineupQueue::addCreature(Creature* newCreature)
         front->setPrev(newNode);
         back = newNode;
     }
-    stackSize++;
+    queueSize++;
 }
 
 Creature* LineupQueue::popCreature()
 {
-    if (stackSize == 0)
+    if (queueSize == 0)
     {
         return nullptr;
     }
@@ -72,14 +72,14 @@ Creature* LineupQueue::popCreature()
         front->setPrev(back);
         delete popped;
 
-        stackSize--;
+        queueSize--;
         return poppedCreature;
     }
 }
 
 void LineupQueue::advanceQueue()
 {
-    if (stackSize != 0)
+    if (queueSize != 0)
     {
         back = front;
         front = front->getNext();
@@ -88,7 +88,7 @@ void LineupQueue::advanceQueue()
 
 Creature* LineupQueue::getCreature()
 {
-    if (stackSize == 0)
+    if (queueSize == 0)
     {
         return nullptr;
     }
@@ -96,4 +96,9 @@ Creature* LineupQueue::getCreature()
     {
         return front->getCreature();
     }
+}
+
+int LineupQueue::getSize()
+{
+    return queueSize;
 }

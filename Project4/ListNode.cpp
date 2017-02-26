@@ -39,6 +39,11 @@ std::string ListNode::getName()
     return creature->getName();
 }
 
+std::string ListNode::getNickname()
+{
+    return creature->getNickname();
+}
+
 ListNode* ListNode::getPrev()
 {
     return prev;

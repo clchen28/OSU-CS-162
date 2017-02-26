@@ -18,6 +18,7 @@ private:
     Die CharmDie;
 public:
     Vampire();
+    Vampire(std::string newNickname);
     Vampire(const Vampire &RHS);
     Vampire& operator=(const Vampire &RHS);
     ~Vampire();

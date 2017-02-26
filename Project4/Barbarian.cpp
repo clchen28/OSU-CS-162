@@ -25,6 +25,18 @@ Barbarian::Barbarian() : Creature()
 }
 
 /*
+Barbarian()
+Barbarian constructor sets armor and strength
+*/
+Barbarian::Barbarian(std::string newNickname) : Creature(newNickname)
+{
+    this->armor = 0;
+    this->strength = 12;
+    this->startingStrength = 12;
+    this->name = "Barbarian";
+}
+
+/*
 Barbarian(const Barbarian &RHS);
 Copy constructor ensures that Barbarian specific attributes are copied.
 */

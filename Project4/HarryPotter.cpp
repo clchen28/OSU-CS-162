@@ -25,6 +25,19 @@ HarryPotter::HarryPotter() : Creature()
 }
 
 /*
+HarryPotter()
+Constructor sets life, armor, strength, and name
+*/
+HarryPotter::HarryPotter(std::string newNickname) : Creature(newNickname)
+{
+    this->life = 2;
+    this->armor = 0;
+    this->strength = 10;
+    this->startingStrength = 10;
+    this->name = "Harry Potter";
+}
+
+/*
 HarryPotter(const HarryPotter &RHS)
 Copy constructor copies HarryPotter specific attributes
 */

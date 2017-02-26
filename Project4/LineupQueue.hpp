@@ -15,7 +15,7 @@
 class LineupQueue
 {
 protected:
-    int stackSize;
+    int queueSize;
     ListNode* front;
     ListNode* back;
 public:
@@ -25,6 +25,7 @@ public:
     Creature* popCreature();
     void advanceQueue();
     Creature* getCreature();
+    int getSize();
 };
 
 #endif

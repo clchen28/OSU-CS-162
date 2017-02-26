@@ -61,10 +61,10 @@ void LoserStack::printLosers()
     else
     {
         ListNode* cur = top;
-        std::cout << "Losers:" << std::endl;
         for (int i = 0; i < stackSize; i++)
         {
-            std::cout << cur->getName() << std::endl;
+            std::cout << cur->getName() << " '" << cur->getNickname();
+            std::cout << "' " << std::endl;
             cur = cur->getPrev();
         }
     }

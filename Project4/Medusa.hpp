@@ -13,6 +13,7 @@ class Medusa : public Creature
 {
 public:
     Medusa();
+    Medusa(std::string newNickname);
     Medusa(const Medusa &RHS);
     Medusa& operator=(const Medusa &RHS);
     ~Medusa();

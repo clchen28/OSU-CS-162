@@ -24,6 +24,18 @@ Medusa::Medusa() : Creature()
 }
 
 /*
+Medusa()
+Constructor sets armor, strength, and name
+*/
+Medusa::Medusa(std::string newNickname) : Creature(newNickname)
+{
+    this->armor = 3;
+    this->strength = 8;
+    this->startingStrength = 8;
+    this->name = "Medusa";
+}
+
+/*
 Medusa(const Medusa &RHS)
 Copy constructor copies over Medusa specific attributes
 */

@@ -22,6 +22,7 @@ public:
     ListNode();
     ListNode(Creature* creature);
     std::string getName();
+    std::string getNickname();
     void setNext(ListNode* nextCeature);
     void setPrev(ListNode* prevCreature);
     ListNode* getPrev();
