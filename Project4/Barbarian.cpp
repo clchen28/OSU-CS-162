@@ -25,8 +25,8 @@ Barbarian::Barbarian() : Creature()
 }
 
 /*
-Barbarian()
-Barbarian constructor sets armor and strength
+Barbarian(std::string newNickname)
+Barbarian constructor sets armor, strength, and nickname
 */
 Barbarian::Barbarian(std::string newNickname) : Creature(newNickname)
 {

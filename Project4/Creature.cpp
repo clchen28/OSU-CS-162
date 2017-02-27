@@ -24,9 +24,9 @@ Creature::Creature()
 }
 
 /*
-Creature()
-Creature() constructor creates a new Creature object, and initializes a
-common life attribute for all Creature objects.
+Creature(std::string newNickname)
+Constructor creates a new Creature object, and initializes a common life
+attribute for all Creature objects. Also sets nickname.
 */
 Creature::Creature(std::string newNickname)
 {
@@ -159,21 +159,38 @@ std::string Creature::getName()
     return name;
 }
 
+/*
+setNickname(std::string newNickname)
+Sets nickname of this creature
+*/
 void Creature::setNickname(std::string newNickname)
 {
     nickname = newNickname;
 }
 
+/*
+getNickname()
+Returns the string containing this creature's nickname
+*/
 std::string Creature::getNickname()
 {
     return nickname;
 }
 
+/*
+getNameAndNickname()
+Returns a string with this creature's name and nickname
+*/
 std::string Creature::getNameAndNickname()
 {
     return name + " '" + nickname + "'";
 }
 
+/*
+restoreStrength()
+Uses the originalStrength attribute to determine how much strength has been
+lost in battle, and restores half of the strength that was lost.
+*/
 void Creature::restoreStrength()
 {
     std::cout << getNameAndNickname();

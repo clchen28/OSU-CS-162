@@ -3,13 +3,17 @@
 ** Author: Charles Chen
 ** Date: 02/25/2017
 ** Description:
-
+Implementation of LoserStack, a stack-like ADT to contain Losers.
 ******************************************************************************/
 
 #include <iostream>
 #include "LoserStack.hpp"
 #include "ListNode.hpp"
 
+/*
+LoserStack()
+Constructor creates a new LoserStack with a size of 0.
+*/
 LoserStack::LoserStack()
 {
     stackSize = 0;
@@ -17,6 +21,11 @@ LoserStack::LoserStack()
     top = nullptr;
 }
 
+/*
+~LoserStack()
+Destructor deallocates memory for every ListNode that was allocated for this
+Stack.
+*/
 LoserStack::~LoserStack()
 {
     if (stackSize == 0)
@@ -35,9 +44,16 @@ LoserStack::~LoserStack()
     }
 }
 
+/*
+addCreature(Creature*)
+addCreature takes a pointer to a Creature, and adds it to the top of the
+stack.
+*/
 void LoserStack::addCreature(Creature* creature)
 {
     ListNode* newNode = new ListNode(creature);
+    // If this is the first Node, then have the bottom and top of the stack
+    // be the new Node
     if (stackSize == 0)
     {
         bottom = newNode;
@@ -45,6 +61,8 @@ void LoserStack::addCreature(Creature* creature)
     }
     else
     {
+        // Otherwise, the top of the stack should be the Node that was just
+        // added, as this is a First In - Last Out ADT.
         top->setNext(newNode);
         newNode->setPrev(top);
         top = newNode;
@@ -52,6 +70,11 @@ void LoserStack::addCreature(Creature* creature)
     stackSize++;
 }
 
+/*
+printLosers()
+Prints the name and nickname of the losers, in the order of top to bottom of
+stack.
+*/
 void LoserStack::printLosers()
 {
     if (stackSize == 0)

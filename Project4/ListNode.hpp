@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 02/24/2017
 ** Description:
-
+Specification of ListNode class.
 ******************************************************************************/
 
 #include <string>

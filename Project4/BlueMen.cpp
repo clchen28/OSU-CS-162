@@ -28,10 +28,10 @@ BlueMen::BlueMen() : Creature()
 }
 
 /*
-BlueMen()
+BlueMen(std::string newNickname)
 Creates a new BlueMen object. Sets armor and strength attributes. BlueMen
 defense attribute scales with strength, so numDefenseDie is initialized here
-as well.
+as well. Also sets nickname.
 */
 BlueMen::BlueMen(std::string newNickname) : Creature(newNickname)
 {

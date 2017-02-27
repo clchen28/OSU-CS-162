@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 02/26/2017
 ** Description:
-
+Specification of Tournament class.
 ******************************************************************************/
 
 #include "LineupQueue.hpp"

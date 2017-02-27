@@ -1,4 +1,4 @@
-# Lab5 makefile
+# Project4 makefile
 # Author: Charles Chen
 # Date: 02/05/2017
 

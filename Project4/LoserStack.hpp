@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 02/25/2017
 ** Description:
-
+Specification of LoserStack.
 ******************************************************************************/
 
 #include "ListNode.hpp"

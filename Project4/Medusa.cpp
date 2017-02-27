@@ -24,8 +24,8 @@ Medusa::Medusa() : Creature()
 }
 
 /*
-Medusa()
-Constructor sets armor, strength, and name
+Medusa(std::string newNickname)
+Constructor sets armor, strength, name, and nickname
 */
 Medusa::Medusa(std::string newNickname) : Creature(newNickname)
 {

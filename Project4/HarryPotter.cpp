@@ -25,8 +25,8 @@ HarryPotter::HarryPotter() : Creature()
 }
 
 /*
-HarryPotter()
-Constructor sets life, armor, strength, and name
+HarryPotter(std::string nickname)
+Constructor sets life, armor, strength, name, and nickname
 */
 HarryPotter::HarryPotter(std::string newNickname) : Creature(newNickname)
 {

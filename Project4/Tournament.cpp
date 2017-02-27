@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 02/26/2017
 ** Description:
-
+Implementation of Tournament class.
 ******************************************************************************/
 
 #include <iostream>
@@ -22,6 +22,11 @@
 #include "Medusa.hpp"
 #include "Vampire.hpp"
 
+/*
+Tournament(int creatures)
+Tournament constructor creates a new Tournament, with the specified number
+of creatures for both teams.
+*/
 Tournament::Tournament(int creatures)
 {
     numCreatures = creatures;
@@ -30,8 +35,17 @@ Tournament::Tournament(int creatures)
     scoreB = 0;
 }
 
+/*
+~Tournament()
+Empty destructor
+*/
 Tournament::~Tournament(){}
 
+/*
+setLineup()
+setLineup provides a prompt for the user to define the lineups for both teams,
+based on the number of characters each side has.
+*/
 void Tournament::setLineup()
 {
     std::string prompt;
@@ -60,7 +74,7 @@ void Tournament::setLineup()
                     }
                     return (input != "" && !allSpaces);
                 };
-
+    // Prompts user for creature type and creature nicknames for both teams
     for (int i = 1; i <= numCreatures; i++)
     {
         prompt = "Enter creature type for creature " + std::to_string(i);
@@ -222,13 +236,21 @@ int Tournament::randNum(int n)
     return dist(gen);
 }
 
+/*
+playGame()
+playGame runs through the Tournament until one team has no more characters
+left.
+*/
 void Tournament::playGame()
 {
+    // Runs fights until one team runs out of characters in the lineup
     while (lineupA.getSize() > 0 && lineupB.getSize() > 0)
     {
         playRound(lineupA.getCreature(), lineupB.getCreature(), roundNum);
         if (lineupA.getCreature()->isDead())
         {
+            // Removes dead character from lineup, and moves it to the loser
+            // stack
             loserA.addCreature(lineupA.popCreature());
             lineupB.getCreature()->restoreStrength();
             lineupB.advanceQueue();
@@ -247,6 +269,11 @@ void Tournament::playGame()
     printScore();
 }
 
+
+/*
+printScore()
+Prints the current score of the Tournament
+*/
 void Tournament::printScore()
 {
     std::cout << "Score: Team A " << scoreA;
@@ -254,6 +281,10 @@ void Tournament::printScore()
     printWinner();
 }
 
+/*
+printLosers()
+Prints the characters in each team's loser stack
+*/
 void Tournament::printLosers()
 {
     std::cout << "Losers:" << std::endl;
@@ -263,6 +294,11 @@ void Tournament::printLosers()
     loserB.printLosers();
 }
 
+/*
+printWinner()
+Determines which team has a higher score, and prints a message to declare
+which team won the Tournament
+*/
 void Tournament::printWinner()
 {
     if ( !(lineupA.getSize() > 0 && lineupB.getSize() > 0) )
