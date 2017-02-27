@@ -22,6 +22,8 @@ public:
     ~LoserStack();
     void addCreature(Creature* newCreature);
     void printLosers();
+    int getSize();
+    Creature* popCreature();
 };
 
 #endif

@@ -92,3 +92,37 @@ void LoserStack::printLosers()
         }
     }
 }
+
+// getSize()
+// getSize() returns the size of the Stack.
+int LoserStack::getSize()
+{
+    return stackSize;
+}
+
+/*
+popCreature()
+popCreature will pop off the top of the Stack. It returns a pointer to the
+Creature currently at the top of the Stack, and removes it from the Stack.
+*/
+Creature* LoserStack::popCreature()
+{
+    // If there is nothing at the top of the Stack, then return null
+    if (stackSize == 0)
+    {
+        return nullptr;
+    }
+    else
+    {
+        ListNode* popped = top;
+        Creature* poppedCreature = top->getCreature();
+        if (top->getPrev() != nullptr)
+        {
+            top = top->getPrev();
+            top->setNext(nullptr);
+        }
+        delete popped;
+        stackSize--;
+        return poppedCreature;
+    }
+}

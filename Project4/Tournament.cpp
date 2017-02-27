@@ -37,9 +37,27 @@ Tournament::Tournament(int creatures)
 
 /*
 ~Tournament()
-Empty destructor
+
 */
-Tournament::~Tournament(){}
+Tournament::~Tournament()
+{
+    while (lineupA.getSize() > 0)
+    {
+        delete lineupA.popCreature();
+    }
+    while (loserA.getSize() > 0)
+    {
+        delete loserA.popCreature();
+    }
+    while (lineupB.getSize() > 0)
+    {
+        delete lineupB.popCreature();
+    }
+    while (loserB.getSize() > 0)
+    {
+        delete loserB.popCreature();
+    }
+}
 
 /*
 setLineup()
@@ -276,8 +294,8 @@ Prints the current score of the Tournament
 */
 void Tournament::printScore()
 {
-    std::cout << "Score: Team A " << scoreA;
-    std::cout << ", Team B " << scoreB << std::endl;
+    std::cout << "Score - Team A: " << scoreA;
+    std::cout << ", Team B: " << scoreB << std::endl;
     printWinner();
 }
 
