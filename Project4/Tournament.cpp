@@ -281,10 +281,11 @@ void Tournament::playGame()
             lineupA.advanceQueue();
             scoreA++;
         }
+        printScore();
         roundNum++;
     }
     printLosers();
-    printScore();
+    printWinner();
 }
 
 
@@ -296,7 +297,6 @@ void Tournament::printScore()
 {
     std::cout << "Score - Team A: " << scoreA;
     std::cout << ", Team B: " << scoreB << std::endl;
-    printWinner();
 }
 
 /*

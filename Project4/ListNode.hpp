@@ -23,7 +23,7 @@ public:
     ListNode(Creature* creature);
     std::string getName();
     std::string getNickname();
-    void setNext(ListNode* nextCeature);
+    void setNext(ListNode* nextCreature);
     void setPrev(ListNode* prevCreature);
     ListNode* getPrev();
     ListNode* getNext();
