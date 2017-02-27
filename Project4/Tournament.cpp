@@ -37,7 +37,7 @@ Tournament::Tournament(int creatures)
 
 /*
 ~Tournament()
-
+Destructor deallocates memory that was allocated for each Creature.
 */
 Tournament::~Tournament()
 {
