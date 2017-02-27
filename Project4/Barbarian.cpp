@@ -79,7 +79,8 @@ rollAttack rolls the Barbarian's attack die
 int Barbarian::rollAttack()
 {
     int roll = AttackDie.rollDie() + AttackDie.rollDie();
-    std::cout << "Barbarian rolled " << roll << " attack points!" << std::endl;
+    std::cout << getNameAndNickname();
+    std::cout << " rolled " << roll << " attack points!" << std::endl;
     return roll;
 }
 /*
@@ -89,7 +90,8 @@ rollDefense rolls the Barbarian's defense die
 int Barbarian::rollDefense()
 {
     int roll = DefenseDie.rollDie() + DefenseDie.rollDie();
-    std::cout << "Barbarian rolled " << roll << " defense points!";
+    std::cout << getNameAndNickname();
+    std::cout << " rolled " << roll << " defense points!";
     std::cout << std::endl;
     return roll;
 }

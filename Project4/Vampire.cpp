@@ -86,7 +86,8 @@ Rolls the attack die for the Vampire
 int Vampire::rollAttack()
 {
     int roll = AttackDie.rollDie();
-    std::cout << "Vampire rolled " << roll << " attack points!" << std::endl;
+    std::cout << getNameAndNickname();
+    std::cout << " rolled " << roll << " attack points!" << std::endl;
     return roll;
 }
 
@@ -102,13 +103,15 @@ int Vampire::rollDefense()
     // against anything except for Medusa's Glare
     if (CharmDie.rollDie() == 2)
     {
-        std::cout << "Vampire uses Charm!" << std::endl;
+        std::cout << getNameAndNickname();
+        std::cout << " uses Charm!" << std::endl;
         return 8888; // Charm
     }
     else
     {
         int roll = DefenseDie.rollDie();
-        std::cout << "Vampire rolled " << roll << " defense points!";
+        std::cout << getNameAndNickname();
+        std::cout << " rolled " << roll << " defense points!";
         std::cout << std::endl;
         return roll;
     }

@@ -83,11 +83,13 @@ int Medusa::rollAttack()
     if (roll == 12)
     {
         roll = 9999; // Glare
-        std::cout << "Medusa used Glare!" << std::endl;
+        std::cout << getNameAndNickname();
+        std::cout << " used Glare!" << std::endl;
     }
     else
     {
-        std::cout << "Medusa rolled " << roll << " attack points!";
+        std::cout << getNameAndNickname();
+        std::cout << " rolled " << roll << " attack points!";
         std::cout << std::endl;
     }
     return roll;
@@ -100,6 +102,7 @@ rollDefense rolls Medusa's defense die
 int Medusa::rollDefense()
 {
     int roll = DefenseDie.rollDie();
-    std::cout << "Medusa rolled " << roll << " defense points!" << std::endl;
+    std::cout << getNameAndNickname();
+    std::cout << " rolled " << roll << " defense points!" << std::endl;
     return roll;
 }

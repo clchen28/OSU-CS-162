@@ -129,7 +129,8 @@ void Creature::takeDamage(int attack, int defense)
         strength = 0;
         life--;
     }
-    std::cout << name << " strength was " << origStrength;
+    std::cout << name << " '" << nickname << "' strength was ";
+    std::cout << origStrength;
     std::cout << ", strength is now " << strength << std::endl << std::endl;
 }
 
@@ -168,12 +169,19 @@ std::string Creature::getNickname()
     return nickname;
 }
 
+std::string Creature::getNameAndNickname()
+{
+    return name + " '" + nickname + "'";
+}
+
 void Creature::restoreStrength()
 {
-    std::cout << getName() << " strength was " << std::to_string(strength);
+    std::cout << getNameAndNickname();
+    std::cout << " strength was " << std::to_string(strength);
     std::cout << std::endl;
     strength = strength + (startingStrength - strength) / 2;
-    std::cout << getName() << " strength is now " << std::to_string(strength);
+    std::cout << getNameAndNickname();
+    std::cout << " strength is now " << std::to_string(strength);
     std::cout << std::endl;
     return;
 }

@@ -82,7 +82,8 @@ int HarryPotter::rollAttack()
 {
     int roll;
     roll = AttackDie.rollDie() + AttackDie.rollDie();
-    std::cout << "Harry Potter rolled " << roll << " attack points!";
+    std::cout << getNameAndNickname();
+    std::cout << " rolled " << roll << " attack points!";
     std::cout << std::endl;
     return roll;
 }
@@ -95,7 +96,8 @@ int HarryPotter::rollDefense()
 {
     int roll;
     roll = DefenseDie.rollDie() + DefenseDie.rollDie();
-    std::cout << "Harry Potter rolled " << roll << " defense points!";
+    std::cout << getNameAndNickname();
+    std::cout << " rolled " << roll << " defense points!";
     std::cout << std::endl;
     return roll;
 }
@@ -115,7 +117,7 @@ void HarryPotter::takeDamage(int attack, int defense)
     {
         strength -= (attack - defense - armor);
     }
-    std::cout << name << " strength was " << origStrength;
+    std::cout << getNameAndNickname() << " strength was " << origStrength;
     std::cout << ", strength is now " << strength << std::endl << std::endl;
 
     // If strength drops to 0, decrement one life
@@ -127,10 +129,12 @@ void HarryPotter::takeDamage(int attack, int defense)
         // If Harry has just lost his first life, reincarnate with 20 strength
         if (life == 1)
         {
-            std::cout << "Harry Potter uses Hogwarts ability!" << std::endl;
+            std::cout << getNameAndNickname();
+            std::cout << " uses Hogwarts ability!" << std::endl;
             strength = 20;
             startingStrength = 20;
-            std::cout << name << " strength is now " << strength << std::endl;
+            std::cout << getNameAndNickname();
+            std::cout << " strength is now " << strength << std::endl;
             std::cout << std::endl;
         }
     }

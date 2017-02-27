@@ -39,6 +39,7 @@ public:
     std::string getName();
     void setNickname(std::string newNickname);
     std::string getNickname();
+    std::string getNameAndNickname();
     void restoreStrength();
 };
 
