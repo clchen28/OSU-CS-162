@@ -26,14 +26,15 @@ private:
     int scoreB;
     void attackCreature(Creature* Attacker, Creature* Defender);
     int randNum(int n);
+    void playRound(Creature* Creature1, Creature* Creature2, int roundN);
+    void printScore();
+    void printLosers();
+    void printWinner();
 public:
     Tournament(int creatures);
     ~Tournament();
-    void playRound(Creature* Creature1, Creature* Creature2, int roundN);
     void playGame();
     void setLineup();
-    void printScore();
-    void printLosers();
 };
 
 #endif

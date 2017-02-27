@@ -243,8 +243,8 @@ void Tournament::playGame()
         }
         roundNum++;
     }
-    printScore();
     printLosers();
+    printScore();
 }
 
 void Tournament::printScore()
