@@ -3,7 +3,14 @@
 ** Author: Charles Chen
 ** Date: 02/25/2017
 ** Description:
+Project 4 is an implementation of a Tournament-style battle between multiple
+characters, with Creatures that the user can select.
 
+To compile:
+make
+
+To run:
+./Project4
 ******************************************************************************/
 
 #include <string>
