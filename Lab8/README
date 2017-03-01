@@ -1,0 +1,17 @@
+To compile linearSearch segment:
+make linearSearch
+
+To run linearSearch code:
+./linearSearch
+
+To compile selectionSort segment:
+make selectionSort
+
+To run selectionSort code:
+./selectionSort
+
+To compile binarySearch segment:
+make binarySearch
+
+To run binarySearch code:
+./binarySearch
