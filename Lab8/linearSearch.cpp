@@ -89,6 +89,12 @@ int main()
     std::cout << "Index of 0 in 'late' vector: ";
     std::cout << linearSearch(late, 0) << std::endl;
 
+    std::cout << "Index of 10 in 'late' vector: ";
+    std::cout << linearSearch(late, 10) << std::endl;
+
+    std::cout << "Index of 3 in 'late' vector: ";
+    std::cout << linearSearch(late, 3) << std::endl;
+
     earlyFile.close();
     middleFile.close();
     lateFile.close();

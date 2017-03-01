@@ -40,3 +40,42 @@ int binarySearch(std::vector<int> numbers, int searchValue)
     }
     return -1;
 }
+
+int main()
+{
+    std::ifstream numbersFile("sorted.txt");
+
+    std::vector<int> numbers;
+    int current;
+
+    // Reads in data from file into vector
+    while (numbersFile >> current)
+    {
+        numbers.push_back(current);
+    }
+
+    // Prints elements in vector
+    std::cout << "Vector:" << std::endl;
+    for (int i = 0; i < numbers.size(); i++)
+    {
+        std::cout << numbers[i] << " ";
+    }
+    std::cout << std::endl;
+
+    std::cout << "Using binary search to find index of number in vector";
+    std::cout << std::endl;
+
+    std::cout << "Index of 0: ";
+    std::cout << binarySearch(numbers, 0) << std::endl;
+    std::cout << "Index of 1: ";
+    std::cout << binarySearch(numbers, 1) << std::endl;
+    std::cout << "Index of 2: ";
+    std::cout << binarySearch(numbers, 2) << std::endl;
+    std::cout << "Index of 3: ";
+    std::cout << binarySearch(numbers, 3) << std::endl;
+    std::cout << "Index of 9: ";
+    std::cout << binarySearch(numbers, 9) << std::endl;
+    std::cout << "Index of 10: ";
+    std::cout << binarySearch(numbers, 10) << std::endl;
+
+}
