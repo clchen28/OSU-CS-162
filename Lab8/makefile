@@ -11,8 +11,8 @@ linearSearch: linearSearch.o
 linearSearch.o: linearSearch.cpp
 	${CXX} ${CXXFLAGS} -c linearSearch.cpp
 
-selectionSort: selectionSort.o
-	${CXX} selectionSort.o -o selectionSort
+selectionSort: selectionSort.o inputValidator.o
+	${CXX} selectionSort.o inputValidator.o -o selectionSort
 
 selectionSort.o: selectionSort.cpp
 	${CXX} ${CXXFLAGS} -c selectionSort.cpp
@@ -23,5 +23,8 @@ binarySearch: binarySearch.o
 binarySearch.o: binarySearch.cpp
 	${CXX} ${CXXFLAGS} -c binarySearch.cpp
 
+inputValidator.o: inputValidator.cpp
+	${CXX} ${CXXFLAGS} -c inputValidator.cpp
+
 clean:
-	rm -f a.out linearSearch.o selectionSort.o binarySearch.o linearSearch selectionSort binarySearch
+	rm -f a.out linearSearch.o selectionSort.o binarySearch.o inputValidator.o linearSearch selectionSort binarySearch

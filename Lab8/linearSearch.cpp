@@ -10,10 +10,16 @@ Implementation of linear search (Gaddis p. 604), with some modifications.
 #include <fstream>
 #include <vector>
 
+/*
+linearSearch(std::vector<int> numbers, int searchValue)
+linearSearch searches for the given integer in a given vector of integers.
+It returns the index of the integer if found, and -1 if it is not found
+*/
 int linearSearch(std::vector<int> numbers, int searchValue)
 {
     int index = 0;
-    bool searchFound = false;
+    // Searches for the given value linearly
+    // Terminates and returns if given value is not found
     while (index < numbers.size())
     {
         if (numbers[index] == searchValue)
@@ -22,6 +28,7 @@ int linearSearch(std::vector<int> numbers, int searchValue)
         }
         index++;
     }
+    // Returns -1 if value is not found
     return -1;
 }
 
@@ -36,6 +43,7 @@ int main()
     std::vector<int> late;
 
     int current;
+    // Reads in files into early, middle, and late vectors
     while (earlyFile >> current)
     {
         early.push_back(current);
@@ -49,6 +57,8 @@ int main()
         late.push_back(current);
     }
 
+    // Prints elements in vector, as well as which index the search term
+    // is found in
     std::cout << "'Early' vector:" << std::endl;
     for (int i = 0; i < early.size(); i++)
     {
