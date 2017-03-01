@@ -10,8 +10,16 @@ Implementation of binary search algorithm, based on Gaddis Ch 9.1.
 #include <fstream>
 #include <vector>
 
+/*
+binarySearch(std::vector<int> numbers, int searchValue)
+binarySearch takes a vector of integers and a search value, and returns the
+index of this search value from the vector. Returns -1 if the number is not
+found
+*/
 int binarySearch(std::vector<int> numbers, int searchValue)
 {
+    // If there are no numbers in the vector, then the value that is searched
+    // for is not in the vector
     if (numbers.size() == 0)
     {
         return -1;
@@ -21,10 +29,14 @@ int binarySearch(std::vector<int> numbers, int searchValue)
     int first = 0;
     int last = numbers.size() - 1;
 
+    // While the numbers hasn't been found, bisect the search array in half
     while ((numbers[index] != searchValue) && (first <= last))
     {
+        // Find the midpoint of the current subarray
         index = (last + first) / 2;
 
+        // If the midpoint is tne number that is being searched for, return
+        // its index
         if (numbers[index] == searchValue)
         {
             return index;
