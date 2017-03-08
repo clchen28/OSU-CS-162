@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 03/05/2017
 ** Description:
-
+Function declaration for queue
 ******************************************************************************/
 
 #include <queue>

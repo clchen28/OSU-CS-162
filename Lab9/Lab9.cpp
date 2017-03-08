@@ -3,7 +3,13 @@
 ** Author: Charles Chen
 ** Date: 03/07/2017
 ** Description:
+Driver program to test the buffer and the palindrome stack functions.
 
+To compile:
+make
+
+To run:
+./Lab9
 ******************************************************************************/
 
 #include <iostream>
@@ -13,6 +19,7 @@
 #include <queue>
 #include "menu.hpp"
 #include "Queue.hpp"
+#include "StringStack.hpp"
 #include "inputValidator.hpp"
 
 /*
@@ -27,9 +34,8 @@ void printMenu()
 }
 
 /*
-menu is a function that is intended to provide a starting point for
-the fantasy game. Allows the user to select creature types, and then to start
-the game.
+main() provides a menu function that allows the user to test the buffer
+function with user inputs, as well as the string palindrome function.
 */
 int main()
 {
@@ -37,6 +43,7 @@ int main()
     int insertProb = -1;
     int removeProb = -1;
     std::queue<int> buffer;
+    std::string inStr = "";
 
     int selection = -1;
 
@@ -63,6 +70,8 @@ int main()
         switch (selection)
         {
             case 1:
+            // Get user inputs for the number of rounds, and probabilities of
+            // adding or removing numbers from the buffer
                 inputValidator(rounds, intPositive,
                     "Enter number of rounds to run",
                     "Must be a positive integer");
@@ -73,14 +82,20 @@ int main()
                     "Enter percentage from 0 to 100 that number will be removed from queue",
                     "Must be between 0 and 100 inclusive");
 
+                // Clears the buffer, in case there is a buffer already created
+                // from previously running the program
                 buffer = {};
+
+                // Initializes the buffer with 10 values
                 for (int i = 0; i < 10; i++)
                 {
                     buffer.push(randNum(100));
                 }
 
+                // Runs the buffer for the specified number of rounds
                 runSimulation(buffer, rounds, insertProb, removeProb);
 
+                // Resets user inputs prior to next execution of the program
                 rounds = -1;
                 insertProb = -1;
                 removeProb = -1;
@@ -89,6 +104,16 @@ int main()
             break;
 
             case 2:
+                // Prompts user to enter a string
+                // Whitespaces and empty inputs are allowed
+                std::cout << "Enter a string" << std::endl;
+                std::cout << "Your string and its palindrome will be printed";
+                std::cout << std::endl;
+                std::getline(std::cin, inStr);
+                
+                std::cout << "Output:" << std::endl;
+                std::cout << palindrome(inStr) << std::endl;
+                inStr = "";
             break;
 
             case 3:
