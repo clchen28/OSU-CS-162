@@ -9,6 +9,8 @@
 #ifndef ROOM_HPP
 #define ROOM_HPP
 
+class Player;
+
 class Room
 {
 public:
@@ -17,7 +19,7 @@ public:
     virtual ~Room();
     bool isFound();
     void setFound(bool found);
-    virtual void doSpecial() = 0;
+    virtual void doSpecial(Player* player) = 0;
 protected:
     Room* up;
     Room* down;
@@ -25,5 +27,7 @@ protected:
     Room* right;
     bool found;
 };
+
+#include "Player.hpp"
 
 #endif

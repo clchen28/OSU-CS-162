@@ -79,3 +79,8 @@ void Backpack::idkfaCheat()
     addItem("Key");
     addItem("BFG 9000");
 }
+
+bool Backpack::backpackFull()
+{
+    return (items.size() >= size);
+}
