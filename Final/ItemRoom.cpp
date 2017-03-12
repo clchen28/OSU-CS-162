@@ -49,25 +49,72 @@ void ItemRoom::printItems()
     }
 }
 
+void ItemRoom::pickUpItem(std::string item, Player* player)
+{
+    if (roomItems.find(item) != roomItems.end())
+    {
+        player->addItem(item);
+        std::cout << "Picked up " << item << std::endl;
+    }
+    else
+    {
+        std::cout << "This room doesn't have a " << item << std::endl;
+    }
+}
+
+void ItemRoom::dropItem(std::string item, Player* player)
+{
+    player->removeItem(item);
+}
+
+void ItemRoom::printMenu()
+{
+    std::cout << "Select a menu option: " << std::endl;
+    std::cout << "1. Show items in this room" << std::endl;
+    std::cout << "2. Pick up items in this room" << std::endl;
+    std::cout << "3. Drop an item in this room" << std::endl;
+    std::cout << "4. Leave this room" << std::endl;
+}
+
 void ItemRoom::doSpecial(Player* player)
 {
-    auto yOrN = [](std::string input) -> bool
-        {
-            return ((input == "y")
-                || (input == "Y")
-                || (input == "n")
-                || (input == "N"));
-        };
-    printItems();
-    if (roomItems.size() == 0)
-    {
-        return;
-    }
+    int selection = -1;
     std::string userInput = "";
-    if (player->backpackFull())
+
+    while (selection != 4)
     {
-        inputValidator(userInput, yOrN,
-            "Your backpack is full, would you like to drop some items? [y/n]: ",
-            "Please input y or n");
+        printMenu();
+        std::cin >> selection;
+        // cin.clear will clear the error flag in cin if an invalid input is
+        // presented
+        std::cin.clear();
+        std::cin.ignore(100, '\n');
+
+        // Selects submenu item
+        switch (selection)
+        {
+            case 1:
+                printItems();
+            break;
+
+            case 2:
+                inputValidator(userInput, "What would you like to pick up?");
+                printItems();
+                pickUpItem(userInput, player);
+            break;
+
+            case 3:
+                inputValidator(userInput, "What would you like to drop?");
+                player->printItems();
+                dropItem(userInput, player);
+            break;
+
+            case 4:
+            break;
+
+            default:
+            std::cout << "Enter a valid menu item (1 through 4)";
+            std::cout << std::endl;
+        }
     }
 }

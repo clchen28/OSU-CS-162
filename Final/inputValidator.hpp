@@ -23,6 +23,7 @@ void inputValidator(int &input, int value1, int value2,
 void inputValidator(std::string &input,
     std::function<bool (std::string &input)> func, std::string prompt,
     std::string errorMsg);
+void inputValidator(std::string &input, std::string prompt);
 bool isAllDigit(const std::string &str);
 
 #endif

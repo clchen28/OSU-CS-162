@@ -28,6 +28,9 @@ public:
 private:
     std::set<std::string> roomItems;
     void printItems();
+    void printMenu();
+    void pickUpItem(std::string item, Player* player);
+    void dropItem(std::string item, Player* player);
 };
 
 #include "Room.hpp"

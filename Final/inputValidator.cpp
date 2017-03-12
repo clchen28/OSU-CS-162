@@ -106,6 +106,13 @@ void inputValidator(std::string &input,
         std::getline(std::cin, input);
     }
 }
+
+void inputValidator(std::string &input, std::string prompt)
+{
+    std::cout << prompt << std::endl;
+    std::getline(std::cin, input);
+}
+
 /*
 isAllDigit(const std::string &str)
 isAllDigit takes a string input and checks to see if it can be converted

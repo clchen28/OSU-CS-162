@@ -44,6 +44,7 @@ void Backpack::addItem(std::string item)
     else
     {
         items.insert(item);
+        std::cout << item << "added to backpack" << std::endl;
     }
 }
 
@@ -52,6 +53,7 @@ void Backpack::removeItem(std::string item)
     if (hasItem(item))
     {
         items.erase(item);
+        std::cout << item << " removed from backpack" << std::endl;
     }
     else
     {
