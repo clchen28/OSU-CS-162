@@ -25,6 +25,7 @@ public:
         Room* left, Room* right);
     virtual ~ItemRoom();
     virtual void doSpecial(Player* player);
+    virtual std::string getType();
 private:
     std::set<std::string> roomItems;
     void printItems();

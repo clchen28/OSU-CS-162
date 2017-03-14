@@ -6,6 +6,8 @@
 
 ******************************************************************************/
 
+#include <string>
+
 #ifndef ROOM_HPP
 #define ROOM_HPP
 
@@ -28,6 +30,7 @@ public:
     Room* getDown();
     Room* getLeft();
     Room* getRight();
+    virtual std::string getType() = 0;
 protected:
     Room* up;
     Room* down;

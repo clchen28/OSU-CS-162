@@ -122,3 +122,15 @@ void ItemRoom::doSpecial(Player* player)
         }
     }
 }
+
+std::string ItemRoom::getType()
+{
+    if (roomItems.size() == 0)
+    {
+        return "Empty";
+    }
+    else
+    {
+        return "Item";
+    }
+}

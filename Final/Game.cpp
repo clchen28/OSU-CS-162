@@ -10,6 +10,7 @@
 #include "Room.hpp"
 #include "ItemRoom.hpp"
 #include "Player.hpp"
+#include "TeleporterRoom.hpp"
 #include <iostream>
 
 Game::Game()
@@ -120,6 +121,34 @@ void Game::printRow(Room* row)
         if (!tempRoom->isFound())
         {
             std::cout << "X";
+        }
+        else if (player->getPlayerPosition() == tempRoom)
+        {
+            std::cout << "P";
+        }
+        else if (tempRoom->getType() == "Teleporter")
+        {
+            std::cout << "T";
+        }
+        else if (tempRoom->getType() == "Item")
+        {
+            std::cout << "I";
+        }
+        else if (tempRoom->getType() == "Empty")
+        {
+            std::cout << "O";
+        }
+        else if (tempRoom->getType() == "Monster")
+        {
+            std::cout << "M";
+        }
+        else if (tempRoom->getType() == "MonsterDead")
+        {
+            std::cout << "D";
+        }
+        else if (tempRoom->getType() == "Exit")
+        {
+            std::cout << "E";
         }
         tempRoom = tempRoom->getRight();
     }
