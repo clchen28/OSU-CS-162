@@ -5,6 +5,7 @@
 #include "ItemRoom.hpp"
 #include "Game.hpp"
 #include "TeleporterRoom.hpp"
+#include "MonsterRoom.hpp"
 
 int main()
 {
