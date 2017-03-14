@@ -54,7 +54,7 @@ void ItemRoom::pickUpItem(std::string item, Player* player)
     if (roomItems.find(item) != roomItems.end())
     {
         player->addItem(item);
-        std::cout << "Picked up " << item << std::endl;
+        roomItems.erase(item);
     }
     else
     {
@@ -64,6 +64,10 @@ void ItemRoom::pickUpItem(std::string item, Player* player)
 
 void ItemRoom::dropItem(std::string item, Player* player)
 {
+    if (player->hasItem(item))
+    {
+        roomItems.insert(item);
+    }
     player->removeItem(item);
 }
 
@@ -98,14 +102,14 @@ void ItemRoom::doSpecial(Player* player)
             break;
 
             case 2:
-                inputValidator(userInput, "What would you like to pick up?");
                 printItems();
+                inputValidator(userInput, "What would you like to pick up?");
                 pickUpItem(userInput, player);
             break;
 
             case 3:
-                inputValidator(userInput, "What would you like to drop?");
                 player->printItems();
+                inputValidator(userInput, "What would you like to drop?");
                 dropItem(userInput, player);
             break;
 

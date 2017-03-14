@@ -44,7 +44,7 @@ void Backpack::addItem(std::string item)
     else
     {
         items.insert(item);
-        std::cout << item << "added to backpack" << std::endl;
+        std::cout << item << " added to backpack" << std::endl;
     }
 }
 
