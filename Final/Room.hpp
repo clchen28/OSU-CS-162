@@ -20,6 +20,14 @@ public:
     bool isFound();
     void setFound(bool found);
     virtual void doSpecial(Player* player) = 0;
+    void setUp(Room* up);
+    void setDown(Room* down);
+    void setLeft(Room* left);
+    void setRight(Room* right);
+    Room* getUp();
+    Room* getDown();
+    Room* getLeft();
+    Room* getRight();
 protected:
     Room* up;
     Room* down;

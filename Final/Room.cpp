@@ -37,3 +37,43 @@ bool Room::isFound()
 {
     return found;
 }
+
+void Room::setUp(Room* up)
+{
+    this->up = up;
+}
+
+void Room::setDown(Room* down)
+{
+    this->down = down;
+}
+
+void Room::setLeft(Room* left)
+{
+    this->left = left;
+}
+
+void Room::setRight(Room* right)
+{
+    this->right = right;
+}
+
+Room* Room::getUp()
+{
+    return up;
+}
+
+Room* Room::getDown()
+{
+    return down;
+}
+
+Room* Room::getLeft()
+{
+    return left;
+}
+
+Room* Room::getRight()
+{
+    return right;
+}

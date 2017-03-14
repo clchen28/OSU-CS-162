@@ -31,10 +31,13 @@ public:
     void removeItem(std::string item);
     void printItems();
     bool backpackFull();
+    bool isInvuln();
+    void setInvuln(bool invuln);
 private:
     Room* position;
     int health;
     Backpack backpack;
+    bool invuln;
 };
 
 #include "Room.hpp"

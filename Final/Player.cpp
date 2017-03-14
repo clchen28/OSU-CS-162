@@ -14,6 +14,7 @@ Player::Player(Room* startingPosition)
 {
     health = 100;
     position = startingPosition;
+    invuln = false;
 }
 
 Player::~Player(){}
@@ -87,4 +88,14 @@ void Player::printItems()
 bool Player::backpackFull()
 {
     return backpack.backpackFull();
+}
+
+bool Player::isInvuln()
+{
+    return invuln;
+}
+
+void Player::setInvuln(bool invuln)
+{
+    this->invuln = invuln;
 }
