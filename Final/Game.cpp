@@ -11,6 +11,8 @@
 #include "ItemRoom.hpp"
 #include "Player.hpp"
 #include "TeleporterRoom.hpp"
+#include "MonsterRoom.hpp"
+#include "ExitRoom.hpp"
 #include <iostream>
 
 Game::Game()
@@ -20,6 +22,7 @@ Game::Game()
     Room* tempRoom2 = nullptr;
     Room* tempRoom3 = nullptr;
     Room* tempRoom4 = nullptr;
+
     roomRow1 = startRoom;
     roomRow2 = nullptr;
     roomRow3 = nullptr;
@@ -75,6 +78,17 @@ Game::Game()
         tempRoom3 = tempRoom3->getRight();
         tempRoom4 = tempRoom4->getRight();
     }
+
+    Room* tempRoom = nullptr;
+    Room* newRoom = nullptr;
+    tempRoom = roomRow2->getRight()->getRight();
+    newRoom = new MonsterRoom(tempRoom->getUp(), tempRoom->getDown(),
+        tempRoom->getLeft(), tempRoom->getRight());
+    newRoom->getRight()->setLeft(newRoom);
+    newRoom->getUp()->setDown(newRoom);
+    newRoom->getLeft()->setRight(newRoom);
+    newRoom->getDown()->setUp(newRoom);
+    delete tempRoom;
 }
 
 Game::~Game()
