@@ -23,8 +23,6 @@ public:
     bool movePlayer(Room* roomPosition);
     int getHealth();
     void removeHealth(int damage);
-    bool isDead();
-
     bool hasItem(std::string item);
     void idkfaCheat();
     void addItem(std::string item);
@@ -33,11 +31,14 @@ public:
     bool backpackFull();
     bool isInvuln();
     void setInvuln(bool invuln);
+    bool isDead();
+    void setReachedExit(bool reachedExit);
 private:
     Room* position;
     int health;
     Backpack backpack;
     bool invuln;
+    bool reachedExit;
 };
 
 #include "Room.hpp"

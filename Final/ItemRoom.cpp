@@ -82,6 +82,7 @@ void ItemRoom::printMenu()
 
 void ItemRoom::doSpecial(Player* player)
 {
+    found = true;
     int selection = -1;
     std::string userInput = "";
 

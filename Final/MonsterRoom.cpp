@@ -58,6 +58,7 @@ void MonsterRoom::printMenu(Player* player)
 
 void MonsterRoom::doSpecial(Player* player)
 {
+    found = true;
     if (monsterDead)
     {
         std::cout << "Monster is dead" << std::endl;

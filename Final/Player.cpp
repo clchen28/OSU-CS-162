@@ -15,6 +15,7 @@ Player::Player(Room* startingPosition)
     health = 100;
     position = startingPosition;
     invuln = false;
+    reachedExit = false;
 }
 
 Player::~Player(){}
@@ -98,4 +99,9 @@ bool Player::isInvuln()
 void Player::setInvuln(bool invuln)
 {
     this->invuln = invuln;
+}
+
+void Player::setReachedExit(bool reachedExit)
+{
+    this->reachedExit = reachedExit;
 }

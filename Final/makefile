@@ -4,8 +4,8 @@
 
 CXX = g++
 CXXFLAGS = -std=c++0x
-OBJS = Backpack.o Game.o inputValidator.o ItemRoom.o MonsterRoom.o Player.o Room.o TeleporterRoom.o test.o
-SRCS = Backpack.cpp Game.cpp inputValidator.cpp ItemRoom.cpp MonsterRoom.cpp Player.cpp Room.cpp TeleporterRoom.cpp test.cpp
+OBJS = Backpack.o ExitRoom.o Game.o inputValidator.o ItemRoom.o MonsterRoom.o Player.o Room.o TeleporterRoom.o test.o
+SRCS = Backpack.cpp ExitRoom.cpp Game.cpp inputValidator.cpp ItemRoom.cpp MonsterRoom.cpp Player.cpp Room.cpp TeleporterRoom.cpp test.cpp
 
 all: ${OBJS}
 	${CXX} ${OBJS} -o FinalProject

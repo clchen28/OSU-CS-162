@@ -39,6 +39,7 @@ void TeleporterRoom::printMenu()
 
 void TeleporterRoom::doSpecial(Player* player)
 {
+    found = true;
     std::string userInput = "";
     int selection = -1;
 
