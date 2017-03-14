@@ -10,6 +10,7 @@
 #include "Room.hpp"
 #include "ItemRoom.hpp"
 #include "Player.hpp"
+#include <iostream>
 
 Game::Game()
 {
@@ -18,10 +19,10 @@ Game::Game()
     Room* tempRoom2 = nullptr;
     Room* tempRoom3 = nullptr;
     Room* tempRoom4 = nullptr;
-    Room* roomRow1 = startRoom;
-    Room* roomRow2 = nullptr;
-    Room* roomRow3 = nullptr;
-    Room* roomRow4 = nullptr;
+    roomRow1 = startRoom;
+    roomRow2 = nullptr;
+    roomRow3 = nullptr;
+    roomRow4 = nullptr;
     for (int i = 0; i < 4; i++)
     {
         tempRoom1->setRight(new ItemRoom);
@@ -81,6 +82,7 @@ Game::~Game()
     Room* tempRoom2 = roomRow2;
     Room* tempRoom3 = roomRow3;
     Room* tempRoom4 = roomRow4;
+
     while (tempRoom1->getRight() != nullptr)
     {
         tempRoom1 = tempRoom1->getRight();
@@ -110,5 +112,28 @@ Game::~Game()
     delete tempRoom4;
 }
 
+void Game::printRow(Room* row)
+{
+    Room* tempRoom = row;
+    while (tempRoom != nullptr)
+    {
+        if (!tempRoom->isFound())
+        {
+            std::cout << "X";
+        }
+        tempRoom = tempRoom->getRight();
+    }
+    std::cout << std::endl;
+}
+
 void Game::printMap()
-{}
+{
+    std::cout << "Map: P is your location, X is unknown, ";
+    std::cout << "O is an empty room, M has a monster, " << std::endl;
+    std::cout << "E is the exit, I has items" << std::endl;
+
+    printRow(roomRow1);
+    printRow(roomRow2);
+    printRow(roomRow3);
+    printRow(roomRow4);
+}

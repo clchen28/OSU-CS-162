@@ -26,6 +26,7 @@ private:
     Room* roomRow2;
     Room* roomRow3;
     Room* roomRow4;
+    void printRow(Room* row);
 };
 
 #endif
