@@ -14,6 +14,8 @@
 #include "MonsterRoom.hpp"
 #include "ExitRoom.hpp"
 #include <iostream>
+#include <set>
+#include <string>
 
 Game::Game()
 {
@@ -83,6 +85,81 @@ Game::Game()
     Room* newRoom = nullptr;
     tempRoom = roomRow2->getRight()->getRight();
     newRoom = new MonsterRoom(tempRoom->getUp(), tempRoom->getDown(),
+        tempRoom->getLeft(), tempRoom->getRight());
+    newRoom->getRight()->setLeft(newRoom);
+    newRoom->getUp()->setDown(newRoom);
+    newRoom->getLeft()->setRight(newRoom);
+    newRoom->getDown()->setUp(newRoom);
+    delete tempRoom;
+
+    tempRoom = nullptr;
+    newRoom = nullptr;
+    tempRoom = roomRow4->getRight();
+    newRoom = new MonsterRoom(tempRoom->getUp(), tempRoom->getDown(),
+        tempRoom->getLeft(), tempRoom->getRight());
+    newRoom->getRight()->setLeft(newRoom);
+    newRoom->getUp()->setDown(newRoom);
+    newRoom->getLeft()->setRight(newRoom);
+    delete tempRoom;
+
+    // Teleporters
+    tempRoom = nullptr;
+    newRoom = nullptr;
+    tempRoom = roomRow2->getRight();
+    newRoom = new TeleporterRoom(roomRow2, tempRoom->getUp(),
+        tempRoom->getDown(), tempRoom->getLeft(), tempRoom->getRight());
+    newRoom->getRight()->setLeft(newRoom);
+    newRoom->getUp()->setDown(newRoom);
+    newRoom->getLeft()->setRight(newRoom);
+    newRoom->getDown()->setUp(newRoom);
+    delete tempRoom;
+
+    tempRoom = nullptr;
+    newRoom = nullptr;
+    tempRoom = roomRow4;
+    newRoom = new TeleporterRoom(roomRow2->getRight(), tempRoom->getUp(),
+        tempRoom->getDown(), tempRoom->getLeft(), tempRoom->getRight());
+    newRoom->getRight()->setLeft(newRoom);
+    newRoom->getUp()->setDown(newRoom);
+    roomRow4 = newRoom;
+    delete tempRoom;
+
+    tempRoom = nullptr;
+    newRoom = nullptr;
+    tempRoom = roomRow4->getRight()->getRight();
+    newRoom = new ExitRoom(tempRoom->getUp(), tempRoom->getDown(),
+        tempRoom->getLeft(), tempRoom->getRight());
+    newRoom->getRight()->setLeft(newRoom);
+    newRoom->getUp()->setDown(newRoom);
+    newRoom->getLeft()->setRight(newRoom);
+    delete tempRoom;
+
+    tempRoom = nullptr;
+    newRoom = nullptr;
+    tempRoom = roomRow2->getRight()->getRight()->getRight();
+    newRoom = new ItemRoom("Key", tempRoom->getUp(), tempRoom->getDown(),
+        tempRoom->getLeft(), tempRoom->getRight());
+    newRoom->getRight()->setLeft(newRoom);
+    newRoom->getUp()->setDown(newRoom);
+    newRoom->getLeft()->setRight(newRoom);
+    newRoom->getDown()->setUp(newRoom);
+    delete tempRoom;
+
+    tempRoom = nullptr;
+    newRoom = nullptr;
+    tempRoom = roomRow3;
+    newRoom = new ItemRoom("BFG 9000", tempRoom->getUp(), tempRoom->getDown(),
+        tempRoom->getLeft(), tempRoom->getRight());
+    newRoom->getRight()->setLeft(newRoom);
+    newRoom->getUp()->setDown(newRoom);
+    newRoom->getDown()->setUp(newRoom);
+    roomRow3 = newRoom;
+    delete tempRoom;
+
+    tempRoom = nullptr;
+    newRoom = nullptr;
+    tempRoom = roomRow3->getRight()->getRight()->getRight();
+    newRoom = new ItemRoom("Shotgun", tempRoom->getUp(), tempRoom->getDown(),
         tempRoom->getLeft(), tempRoom->getRight());
     newRoom->getRight()->setLeft(newRoom);
     newRoom->getUp()->setDown(newRoom);

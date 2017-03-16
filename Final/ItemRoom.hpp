@@ -20,6 +20,7 @@ class ItemRoom : public Room
 public:
     ItemRoom();
     ItemRoom(Room* up, Room* down, Room* left, Room* right);
+    ItemRoom(std::string item, Room* up, Room* down, Room* left, Room* right);
     ItemRoom(std::set<std::string> roomItems);
     ItemRoom(std::set<std::string> roomItems, Room* up, Room* down,
         Room* left, Room* right);

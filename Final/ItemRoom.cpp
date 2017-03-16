@@ -19,6 +19,12 @@ ItemRoom::ItemRoom() : Room(){}
 ItemRoom::ItemRoom(Room* up, Room* down, Room* left,
         Room* right) : Room(up, down, left, right){}
 
+ItemRoom::ItemRoom(std::string item, Room* up, Room* down, Room* left,
+    Room* right) : Room(up, down, left, right)
+{
+    this->roomItems.insert(item);
+}
+
 ItemRoom::ItemRoom(std::set<std::string> roomItems) : Room()
 {
     this->roomItems = roomItems;
