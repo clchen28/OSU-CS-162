@@ -70,8 +70,6 @@ void MonsterRoom::doSpecial(Player* player)
 
     while (!attackDone)
     {
-        std::cin.clear();
-        std::cin.ignore(100, '\n');
         printMenu(player);
         std::getline(std::cin, userInput);
         if (userInput == "1")

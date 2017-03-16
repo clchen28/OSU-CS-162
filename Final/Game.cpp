@@ -10,7 +10,6 @@
 #include "Room.hpp"
 #include "ItemRoom.hpp"
 #include "Player.hpp"
-#include "TeleporterRoom.hpp"
 #include "MonsterRoom.hpp"
 #include "ExitRoom.hpp"
 #include <iostream>
@@ -102,28 +101,6 @@ Game::Game()
     newRoom->getRight()->setLeft(newRoom);
     newRoom->getUp()->setDown(newRoom);
     newRoom->getLeft()->setRight(newRoom);
-    delete tempRoom;
-
-    // Teleporters
-    tempRoom = nullptr;
-    newRoom = nullptr;
-    tempRoom = roomRow2->getRight();
-    newRoom = new TeleporterRoom(roomRow4, tempRoom->getUp(),
-        tempRoom->getDown(), tempRoom->getLeft(), tempRoom->getRight());
-    newRoom->getRight()->setLeft(newRoom);
-    newRoom->getUp()->setDown(newRoom);
-    newRoom->getLeft()->setRight(newRoom);
-    newRoom->getDown()->setUp(newRoom);
-    delete tempRoom;
-
-    tempRoom = nullptr;
-    newRoom = nullptr;
-    tempRoom = roomRow4;
-    newRoom = new TeleporterRoom(roomRow2->getRight(), tempRoom->getUp(),
-        tempRoom->getDown(), tempRoom->getLeft(), tempRoom->getRight());
-    newRoom->getRight()->setLeft(newRoom);
-    newRoom->getUp()->setDown(newRoom);
-    roomRow4 = newRoom;
     delete tempRoom;
 
     tempRoom = nullptr;
@@ -230,10 +207,6 @@ void Game::printRow(Room* row)
         else if (player->getPlayerPosition() == tempRoom)
         {
             std::cout << "P";
-        }
-        else if (tempRoom->getType() == "Teleporter")
-        {
-            std::cout << "T";
         }
         else if (tempRoom->getType() == "Item")
         {
