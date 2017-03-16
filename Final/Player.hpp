@@ -20,7 +20,7 @@ public:
     Player(Room* startingPosition);
     ~Player();
     Room* getPlayerPosition();
-    bool movePlayer(Room* roomPosition);
+    void movePlayer(Room* roomPosition);
     int getHealth();
     void removeHealth(int damage);
     bool hasItem(std::string item);
@@ -33,6 +33,7 @@ public:
     void setInvuln(bool invuln);
     bool isDead();
     void setReachedExit(bool reachedExit);
+    bool getReachedExit();
 private:
     Room* position;
     int health;

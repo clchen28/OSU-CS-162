@@ -19,6 +19,7 @@ public:
     Game();
     ~Game();
     void printMap();
+    void playGame();
 private:
     Room* startRoom;
     Player* player;

@@ -16,6 +16,8 @@
 #include <iostream>
 #include <set>
 #include <string>
+#include <functional>
+#include "inputValidator.hpp"
 
 Game::Game()
 {
@@ -106,7 +108,7 @@ Game::Game()
     tempRoom = nullptr;
     newRoom = nullptr;
     tempRoom = roomRow2->getRight();
-    newRoom = new TeleporterRoom(roomRow2, tempRoom->getUp(),
+    newRoom = new TeleporterRoom(roomRow4, tempRoom->getUp(),
         tempRoom->getDown(), tempRoom->getLeft(), tempRoom->getRight());
     newRoom->getRight()->setLeft(newRoom);
     newRoom->getUp()->setDown(newRoom);
@@ -166,6 +168,8 @@ Game::Game()
     newRoom->getLeft()->setRight(newRoom);
     newRoom->getDown()->setUp(newRoom);
     delete tempRoom;
+
+    player = new Player(roomRow1);
 }
 
 Game::~Game()
@@ -202,6 +206,8 @@ Game::~Game()
         delete tempRoom4->getLeft();
     }
     delete tempRoom4;
+
+    delete player;
 }
 
 void Game::printRow(Room* row)
@@ -209,7 +215,15 @@ void Game::printRow(Room* row)
     Room* tempRoom = row;
     while (tempRoom != nullptr)
     {
-        if (!tempRoom->isFound())
+        if (tempRoom->getType() == "Exit" && tempRoom->isFound())
+        {
+            std::cout << "E";
+        }
+        else if (player->getPlayerPosition() == tempRoom)
+        {
+            std::cout << "P";
+        }
+        else if (!tempRoom->isFound())
         {
             std::cout << "X";
         }
@@ -237,10 +251,6 @@ void Game::printRow(Room* row)
         {
             std::cout << "D";
         }
-        else if (tempRoom->getType() == "Exit")
-        {
-            std::cout << "E";
-        }
         tempRoom = tempRoom->getRight();
     }
     std::cout << std::endl;
@@ -256,4 +266,62 @@ void Game::printMap()
     printRow(roomRow2);
     printRow(roomRow3);
     printRow(roomRow4);
+}
+
+void Game::playGame()
+{
+    std::string userInput = "";
+    auto allowedDirections = [](std::string input) -> bool
+            {
+                return (input == "up")
+                    || (input == "down")
+                    || (input == "left")
+                    || (input == "right")
+                    || (input == "Up")
+                    || (input == "Down")
+                    || (input == "Left")
+                    || (input == "Right");
+            };
+    Room* nextRoom = nullptr;
+    bool gameOver = false;
+    while (!gameOver)
+    {
+        printMap();
+        player->getPlayerPosition()->doSpecial(player);
+        if (player->getReachedExit())
+        {
+            gameOver = true;
+            std::cout << "You've reached the exit!" << std::endl;
+            printMap();
+        }
+        else if (player->isDead())
+        {
+            gameOver = true;
+            std::cout << "You died!" << std::endl;
+        }
+        while ((nextRoom == nullptr) && (!gameOver))
+        {
+            inputValidator(userInput, allowedDirections,
+                "Which room do you want to enter? [up/down/left/right]",
+                "Invalid input");
+            if (userInput == "Up" || userInput == "up")
+            {
+                nextRoom = player->getPlayerPosition()->getUp();
+            }
+            if (userInput == "Down" || userInput == "down")
+            {
+                nextRoom = player->getPlayerPosition()->getDown();
+            }
+            if (userInput == "Left" || userInput == "left")
+            {
+                nextRoom = player->getPlayerPosition()->getLeft();
+            }
+            if (userInput == "Right" || userInput == "right")
+            {
+                nextRoom = player->getPlayerPosition()->getRight();
+            }
+            player->movePlayer(nextRoom);
+        }
+        nextRoom = nullptr;
+    }
 }

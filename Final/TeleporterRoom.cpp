@@ -56,8 +56,9 @@ void TeleporterRoom::doSpecial(Player* player)
         switch (selection)
         {
             case 1:
-                while(player->movePlayer(destination)){;}
+                player->movePlayer(destination);
                 std::cout << "Teleported to new location" << std::endl;
+                selection = 2;
             break;
 
             case 2:

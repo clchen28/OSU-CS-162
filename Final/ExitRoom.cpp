@@ -21,6 +21,7 @@ ExitRoom::~ExitRoom(){}
 
 void ExitRoom::doSpecial(Player* player)
 {
+    found = true;
     if (!(player->hasItem("Key")))
     {
         std::cout << "You need a key to exit" << std::endl;

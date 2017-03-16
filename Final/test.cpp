@@ -10,6 +10,6 @@
 int main()
 {
     Game game;
-    game.printMap();
+    game.playGame();
     return 0;
 }

@@ -6,6 +6,7 @@
 
 ******************************************************************************/
 
+#include <iostream>
 #include "Room.hpp"
 #include "Player.hpp"
 #include "Backpack.hpp"
@@ -26,20 +27,19 @@ Room* Player::getPlayerPosition()
 }
 
 /*
-bool movePlayer(Room* roomPosition)
-Moves the player to the specified room. If the room that is given as input
-is nullptr, then the function will return false. If the room that is given as
-input is a valid room, then the position is set to that room, and the function
-returns true.
+void movePlayer(Room* roomPosition)
+Moves the player to the specified room.
 */
-bool Player::movePlayer(Room* roomPosition)
+void Player::movePlayer(Room* roomPosition)
 {
     if (roomPosition != nullptr)
     {
         position = roomPosition;
-        return true;
     }
-    return false;
+    else
+    {
+        std::cout << "There's a wall there..." << std::endl;
+    }
 }
 
 int Player::getHealth()
@@ -104,4 +104,9 @@ void Player::setInvuln(bool invuln)
 void Player::setReachedExit(bool reachedExit)
 {
     this->reachedExit = reachedExit;
+}
+
+bool Player::getReachedExit()
+{
+    return reachedExit;
 }
