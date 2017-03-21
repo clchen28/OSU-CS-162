@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 03/11/2017
 ** Description:
-
+Specification of the Room class
 ******************************************************************************/
 
 #include <string>

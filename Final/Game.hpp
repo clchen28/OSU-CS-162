@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 03/13/2017
 ** Description:
-
+Specification of Game class.
 ******************************************************************************/
 
 #include "Player.hpp"
@@ -28,6 +28,7 @@ private:
     Room* roomRow3;
     Room* roomRow4;
     void printRow(Room* row);
+    int moves;
 };
 
 #endif

@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 03/11/2017
 ** Description:
-
+Specification of Backpack class.
 ******************************************************************************/
 
 #ifndef BACKPACK_HPP
@@ -17,7 +17,6 @@ public:
     Backpack();
     ~Backpack();
     bool hasItem(std::string item);
-    void idkfaCheat();
     void addItem(std::string item);
     void removeItem(std::string item);
     void printItems();

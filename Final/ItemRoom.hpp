@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 03/12/2017
 ** Description:
-
+Specification of ItemRoom class
 ******************************************************************************/
 
 #include <set>

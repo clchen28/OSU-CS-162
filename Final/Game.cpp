@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 03/13/2017
 ** Description:
-
+Implementation of Game class.
 ******************************************************************************/
 
 #include "Game.hpp"
@@ -18,18 +18,28 @@
 #include <functional>
 #include "inputValidator.hpp"
 
+/*
+Game()
+Default constructor sets up attributes and initializes the starting location
+of Rooms, as well as sets up special rooms.
+*/
 Game::Game()
 {
+    moves = 0;
+
     startRoom = new ItemRoom;
     Room* tempRoom1 = startRoom;
     Room* tempRoom2 = nullptr;
     Room* tempRoom3 = nullptr;
     Room* tempRoom4 = nullptr;
 
+    // roomRow1-4 point to the Room in the first column for each row of Rooms
     roomRow1 = startRoom;
     roomRow2 = nullptr;
     roomRow3 = nullptr;
     roomRow4 = nullptr;
+
+    // Sets up the first row of empty ItemRooms
     for (int i = 0; i < 4; i++)
     {
         tempRoom1->setRight(new ItemRoom);
@@ -37,6 +47,7 @@ Game::Game()
         tempRoom1 = tempRoom1->getRight();
     }
 
+    // Sets up the second row of empty ItemRooms
     tempRoom1 = roomRow1;
     roomRow2 = new ItemRoom;
     roomRow2->setUp(roomRow1);
@@ -52,6 +63,7 @@ Game::Game()
         tempRoom2 = tempRoom2->getRight();
     }
 
+    // Sets up the third row of empty ItemRooms
     tempRoom2 = roomRow2;
     roomRow3 = new ItemRoom;
     roomRow3->setUp(roomRow2);
@@ -67,6 +79,7 @@ Game::Game()
         tempRoom3 = tempRoom3->getRight();
     }
 
+    // Sets up the fourth row of empty ItemRooms
     tempRoom3 = roomRow3;
     roomRow4 = new ItemRoom;
     roomRow4->setUp(roomRow3);
@@ -82,6 +95,7 @@ Game::Game()
         tempRoom4 = tempRoom4->getRight();
     }
 
+    // Sets up a MonsterRoom in the 2nd row, 3rd column
     Room* tempRoom = nullptr;
     Room* newRoom = nullptr;
     tempRoom = roomRow2->getRight()->getRight();
@@ -93,6 +107,7 @@ Game::Game()
     newRoom->getDown()->setUp(newRoom);
     delete tempRoom;
 
+    // Sets up a MonsterRoom in the 4th row, 2nd column
     tempRoom = nullptr;
     newRoom = nullptr;
     tempRoom = roomRow4->getRight();
@@ -103,6 +118,7 @@ Game::Game()
     newRoom->getLeft()->setRight(newRoom);
     delete tempRoom;
 
+    // Sets up an ExitRoom in the 4th row, 3rd column
     tempRoom = nullptr;
     newRoom = nullptr;
     tempRoom = roomRow4->getRight()->getRight();
@@ -113,6 +129,7 @@ Game::Game()
     newRoom->getLeft()->setRight(newRoom);
     delete tempRoom;
 
+    // Adds a Key to the Room in the 2nd row, 4th column
     tempRoom = nullptr;
     newRoom = nullptr;
     tempRoom = roomRow2->getRight()->getRight()->getRight();
@@ -124,6 +141,7 @@ Game::Game()
     newRoom->getDown()->setUp(newRoom);
     delete tempRoom;
 
+    // Adds a BFG 9000 to the ROom in the 3rd row, 1st column
     tempRoom = nullptr;
     newRoom = nullptr;
     tempRoom = roomRow3;
@@ -135,6 +153,7 @@ Game::Game()
     roomRow3 = newRoom;
     delete tempRoom;
 
+    // Adds a Shotgun to the room in the 3rd row, 4th column
     tempRoom = nullptr;
     newRoom = nullptr;
     tempRoom = roomRow3->getRight()->getRight()->getRight();
@@ -146,9 +165,14 @@ Game::Game()
     newRoom->getDown()->setUp(newRoom);
     delete tempRoom;
 
+    // Starts the player at the Room in the first row/column
     player = new Player(roomRow1);
 }
 
+/*
+~Game()
+Destructor deallocates memory for each Room.
+*/
 Game::~Game()
 {
     Room* tempRoom1 = roomRow1;
@@ -156,6 +180,7 @@ Game::~Game()
     Room* tempRoom3 = roomRow3;
     Room* tempRoom4 = roomRow4;
 
+    // When the tempRoom pointer reaches an edge, it will reach a nullptr
     while (tempRoom1->getRight() != nullptr)
     {
         tempRoom1 = tempRoom1->getRight();
@@ -187,6 +212,11 @@ Game::~Game()
     delete player;
 }
 
+/*
+printRow(Room* row)
+This method will print a character corresponding to the status of a Room for
+each Room for a given row.
+*/
 void Game::printRow(Room* row)
 {
     Room* tempRoom = row;
@@ -229,6 +259,11 @@ void Game::printRow(Room* row)
     std::cout << std::endl;
 }
 
+/*
+printMap()
+printMap prints a map of the game board. It uses the printRow method to print
+a character to represent each Room on the board.
+*/
 void Game::printMap()
 {
     std::cout << "Map: P is your location, X is unknown, ";
@@ -241,8 +276,14 @@ void Game::printMap()
     printRow(roomRow4);
 }
 
+/*
+playGame()
+playGame() will play through the game until the player wins, dies, or runs out
+of time.
+*/
 void Game::playGame()
 {
+    // Used for user input and validation
     std::string userInput = "";
     auto allowedDirections = [](std::string input) -> bool
             {
@@ -255,23 +296,42 @@ void Game::playGame()
                     || (input == "Left")
                     || (input == "Right");
             };
+
     Room* nextRoom = nullptr;
     bool gameOver = false;
+
     while (!gameOver)
     {
+        // At the start of every round, will print the map
         printMap();
+
+        // Will perform the special function of the current Room that the Player
+        // is in
         player->getPlayerPosition()->doSpecial(player);
+
+        // End the game if the player has reached the exit
         if (player->getReachedExit())
         {
             gameOver = true;
             std::cout << "You've reached the exit!" << std::endl;
             printMap();
         }
+
+        // End the game if the player is dead
         else if (player->isDead())
         {
             gameOver = true;
             std::cout << "You died!" << std::endl;
         }
+
+        // End the game if the player has taken more than 20 moves
+        else if (moves > 20)
+        {
+            std::cout << "You took too long! Game over." << std::endl;
+            gameOver = true;
+        }
+
+        // Otherwise move the player to a new room
         while ((nextRoom == nullptr) && (!gameOver))
         {
             inputValidator(userInput, allowedDirections,
@@ -295,6 +355,8 @@ void Game::playGame()
             }
             player->movePlayer(nextRoom);
         }
+        
+        moves++;
         nextRoom = nullptr;
     }
 }

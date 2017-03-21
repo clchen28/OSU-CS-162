@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 03/14/2017
 ** Description:
-
+Specification of MonsterRoom class.
 ******************************************************************************/
 
 #include "Room.hpp"

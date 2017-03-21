@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 03/11/2017
 ** Description:
-
+Implementation of Backpack class
 ******************************************************************************/
 
 #include <iostream>
@@ -11,13 +11,26 @@
 #include <string>
 #include "Backpack.hpp"
 
+/*
+Backpack()
+Constructor initializes Backpack with a size of 2.
+*/
 Backpack::Backpack()
 {
     size = 2;
 }
 
+/*
+~Backpack()
+Empty destructor
+*/
 Backpack::~Backpack(){}
 
+/*
+printItems()
+Prints items in the backpack. Shows a message if there are no items in the
+backpack.
+*/
 void Backpack::printItems()
 {
     if (items.size() == 0)
@@ -35,6 +48,10 @@ void Backpack::printItems()
     }
 }
 
+/*
+addItem(item)
+addItem adds an Item to the backpack if there is room
+*/
 void Backpack::addItem(std::string item)
 {
     if (items.size() >= size)
@@ -48,6 +65,9 @@ void Backpack::addItem(std::string item)
     }
 }
 
+/*
+removeItem(item) removes the specified item from the backpack, if it exists
+*/
 void Backpack::removeItem(std::string item)
 {
     if (hasItem(item))
@@ -61,6 +81,10 @@ void Backpack::removeItem(std::string item)
     }
 }
 
+/*
+hasItem(item) returns true if the specified item is the backpack, and false
+otherwise
+*/
 bool Backpack::hasItem(std::string item)
 {
     if (items.find(item) != items.end())
@@ -73,15 +97,9 @@ bool Backpack::hasItem(std::string item)
     }
 }
 
-void Backpack::idkfaCheat()
-{
-    items.clear();
-    size = 3;
-    addItem("Shotgun");
-    addItem("Key");
-    addItem("BFG 9000");
-}
-
+/*
+backpackFull() returns true if the backpack is full, and false otherwise
+*/
 bool Backpack::backpackFull()
 {
     return (items.size() >= size);

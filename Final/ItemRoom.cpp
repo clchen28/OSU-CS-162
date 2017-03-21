@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 03/12/2017
 ** Description:
-
+Implementation of ItemRoom class
 ******************************************************************************/
 
 #include "Room.hpp"
@@ -14,30 +14,61 @@
 #include <set>
 #include <iostream>
 
+/*
+ItemRoom()
+Default ItemRoom constructor inherits from Room constructor
+*/
 ItemRoom::ItemRoom() : Room(){}
 
+/*
+ItemRoom(Room* up, Room* down, Room* left, Room* right)
+Non-default constructor sets the pointers to adjacent Rooms
+*/
 ItemRoom::ItemRoom(Room* up, Room* down, Room* left,
         Room* right) : Room(up, down, left, right){}
 
+/*
+ItemRoom(std::string item, Room* up, Room* down, Room* left, Room* right)
+Non-default constructor sets the pointers to adjacent Rooms and adds specified
+Item to the new ItemRoom
+*/
 ItemRoom::ItemRoom(std::string item, Room* up, Room* down, Room* left,
     Room* right) : Room(up, down, left, right)
 {
     this->roomItems.insert(item);
 }
 
+/*
+ItemRoom(std::set<std::string> roomItems)
+Non-default constructor adds the specified Items to the new ItemRoom
+*/
 ItemRoom::ItemRoom(std::set<std::string> roomItems) : Room()
 {
     this->roomItems = roomItems;
 }
 
+/*
+ItemRoom(std::set<std::string> roomItems, Room* up, Room* down,
+        Room* left, Room* right)
+Non-default constructor sets the pointers to adjacent Rooms and adds specified
+Items to the new ItemRoom
+*/
 ItemRoom::ItemRoom(std::set<std::string> roomItems, Room* up, Room* down,
         Room* left, Room* right) : Room(up, down, left, right)
 {
     this->roomItems = roomItems;
 }
 
+/*
+~ItemRoom()
+Empty destructor
+*/
 ItemRoom::~ItemRoom(){}
 
+/*
+printItems()
+Prints the items in the current room
+*/
 void ItemRoom::printItems()
 {
     if (roomItems.size() == 0)
@@ -55,6 +86,11 @@ void ItemRoom::printItems()
     }
 }
 
+/*
+pickUpItem(std::string item, Player* player)
+Player will pick up the specified item, if it exists. It is removed from the
+room and added to the player's backpack.
+*/
 void ItemRoom::pickUpItem(std::string item, Player* player)
 {
     if (roomItems.find(item) != roomItems.end())
@@ -68,6 +104,11 @@ void ItemRoom::pickUpItem(std::string item, Player* player)
     }
 }
 
+/*
+dropItem(std::string item, Player* player)
+Player will drop the specified item, if it is in the backpack. It is removed
+from the backpack and added to the room
+*/
 void ItemRoom::dropItem(std::string item, Player* player)
 {
     if (player->hasItem(item))
@@ -77,6 +118,10 @@ void ItemRoom::dropItem(std::string item, Player* player)
     player->removeItem(item);
 }
 
+/*
+printMenu()
+Prints a menu with user choices
+*/
 void ItemRoom::printMenu()
 {
     std::cout << "Select a menu option: " << std::endl;
@@ -86,6 +131,11 @@ void ItemRoom::printMenu()
     std::cout << "4. Leave this room" << std::endl;
 }
 
+/*
+doSpecial(Player* player)
+Special function of this Room. Allows the user to show items, pick up items,
+and drop items
+*/
 void ItemRoom::doSpecial(Player* player)
 {
     found = true;
@@ -130,6 +180,11 @@ void ItemRoom::doSpecial(Player* player)
     }
 }
 
+/*
+getType()
+Returns "Empty" if there are no items in this room, and "Item" if there is
+at least one item in this room
+*/
 std::string ItemRoom::getType()
 {
     if (roomItems.size() == 0)

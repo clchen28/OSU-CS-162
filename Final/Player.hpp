@@ -3,7 +3,7 @@
 ** Author: Charles Chen
 ** Date: 03/11/2017
 ** Description:
-
+Specification of Player class
 ******************************************************************************/
 
 #include "Backpack.hpp"
@@ -24,13 +24,10 @@ public:
     int getHealth();
     void removeHealth(int damage);
     bool hasItem(std::string item);
-    void idkfaCheat();
     void addItem(std::string item);
     void removeItem(std::string item);
     void printItems();
     bool backpackFull();
-    bool isInvuln();
-    void setInvuln(bool invuln);
     bool isDead();
     void setReachedExit(bool reachedExit);
     bool getReachedExit();
@@ -38,7 +35,6 @@ private:
     Room* position;
     int health;
     Backpack backpack;
-    bool invuln;
     bool reachedExit;
 };
 
